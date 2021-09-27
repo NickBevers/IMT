@@ -17,7 +17,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin-left: 0.5em;
     margin-right: 0.5em;
     margin-top: 1em;
@@ -26,7 +26,7 @@ nav {
 nav div {
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-end;
+    align-items: center;
 }
 
 nav div a {
@@ -44,12 +44,71 @@ footer {
 	background-color: #262626;
 	color: #666666;
 	display: flex;
-	font-size: 3em;
+	font-size: 2em;
 	height: 50px;
 	justify-content: center;
 	text-transform: uppercase;
 	width: 100%;
 	
-    position: absolute;
+    position: relative;
     bottom: 0;
+}
+
+/* Index css */
+.header_section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.intro_container {
+    width: 20em;
+}
+
+#showcase_img {
+    width: 15em;
+    height: 15em;
+    object-fit: cover;
+}
+
+h2 {
+    text-align: center;
+}
+
+.recent_thumbnail {
+    width: 10em;
+    height: 10em;
+}
+
+.scroll_recent {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.how_img_container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.how_img {
+    width: 10em;
+    height: 10em;
+}
+
+.money_section {
+    margin-bottom: 5em;
+}
+
+.money_img_container {
+    display: flex;
+    justify-content: center;
+}
+
+.money_img {
+    width: 13em;
+    height: 13em;
 }

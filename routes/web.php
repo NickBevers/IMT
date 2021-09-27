@@ -21,3 +21,7 @@ Route::get('/collection', function () {
 Route::get('/collection/detail', function () {
     return view('detail');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
