@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    height: 104vh;
+    height: 104%;
     position: relative;
 }
 
@@ -111,4 +111,41 @@ h2 {
 .money_img {
     width: 13em;
     height: 13em;
+}
+
+/* login styling */
+
+.login_signup_intro_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5em;
+    background-color: rgb(247, 247, 201);
+    
+    height: 100vh;
+}
+
+.intro_section h1 {
+    font-size: 3em;
+}
+
+.login_signup_section {
+    background-color: rgb(209, 209, 209);
+    margin-right: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    padding: 1em;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.login_signup_back_btn {
+    position: fixed;
+    top: 50px;
+    left: 80%;
 }

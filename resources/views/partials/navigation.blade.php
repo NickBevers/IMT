@@ -7,5 +7,6 @@
     <div>
         <a href="../collection">Discover</a>
         <a href="../profile">Profile</a>
+        <a href="../login">Log in</a>
     </div>
 </nav>
