@@ -5,8 +5,7 @@
     </div>
     
     <div>
-        <a href="#">Discover</a>
+        <a href="../collection">Discover</a>
         <a href="../profile">Profile</a>
-        <a href="#">Basket</a>
     </div>
 </nav>
