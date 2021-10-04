@@ -15,7 +15,12 @@ class CreateNftTable extends Migration
     {
         Schema::create('nft', function (Blueprint $table) {
             $table->id();
-            $table->String('');
+            $table->String('title');
+            $table->String('creator');
+            $table->Integer('price');
+            $table->String('blockchain');
+            $table->String('media_url');
+            $table->json('owners');
             $table->integer('collection_id')->unsigned();
             $table->foreign('collection_id')->references('id')->on('collections')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
