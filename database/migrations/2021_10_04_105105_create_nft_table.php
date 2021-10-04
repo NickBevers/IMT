@@ -21,7 +21,7 @@ class CreateNftTable extends Migration
             $table->String('blockchain');
             $table->String('media_url');
             $table->json('owners');
-            $table->integer('collection_id')->unsigned();
+            $table->bigInteger('collection_id')->unsigned()->index();
             $table->foreign('collection_id')->references('id')->on('collections')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
