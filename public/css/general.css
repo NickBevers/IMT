@@ -128,12 +128,9 @@ nav {
 @keyframes fadeIn {
     0%{
         opacity: 0;
-        left: 0;
     }
-
     100% {
         opacity: 1;
-        left: 170px;
     }
 }
 
@@ -538,5 +535,120 @@ nav {
         padding-left: 2em;
         padding-right: 2em;
         background-color: rgb(198, 241, 217);
+    }
+}
+
+/* index styling */
+
+
+.index_intro_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding-top: 10em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    margin-top: 5em;
+}
+
+.intro_text_wrapper h2 {
+    font-size: 1.1em;
+    width: 8em;
+    margin-top: 0;
+}
+
+.index_intro_section img {
+    width: 13em;
+}
+
+.buy_sell_wrapper {
+    display: flex;
+    gap: 2em;
+}
+
+.fresh_showcase {
+    overflow: auto;
+    white-space: nowrap;
+    width: 80%;
+    max-width: 50em;
+}
+
+.index_fresh_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index_how_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+.step_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step_container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step_container p {
+    margin-top: 10px;
+    margin-bottom: 2em;
+}
+
+.step_container img {
+    width: 15em;
+    height: 15em;
+    object-fit: cover;
+}
+
+@media (min-width: 1300px) {
+    .step_container {
+        flex-direction: row;
+        gap: 3em;
+    }
+
+    .index_intro_section {
+        flex-direction: row;
+        justify-content: center;
+        gap: 4em;
+    }
+
+    .index_intro_section img {
+        width: 20em;
+        height: 20em;
+        object-fit: cover;
+    }
+
+    .index_intro_section h1 {
+        font-size: 5em;
+    }
+
+    .intro_text_wrapper h2 {
+        font-size: 1.7em;
+    }
+
+    .showcase_btn_wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buy_sell_wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
     }
 }
