@@ -14,14 +14,18 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/collection', function () {
-    return view('collection');
-});
-
 Route::get('/collection/detail', function () {
     return view('detail');
 });
 
 Route::get('/profile', function () {
     return view('profile');
+});
+
+Route::get('/discover', function () {
+    return view('discover');
+});
+
+Route::get('/upload', function() {
+    return view('upload');
 });

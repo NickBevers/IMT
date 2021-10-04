@@ -12,8 +12,10 @@
     <section class="login_signup_intro_section">
         <a href="../" class="login_signup_back_btn">Go back</a>
         <section class="intro_section">
-            <h1>Interactive <br> Multimedia <br> Tokens</h1>
-            <h3>Sweet dreams are made of NFT's</h3>
+            <div class="intro_wrapper">
+                <h1>Interactive <br> Multimedia <br> Tokens</h1>
+                <h3>Sweet dreams are made of NFT's</h3>
+            </div>
         </section>
         
         <section class="login_signup_section">
@@ -28,9 +30,9 @@
                     <input type="password" name="password" id="password" placeholder="******">
                 </div>
         
-                <button type="submit">Log in</button>
+                <button type="submit" class="login_btn">Log in</button>
             </form>
-            <a href="/signup">I don't have an account yet</a>
+            <a href="/signup" class="signup_btn">Register</a>
         </section>
     </section>
 </body>
