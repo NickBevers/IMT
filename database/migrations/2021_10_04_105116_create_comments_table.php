@@ -17,8 +17,8 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->String('title');
             $table->String('content');
-            $table->bigInteger('nft_id')->unsigned()->index();
-            $table->foreign('nft_id')->references('id')->on('nft')->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('nfts_id')->unsigned()->index();
+            $table->foreign('nfts_id')->references('id')->on('nfts')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('author_id')->unsigned()->index();
             $table->foreign('author_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
