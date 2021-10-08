@@ -16,7 +16,7 @@ class CreateCollectionsTable extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->String('title')->unique();
-            $table->String('desctiption')->nullable();
+            $table->String('description')->nullable();
             $table->timestamps();
         });
     }
