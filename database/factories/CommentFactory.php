@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Nft;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NftFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Nft::class;
+    protected $model = Comment::class;
 
     /**
      * Define the model's default state.
@@ -23,11 +23,9 @@ class NftFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'creator' => $this->faker->name(),
-            'price' => $this->faker->numberBetween(1, 500),
-            'blockchain' => $this->faker->word(),
-            'media_url' => $this->faker->word(),
-            'collection_id' => $this->faker->numberBetween(11, 15)
+            'content' => $this->faker->realText(200, 2),
+            'nfts_id' => $this->faker->numberBetween(1, 10),
+            'author_id' => $this->faker->numberBetween(1, 4)
         ];
     }
 }
