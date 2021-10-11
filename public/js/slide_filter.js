@@ -1,17 +1,1 @@
-var filterButton = document.querySelector(".filter_button");
-var sideFilter = document.querySelector(".side_filters");
-var closed_nav = true;
-
-filterButton.addEventListener("click", function(e){
-    if (closed_nav) {
-        sideFilter.style.left = "0";
-        filterButton.style.left = "11em";
-        filterButton.src = "../images/close.png";
-        closed_nav = false;
-    } else {
-        sideFilter.style.left = "-10em";
-        filterButton.style.left = "1em";
-        filterButton.src = "../images/filter.png";
-        closed_nav = true;
-    }
-});
+(()=>{var e=document.querySelector(".filter_button"),t=document.querySelector(".side_filters"),l=!0;e.addEventListener("click",(function(s){l?(t.style.left="0",e.style.left="11em",e.src="../images/close.png",l=!1):(t.style.left="-10em",e.style.left="1em",e.src="../images/filter.png",l=!0)}))})();

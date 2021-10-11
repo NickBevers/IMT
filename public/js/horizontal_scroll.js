@@ -1,6 +1,1 @@
-const scrollContainer = document.querySelector(".fresh_showcase");
-
-scrollContainer.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
-});
+(()=>{var e=document.querySelector(".fresh_showcase");e.addEventListener("wheel",(function(t){t.preventDefault(),e.scrollLeft+=t.deltaY}))})();

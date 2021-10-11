@@ -12,6 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
+    .js('resources/js/horizontal_scroll.js', 'public/js')
+    .js('resources/js/img_upload.js', 'public/js')
+    .js('resources/js/slide_filter.js', 'public/js')
+    .js('resources/js/slide_menu.js', 'public/js')
+    .postCss('resources/css/general.css', 'public/css', [
         //
     ]);
