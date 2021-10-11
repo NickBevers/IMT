@@ -11,7 +11,7 @@ class Collection extends Model
 
     //A collection has 1 owner
     public function user() {
-        return $this->belongsTo(\App\models\User:class);
+        return $this->belongsTo(\App\models\User::class);
     }
 
     //A collection has multiple nfts

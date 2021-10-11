@@ -23,7 +23,7 @@ class NftFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'creator' => $this->faker->name(),
+            'user_id' => $this->faker->numberBetween(1, 5),
             'price' => $this->faker->numberBetween(1, 500),
             'blockchain' => $this->faker->word(),
             'media_url' => $this->faker->word(),

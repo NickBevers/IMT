@@ -13,21 +13,16 @@
     @include('partials/navigation')
 
     <section class="nft_section">
-        <img class="nft_picture" src="../images/art1.png" alt="nft picture">
-
+        <img class="nft_picture" src="{{ asset('images/art1.png') }}" alt="nft picture">
         <div class="nft_info_container">
-            <h2>Sickamo NFT</h2>
-            <p>This is a cool nft. Fo sho yess sir, no cap. No 
-                goddamn doubt in my mind this nft is straight up fire. Maybe
-                the fire might be too hot for this world? Global warming? Probably
-                this nft.
+            <h2>{{ $nft->title }}</h2>
+            <p>
+                Created by: {{ $nft->user->first_name . " " .  $nft->user->last_name }}
             </p>
-
-            <h3>€300</h3>
+            <h3>{{ $nft->price }}</h3>
 
             <div class="buy_add_container">
                 <a href="#">Buy</a>
-                <a href="#">Add to watchlist</a>
             </div>
         </div>
     </section>

@@ -23,7 +23,8 @@ class CollectionFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'description' => $this->faker->realText(200, 2)
+            'description' => $this->faker->realText(200, 2),
+            'user_id' => $this->faker->numberBetween(1, 5)
         ];
     }
 }

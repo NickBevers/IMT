@@ -16,7 +16,7 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/collection/detail', [NftController::class, 'index']);
+Route::get('/collection/detail/{nft_name}', [NftController::class, 'showDetail']);
 
 Route::get('/user', [UserController::class, 'index'] );
 

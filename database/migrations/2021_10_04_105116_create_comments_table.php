@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             //$table->foreign('nfts_id')->references('id')->on('nfts');
             //$table->bigInteger('author_id')->unsigned()->index();
             //$table->foreign('author_id')->references('id')->on('users');
-            $table->foreignId('owner_id');
+            $table->foreignId('user_id');
             $table->foreignId('nft_id');
             $table->timestamps();
         });

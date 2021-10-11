@@ -18,4 +18,9 @@ class User extends Model
      public function comments() {
         return $this->hasMany(\App\Models\Comment::class);
     }
+
+    //a user has multiple nfts
+    public function nfts() {
+        return $this->hasMany(\App\Models\Nft::class);
+    }
 }
