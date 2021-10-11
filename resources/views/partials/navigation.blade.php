@@ -1,6 +1,6 @@
 <nav>
     <div class="logo_search_wrapper">
-        <a href="../"><img id="nav_logo" src="{{ asset('images/test_logo.png') }}" alt="logo"></a>
+        <a href="/"><img id="nav_logo" src="{{ asset('images/test_logo.png') }}" alt="logo"></a>
         <input id="nav_search" type="text" placeholder="Search for an epic IMT!">
     </div>
     
