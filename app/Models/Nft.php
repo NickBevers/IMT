@@ -9,8 +9,6 @@ class Nft extends Model
 {
     use HasFactory;
 
-    protected $with = ['user'];
-
     //Nft only has 1 collection
     public function collection() {
         return $this->belongsTo(\App\models\Collection::class);
