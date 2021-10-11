@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\NftController;
 
 Route::get('/', function () {
     return view('index');
@@ -14,13 +16,9 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/collection/detail', function () {
-    return view('detail');
-});
+Route::get('/collection/detail', [NftController::class, 'index']);
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/user', [UserController::class, 'index'] );
 
 Route::get('/discover', function () {
     return view('discover');

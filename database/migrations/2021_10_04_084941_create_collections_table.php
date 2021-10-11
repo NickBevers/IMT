@@ -17,6 +17,7 @@ class CreateCollectionsTable extends Migration
             $table->id();
             $table->String('title')->unique();
             $table->String('description')->nullable();
+            $table->foreignId('owner_id');
             $table->timestamps();
         });
     }

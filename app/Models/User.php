@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+
+    //A user has multiple collections
+    public function collections() {
+        return $this->hasMany(\App\Models\Collection::class);
+    }
+
+     //A user has multiple comments
+     public function comments() {
+        return $this->hasMany(\App\Models\Comment::class);
+    }
 }

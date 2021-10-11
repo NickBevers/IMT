@@ -20,8 +20,9 @@ class CreateNftsTable extends Migration
             $table->Integer('price');
             $table->String('blockchain');
             $table->String('media_url');
-            $table->bigInteger('collection_id')->unsigned()->index();
-            $table->foreign('collection_id')->references('id')->on('collections');
+            //$table->bigInteger('collection_id')->unsigned()->index();
+            //$table->foreign('collection_id')->references('id')->on('collections');
+            $table->foreignId('collection_id');
             $table->timestamps();
         });
     }
