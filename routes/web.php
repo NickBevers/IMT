@@ -16,9 +16,12 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/collection/detail/{nft_name}', [NftController::class, 'showDetail']);
+Route::get('/detail/{nft_name}', [NftController::class, 'showDetail']);
 
-Route::get('/user', [UserController::class, 'index'] );
+                        //{username} --> variable name in the url that you get access to in the corresponding function, in this example showCollection
+Route::get('/collection/{username}', [UserController::class, 'showCollection']);
+
+Route::get('/user', [UserController::class, 'index'] ); //Look at the UserController to see what function to call, in this case function index
 
 Route::get('/discover', function () {
     return view('discover');

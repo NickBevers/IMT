@@ -6,8 +6,9 @@
     
     <div class="nav_links">
         <a href="../discover">Discover</a>
-        <a href="../profile">Profile</a>
+        <a href="../user">Profile</a>
         <a href="../login">Log in</a>
+        <a href="../collection/bailey">My collection</a> <!-- @ persoon die de check gaat doen of ge ingelogt bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogt-->
     </div>
 
     <div class="nav_menu">
@@ -22,7 +23,9 @@
             <div></div>
         </div>
         <a class="overlay_link" href="../discover">Discover</a>
-        <a class="overlay_link" href="../profile">Profile</a>
+        <a class="overlay_link" href="../user">Profile</a>
         <a class="overlay_link" href="../login">Log in</a>
+        <a class="overlay_link" href="../collection/bailey">My collection</a> <!-- Hier ook hetzelfde :)) -->
+  
     </div>
 </nav>
