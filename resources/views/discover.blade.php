@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover</title>
+@extends('layouts/app')
 
-    @include('partials/imports')
-</head>
-<body>
+@section('content')
+<!-- Discover -->
     @include('partials/navigation')
     <img class="filter_button" src="{{ asset('images/filter.png') }}" alt="filter icon">
 
@@ -58,5 +51,4 @@
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>
     <script src="{{ asset('js/slide_filter.js') }}"></script>
-</body>
-</html>
+@endsection

@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+@extends('layouts/app')
 
-    @include('partials/imports')
-</head>
-<body>
+@section('content')
+<!-- Login -->
     <section class="login_signup_intro_section">
         <a href="../" class="login_signup_back_btn">Go back</a>
         <section class="intro_section">
@@ -35,5 +28,4 @@
             <a href="/signup" class="signup_btn">Register</a>
         </section>
     </section>
-</body>
-</html>
+@endsection

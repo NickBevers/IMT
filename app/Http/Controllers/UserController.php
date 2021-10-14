@@ -19,3 +19,5 @@ class UserController extends Controller
         return view('collection', $data);
     }
 }
+
+//Add failfase in case of no user

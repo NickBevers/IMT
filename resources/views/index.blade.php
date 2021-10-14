@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IMT</title>
-    
-    @include('partials/imports')
+@extends('layouts/app')
 
-</head>
-<body>
+@section('content')
+<!-- Home -->
     @include('partials/navigation')
 
     
@@ -64,5 +56,4 @@
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>
     <script src="{{ asset('js/horizontal_scroll.js') }}"></script>
-</body>
-</html>
+@endsection
