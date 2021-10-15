@@ -32,6 +32,7 @@ class UserSeeder extends Seeder
         $user->email = "r0612515@student.thomasmore.be";
         $user->password = "C5g8Cq#xoe&GqAkd^8NaahC";
         $user->wallet = "1";
+        $user->profile_picture = "ellen.png";
         $user->save();
         
         $user = new \App\Models\User();
@@ -40,6 +41,7 @@ class UserSeeder extends Seeder
         $user->email = "r0744287@student.thomasmore.be";
         $user->password = "YsT*LNrjFf*AQkjh^2YAS\$s5";
         $user->wallet = "2";
+        $user->profile_picture = "ellen.png";
         $user->save();
         
         $user = new \App\Models\User();
@@ -48,6 +50,7 @@ class UserSeeder extends Seeder
         $user->email = "r0784737@student.thomasmore.be";
         $user->password = "F@%Br8UbSz!!exwxth\$mwNWc";
         $user->wallet = "3";
+        $user->profile_picture = "ellen.png";
         $user->save();
         
         $user = new \App\Models\User();
@@ -56,6 +59,7 @@ class UserSeeder extends Seeder
         $user->email = "r0702962@student.thomasmore.be";
         $user->password = "WSZmcXm2ewGX*T9C3HEwmwM!";
         $user->wallet = "4";
+        $user->profile_picture = "ellen.png";
         $user->save();
     }
 }

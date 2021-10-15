@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('wallet');
             $table->timestamps();
+            $table->string('profile_picture');
         });
     }
 
