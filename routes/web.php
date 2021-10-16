@@ -12,9 +12,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/signup', function () {
-    return view('signup');
-});
+Route::get('/signup', [UserController::class, 'signup']); 
+Route::post('/signup', [UserController::class, 'store']); 
+Route::get('/login', [UserController::class, 'login']); 
+Route::post('/login', [UserController::class, 'handleLogin']); 
 
 Route::get('/detail/{nft_name}', [NftController::class, 'showDetail']);
 

@@ -12,7 +12,8 @@
         </section>
         
         <section class="login_signup_section">
-            <form action="post">
+            <form method="post" action="{{ url('/login') }}">
+            @csrf
                 <div>
                     <label for="email">Email adress</label>
                     <input type="text" name="email" id="email" placeholder="john@doe.com">

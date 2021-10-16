@@ -12,10 +12,16 @@
         </section>
         
         <section class="login_signup_section">
-            <form action="post">
+            <form method="post" action="{{ url('/signup') }}">
+                @csrf
                 <div>
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="BaileyTheDino">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" name="firstname" id="username" placeholder="Bailey">
+                </div>
+                
+                <div>
+                    <label for="lastname">Lastname</label>
+                    <input type="text" name="lastname" id="username" placeholder="TheDino">
                 </div>
 
                 <div>
@@ -28,10 +34,10 @@
                     <input type="password" name="password" id="password" placeholder="******">
                 </div>
 
-                <div>
+                <!--<div>
                     <label for="password_verify">Password verify</label>
                     <input type="password" name="password_verify" id="password_verify" placeholder="******">
-                </div>
+                </div>-->
         
                 <button type="submit" class="login_btn">register</button>
             </form>
