@@ -10,6 +10,12 @@
                 <h3>Sweet dreams are made of NFT's</h3>
             </div>
         </section>
+
+        @if ($flash = session('message'))
+            <ul style="color: green;">
+                <li>{{ $flash }}</li>
+            </ul>
+        @endif
         
         <section class="login_signup_section">
             <form method="post" action="{{ url('/login') }}">

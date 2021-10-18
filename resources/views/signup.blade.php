@@ -10,28 +10,37 @@
                 <h3>Sweet dreams are made of NFT's</h3>
             </div>
         </section>
+
+        @if($errors->any())
+            <ul style="color: red;">
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+
+        @endif
         
         <section class="login_signup_section">
             <form method="post" action="{{ url('/signup') }}">
                 @csrf
                 <div>
                     <label for="firstname">Firstname</label>
-                    <input type="text" name="firstname" id="username" placeholder="Bailey">
+                    <input value="{{ old('firstname') }}" type="text" name="firstname" id="username" placeholder="Bailey">
                 </div>
                 
                 <div>
                     <label for="lastname">Lastname</label>
-                    <input type="text" name="lastname" id="username" placeholder="TheDino">
+                    <input value="{{ old('lastname') }}" type="text" name="lastname" id="username" placeholder="TheDino">
                 </div>
 
                 <div>
                     <label for="email">Email adress</label>
-                    <input type="text" name="email" id="email" placeholder="john@doe.com">
+                    <input value="{{ old('email') }}" type="text" name="email" id="email" placeholder="john@doe.com">
                 </div>
                 
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="******">
+                    <input value="{{ old('password') }}" type="password" name="password" id="password" placeholder="******">
                 </div>
 
                 <!--<div>
