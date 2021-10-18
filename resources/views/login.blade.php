@@ -15,6 +15,10 @@
             <ul style="color: green;">
                 <li>{{ $flash }}</li>
             </ul>
+        @elseif ($flash = session('messageAuth'))
+            <ul style="color: red;">
+                <li>{{ $flash }}</li>
+            </ul>
         @endif
         
         <section class="login_signup_section">

@@ -27,9 +27,11 @@ class UserController extends Controller
         ]);
         
         if (Auth::attempt($credentials)) {
-            echo 'login ok';
+            return redirect('/');
         } else {
-            echo 'login not ok';
+            $request->flash();
+            $request->session()->flash('messageAuth', 'Login not succesful😪');
+            return redirect('login');
         }
 
     }
