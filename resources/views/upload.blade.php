@@ -9,7 +9,7 @@
 
             <div class="upload_img">
                 <label id="inputLabel" for="inputPictureNFT">
-                    <img id="uploadPreview" src="{{ asset("images/upload.jpg") }}" alt="image upload button">
+                    <img id="uploadPreview" src="{{ asset('images/upload.jpg') }}" alt="image upload button">
                 </label>
                 <input type="file" name="inputPictureNFT" id="inputPictureNFT" accept="image/jpeg">
             </div>

@@ -11,4 +11,10 @@ class NftController extends Controller
         $data['nft'] = $nft_info;
         return view('detail', $data);
     }
+
+    public function searchResults($search_query){
+        $search_results = \App\Models\Nft::where('title','LIKE',"%{$search_query}%")->get();
+        $data['search_results'] = $search_results;
+        return view('search', $data);
+    }
 }
