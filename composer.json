@@ -58,5 +58,6 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "cloudinary-labs/cloudinary-laravel": "1.0.4"
 }

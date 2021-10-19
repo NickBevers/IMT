@@ -9,8 +9,13 @@
         <img class="profile_picture" src="{{ asset('images/' . Auth::user()->profile_picture) }}" alt="Profile picture">
 
         <div class="user_info_container">
-        <form method="post" action="{{ url('/edit') }}">
+        <form method="post" action="{{ url('/edit') }}" enctype="multipart/form-data">
                 @csrf
+                <br>
+                <div>
+                    <label for="file">Profile picture</label>
+                    <input type="file" name="profilePicture" id="fileToUpload">
+                </div>
                 <br>
                 <div>
                     <label for="firstname">Firstname</label>

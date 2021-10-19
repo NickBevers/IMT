@@ -73,6 +73,12 @@ class UserController extends Controller
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
         $user->email = $request['email'];
+
+        if($request['profilePicture'] =! 'null') {
+            $path = $request->file('profilePicture')->storeAs('/public/images', $request->user()->id);
+            $user->profile_picture = $request['profilePicture'];
+        }
+        
         $user->update();
         
         return redirect('user');
