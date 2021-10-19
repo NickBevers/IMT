@@ -6,11 +6,16 @@
 
     <section class="profile_section">
         
-        <img class="profile_picture" src="{{ asset('images/' . Auth::user()->profile_picture) }}" alt="Profile picture">
+        <img class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
 
         <div class="user_info_container">
-        <form method="post" action="{{ url('/edit') }}">
+        <form method="post" action="{{ url('/edit') }}" enctype="multipart/form-data">
                 @csrf
+                <br>
+                <div>
+                    <label for="profilePicture">Profile picture</label>
+                    <input type="file" name="profilePicture" id="profilePicture" accept="image/png, image/jpeg">
+                </div>
                 <br>
                 <div>
                     <label for="firstname">Firstname</label>

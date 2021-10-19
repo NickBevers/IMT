@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Cloudinary;
 
 class UserController extends Controller
 {
@@ -70,9 +71,13 @@ class UserController extends Controller
         ]);
         $user =Auth::user();
 
+        $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
         $user->email = $request['email'];
+        $user->profile_picture = $uploadedFileUrl;
+        
         $user->update();
         
         return redirect('user');
