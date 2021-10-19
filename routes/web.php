@@ -15,6 +15,12 @@ Route::post('/signup', [UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'login']); 
 Route::post('/login', [UserController::class, 'handleLogin']); 
 
+Route::get('/logout', function() {
+    Auth::logout();
+    Session::flush();
+    return redirect('login');
+});
+
 //Nft related
 Route::get('/detail/{nft_name}', [NftController::class, 'showDetail']);
 Route::get('/upload', function() {return view('upload');});
