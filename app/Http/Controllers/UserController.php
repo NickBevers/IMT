@@ -61,6 +61,22 @@ class UserController extends Controller
         return redirect('login');
 
     }
+
+    public function edit(Request $request) {
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+        ]);
+        $user =Auth::user();
+
+        $user->first_name = $request['firstname'];
+        $user->last_name = $request['lastname'];
+        $user->email = $request['email'];
+        $user->update();
+        
+        return redirect('user');
+    }
 }
 
 //Add failfase in case of no user

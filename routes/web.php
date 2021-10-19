@@ -21,6 +21,9 @@ Route::get('/logout', function() {
     return redirect('login');
 });
 
+Route::get('/edit', function () {return view('editProfile');});
+Route::post('/edit', [UserController::class, 'edit']); 
+
 //Nft related
 Route::get('/detail/{nft_name}', [NftController::class, 'showDetail']);
 Route::get('/upload', function() {return view('upload');});

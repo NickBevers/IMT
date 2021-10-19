@@ -14,7 +14,7 @@
                 the fire might be too hot for this world? Global warming? Probably
                 this guy.
             </p>
-            <a href="#" class="edit_btn">Edit profile</a>
+            <a href="/edit" class="edit_btn">Edit profile</a>
 
             <h3>Top owned NFT's</h3>
             <div class="top_nft_container">
