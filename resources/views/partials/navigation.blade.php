@@ -7,8 +7,12 @@
     <div class="nav_links">
         <a href="../discover">Discover</a>
         <a href="../user">Profile</a>
+        @if(Auth::user())
+        <a href="../login">Log out</a>
+        <a href="../collection/{{ Auth::user()->first_name }}">My collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
+        @else 
         <a href="../login">Log in</a>
-        <a href="../collection/bailey">My collection</a> <!-- @ persoon die de check gaat doen of ge ingelogt bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogt-->
+        @endif
     </div>
 
     <div class="nav_menu">
