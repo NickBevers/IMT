@@ -5,10 +5,10 @@
     @include('partials/navigation')
 
     <section class="profile_section">
-        <img class="profile_picture" src="{{ asset('images/ellen.png') }}" alt="Profile picture">
+        <img class="profile_picture" src="{{ asset('images/' . Auth::user()->profile_picture) }}" alt="Profile picture">
 
         <div class="user_info_container">
-            <h2>Bailey Lievens</h2>
+            <h2>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h2>
             <p>This is a cool human. Fo sho yess sir, no cap. No 
                 goddamn doubt in my mind this guy is straight up fire. Maybe
                 the fire might be too hot for this world? Global warming? Probably
