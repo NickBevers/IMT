@@ -3,12 +3,11 @@
 @section('content')
 <!-- Search -->
     @include('partials/navigation')
-    <section class="listing_section">
+    <section class="listing_section search">
         @foreach ($search_results as $search_result)
             <div class="listing_item">
                 <img src="{{ asset('images/test.jpg') }}" alt="art1">
-                <p>{{ $search_result->title }}</p>
-                <p>{{ $search_result->media_url }}</p>
+                <a href="{{ $search_result->media_url }}">{{ $search_result->title }}</a>
             </div>
         @endforeach
         <br>
@@ -16,5 +15,4 @@
         <br>
         <br>
     </section>
-
 @endsection
