@@ -5,7 +5,7 @@
     @include('partials/navigation')
 
     <section class="profile_section">
-        <img class="profile_picture" src="{{ asset('images/' . Auth::user()->profile_picture) }}" alt="Profile picture">
+        <img class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
 
         <div class="user_info_container">
             <h2>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h2>
