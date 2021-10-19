@@ -6,10 +6,10 @@
     
     <div class="nav_links">
         <a href="../discover">Discover</a>
-        <a href="../user">Profile</a>
         @if(Auth::user())
-        <a href="../logout">Log out</a>
+        <a href="../user">Profile</a>
         <a href="../collection/{{ Auth::user()->first_name }}">My collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
+        <a href="../logout">Log out</a>
         @else 
         <a href="../login">Log in</a>
         @endif
