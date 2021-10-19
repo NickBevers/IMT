@@ -11,6 +11,7 @@
     </style>
     <link rel="stylesheet" href="{{ asset('css/general.css') }}">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
     @yield('content')
