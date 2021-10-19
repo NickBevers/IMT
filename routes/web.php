@@ -38,4 +38,4 @@ Route::post('/collection/store', [CollectionController::class, 'store']);
 Route::get('/user', [UserController::class, 'index'] ); //Look at the UserController to see what function to call, in this case function index
 
 //Search related
-Route::get('/search/{search_query}', [NftController::class, 'searchResults'] );
+Route::get('/search', [NftController::class, 'searchResults'] );

@@ -1,7 +1,9 @@
 <nav>
     <div class="logo_search_wrapper">
         <a href="/"><img id="nav_logo" src="{{ asset('images/test_logo.png') }}" alt="logo"></a>
-        <input id="nav_search" type="text" placeholder="Search for an epic IMT!">
+        <form method="GET" action="/search ">
+            <input name="q" id="nav_search" type="text" placeholder="Search for an epic IMT!">
+        </form>
     </div>
     
     <div class="nav_links">
