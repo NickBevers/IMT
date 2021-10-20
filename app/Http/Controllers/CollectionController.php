@@ -16,6 +16,7 @@ class CollectionController extends Controller
         $user_id = \App\Models\User::where('first_name', $firstname)->first();
         $user_collection = \App\Models\Nft::where('user_id', $user_id->id)->with('user')->get();
         $data['collection'] = $user_collection;
+        $data['title'] = "Collection";
         return view('collections/collection', $data);
     }
 

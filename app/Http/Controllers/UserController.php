@@ -10,15 +10,18 @@ use Cloudinary;
 class UserController extends Controller
 {
     public function index() {
-        return view('user');
+        $data['title'] = "Profile";
+        return view('user', $data);
     }
 
     public function signup() {
-        return view('signup');
+        $data['title'] = "Sign up";
+        return view('signup', $data);
     }
 
     public function login() {
-        return view('login');
+        $data['title'] = "Log in";
+        return view('login', $data);
     }
 
     public function handleLogin(Request $request) {
