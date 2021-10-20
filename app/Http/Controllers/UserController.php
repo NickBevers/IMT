@@ -37,6 +37,12 @@ class UserController extends Controller
 
     }
 
+    public function logout() {
+        Auth::logout();
+        Session::flush();
+        return redirect('login');
+    }
+
     public function store(Request $request) {
 
         $validated = $request->validate([
@@ -84,4 +90,4 @@ class UserController extends Controller
     }
 }
 
-//Add failfase in case of no user
+//Add failsafe in case of no user

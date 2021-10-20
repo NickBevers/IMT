@@ -6,6 +6,10 @@
 
     
     <section class="index_intro_section">
+        <!-- @foreach($recents as $recent)
+            <p>{{ $recent->title }}{{ $recent->id }}</p>
+        @endforeach
+        <p><p>{{ $most_expensive->title }}</p></p> -->
         <div class="intro_text_wrapper">
             <h1>Interactive <br> Multimedia <br> Tokens</h1>
             <h2>Sweet dreams are made of NFT's</h2>

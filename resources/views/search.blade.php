@@ -10,9 +10,5 @@
                 <a href="{{ $search_result->media_url }}">{{ $search_result->title }}</a>
             </div>
         @endforeach
-        <br>
-        <br>
-        <br>
-        <br>
     </section>
 @endsection

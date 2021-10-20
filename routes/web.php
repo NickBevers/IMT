@@ -4,22 +4,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\NftController;
+use App\Http\Controllers\AppController;
 
 
 //root directory
-Route::get('/', function () {return view('index');});
-Route::get('/discover', function () {return view('discover');});
+// Route::get('/', function () {return view('index');});
+// Route::get('/discover', function () {return view('discover');});
+Route::get('/', [AppController::class, 'index']);
+Route::get('/discover', [AppController::class, 'discover']);
 
 Route::get('/signup', [UserController::class, 'signup']); 
 Route::post('/signup', [UserController::class, 'store']); 
 Route::get('/login', [UserController::class, 'login']); 
 Route::post('/login', [UserController::class, 'handleLogin']); 
 
-Route::get('/logout', function() {
-    Auth::logout();
-    Session::flush();
-    return redirect('login');
-});
+// Route::get('/logout', function() {
+//     Auth::logout();
+//     Session::flush();
+//     return redirect('login');
+// });
+
+Route::get('/logout', [UserController::class, 'login']);
 
 Route::get('/edit', function () {return view('editProfile');});
 Route::post('/edit', [UserController::class, 'edit']); 

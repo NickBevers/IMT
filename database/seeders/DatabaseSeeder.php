@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         //Manier voor mass entries
 
-        \App\Models\Nft::factory(10)->create();
+        \App\Models\Nft::factory(80)->create();
         \App\Models\Collection::factory(5)->create();
         \App\Models\Comment::factory(20)->create();
     }

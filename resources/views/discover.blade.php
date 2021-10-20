@@ -2,17 +2,17 @@
 
 @section('content')
 <!-- Discover -->
-    @include('partials/navigation')
+    <!-- @include('partials/navigation') -->
     <img class="filter_button" src="{{ asset('images/filter.png') }}" alt="filter icon">
 
-    <div class="side_filters">
+    <!-- <div class="side_filters">
         <a href="#">Hello there</a>
         <a href="#">Hello there</a>
         <a href="#">Hello there</a>
         <a href="#">Hello there</a>
         <a href="#">Hello there</a>
         <a href="#">Hello there</a>
-    </div>
+    </div> -->
 
     <section class="listing_section">
         <img src="{{ asset('images/test.jpg') }}" alt="art1">
@@ -47,6 +47,12 @@
         <img src="{{ asset('images/test.jpg') }}" alt="art1">
         <img src="{{ asset('images/test.jpg') }}" alt="art1">
         <img src="{{ asset('images/test.jpg') }}" alt="art1">
+    </section>
+
+    <section>
+        @foreach($nfts as $nft)
+            <p>{{ $nft->id }} {{ $nft->title }}</p>
+        @endforeach
     </section>
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>

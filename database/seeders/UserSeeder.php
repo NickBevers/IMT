@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         $user = new \App\Models\User();
         $user->first_name = "Ilya";
         $user->last_name = "Plyusnin";
-        $user->email = "i.i.i";
+        $user->email = "i@i.i";
         $user->password = "$2y$10\$rAAHGyqWxmzghE/ch.8X/uuGPaPPDQbp6vsonqSNIbNVe3Rbvpqsu"; //Password is 'a' without quotes
         $user->wallet = "1";
         $user->profile_picture = "https://res.cloudinary.com/doafzvgjh/image/upload/v1634674189/unmk6hbinwxqmqyumgvs.png";
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
         $user = new \App\Models\User();
         $user->first_name = "Bailey";
         $user->last_name = "Lievens";
-        $user->email = "b.b.b";
+        $user->email = "b@b.b";
         $user->password = "$2y$10\$rAAHGyqWxmzghE/ch.8X/uuGPaPPDQbp6vsonqSNIbNVe3Rbvpqsu"; //Password is 'a' without quotes
         $user->wallet = "2";
         $user->profile_picture = "https://res.cloudinary.com/doafzvgjh/image/upload/v1634674526/bxpcjyf39tbutp1myt0u.png";
@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
         $user = new \App\Models\User();
         $user->first_name = "Ellen";
         $user->last_name = "Hiel";
-        $user->email = "e.e.e";
+        $user->email = "e@e.e";
         $user->password = "$2y$10\$rAAHGyqWxmzghE/ch.8X/uuGPaPPDQbp6vsonqSNIbNVe3Rbvpqsu"; //Password is 'a' without quotes
         $user->wallet = "3";
         $user->profile_picture = "https://res.cloudinary.com/doafzvgjh/image/upload/v1634674518/mvornfn9rl8lno3krbhn.png";
@@ -56,7 +56,7 @@ class UserSeeder extends Seeder
         $user = new \App\Models\User();
         $user->first_name = "Nick";
         $user->last_name = "Bevers";
-        $user->email = "n.n.n";
+        $user->email = "n@n.n";
         $user->password = "$2y$10\$rAAHGyqWxmzghE/ch.8X/uuGPaPPDQbp6vsonqSNIbNVe3Rbvpqsu"; //Password is 'a' without quotes
         $user->wallet = "4";
         $user->profile_picture = "https://res.cloudinary.com/doafzvgjh/image/upload/v1634674336/lalteyjlxphogk72fxeq.png";
