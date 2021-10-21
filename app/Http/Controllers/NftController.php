@@ -29,6 +29,16 @@ class NftController extends Controller
         return view('nfts/edit', $data);
     }
 
+    public function update(Request $request){
+        $nft =\App\Models\Nft::where('id', $request['id'])->first();
+        // dd($collection);
+        $nft->title = $request['title'];
+        $nft->price = $request['price'];
+        $nft->update();
+        
+        return view('user');
+    }
+
 
     public function destroy($id)
     {

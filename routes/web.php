@@ -30,8 +30,12 @@ Route::get('/edit', function () {return view('editProfile');});
 Route::post('/edit', [UserController::class, 'edit']); 
 
 //Nft related
-Route::get('/detail/{nft_name}', [NftController::class, 'showDetail']);
+Route::get('/nft/detail/{nft_id}', [NftController::class, 'showDetail']);
+Route::get('/nft/edit/{nft_id}', [NftController::class, 'edit']);
+Route::get('/nft/remove/{nft_id}', [NftController::class, 'destroy']);
 Route::get('/upload', function() {return view('upload');});
+Route::post('/nft/edit', [NftController::class, 'update']);
+
 
 //Collection-related
 Route::get('/collection/create', [CollectionController::class, 'create']);
