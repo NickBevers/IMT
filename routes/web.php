@@ -32,6 +32,8 @@ Route::post('/edit', [UserController::class, 'edit']);
 //Nft related
 Route::get('/nft/detail/{nft_id}', [NftController::class, 'showDetail']);
 Route::get('/nft/edit/{nft_id}', [NftController::class, 'edit']);
+Route::get('/nft/update/{nft_id}', [NftController::class, 'removeFromCollection']);
+Route::get('/nft/addToCollection/{collection_id}/{nft_id}', [NftController::class, 'addNftToCollection']);
 Route::get('/nft/remove/{nft_id}', [NftController::class, 'destroy']);
 Route::get('/upload', function() {return view('upload');});
 Route::post('/nft/edit', [NftController::class, 'update']);
@@ -41,8 +43,9 @@ Route::post('/nft/edit', [NftController::class, 'update']);
 Route::get('/collection/create', [CollectionController::class, 'create']);
 //{username} --> variable name in the url that you get access to in the corresponding function, in this example showCollection
 Route::get('/collection/{username}', [CollectionController::class, 'show']);
-Route::get('/collection/detail/{collection_id}', [CollectionController::class, 'showDetail']); //PUT NFT IN HERE
-Route::get('/collection/edit/{collection_name}', [CollectionController::class, 'edit']);
+Route::get('/collection/detail/{collection_id}', [CollectionController::class, 'showDetail']);
+Route::get('/collection/add/{collection_id}', [CollectionController::class, 'addNft']);
+Route::get('/collection/edit/{collection_id}', [CollectionController::class, 'edit']);
 Route::get('/collection/remove/{collection_id}', [CollectionController::class, 'destroy']);
 Route::get('/collection/create', [CollectionController::class, 'create']);
 Route::post('/collection/edit', [CollectionController::class, 'update']);
