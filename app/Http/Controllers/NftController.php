@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class NftController extends Controller
 {
-    public function showDetail($nft_name) {
-        $nft_info = \App\Models\Nft::where('title', $nft_name)->with('user')->first();
-        $data['nft'] = $nft_info;
-        $data['title'] = $nft_name;
-        return view('detail', $data);
+    public function showDetail($nft_id) {
+        // dd($nft_id);
+        $nft = \App\Models\Nft::where('id', $nft_id)->with('user')->first();
+        $user = \App\Models\User::where('id', $nft->user_id)->first();
+        $data['nft'] = $nft;
+        $data['user'] = $user;
+        return view('nfts/detail', $data);
     }
 
     public function searchResults(Request $request){
@@ -18,7 +20,21 @@ class NftController extends Controller
         $search_results = \App\Models\Nft::where('title','LIKE',"%{$search_query}%")->get();
         $data['search_results'] = $search_results;
         $data['title'] = "Search for " . $search_query;
-        dd($request);
+        // dd($request);
         return view('search', $data);
+    }
+
+    public function edit($nft_id){
+        $data['nft'] = \App\Models\Nft::where('id', $nft_id)->first();
+        return view('nfts/edit', $data);
+    }
+
+
+    public function destroy($id)
+    {
+        $collection = \App\Models\Nft::where('id', $id)->first();
+        $collection->delete();
+
+        return view('user');
     }
 }

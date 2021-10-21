@@ -24,7 +24,7 @@ class CollectionController extends Controller
         $collection = \App\Models\Collection::where('title', $collection_name)->first();
         $nfts = \App\Models\Nft::where('collection_id', $collection->id)->get();
         $data['collection'] = \App\Models\Collection::where('title', $collection_name)->first();
-        $data['nfts'] = $nfts;  
+        $data['nfts'] = $nfts;
         return view('collections/detail', $data);
     }
 
