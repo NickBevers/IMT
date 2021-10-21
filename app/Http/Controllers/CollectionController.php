@@ -37,7 +37,7 @@ class CollectionController extends Controller
     // Store the new collection in a database
     public function store(Request $request)
     {
-        $user =Auth::user();
+        $user = Auth::user();
         $collection = new \App\Models\Collection();
         $collection->title = $request['title'];
         $collection->description = $request['description'];
@@ -47,8 +47,16 @@ class CollectionController extends Controller
         return redirect('user');
     }
 
-    public function edit($collection_title){
-        $data['collection'] = \App\Models\Collection::where('title', $collection_title)->first();
+    public function addNft($collection_id){
+        //return view with all nft's of user
+        $user = Auth::user();
+        $data['nfts'] = \App\Models\Nft::where('user_id', $user->id)->get();
+        $data['collection'] = \App\Models\Collection::where('id', $collection_id)->first();
+        return view('nfts/index', $data);
+    }
+
+    public function edit($collection_id){
+        $data['collection'] = \App\Models\Collection::where('title', $collection_id)->first();
         return view('collections/edit', $data);
     }
 

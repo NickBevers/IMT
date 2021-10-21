@@ -39,6 +39,22 @@ class NftController extends Controller
         return view('user');
     }
 
+    public function removeFromCollection($nft_id){
+        $nft =\App\Models\Nft::where('id', $nft_id)->first();
+        $nft->collection_id = 0;
+        $nft->update();
+        
+        return view('user');
+    }
+
+    public function addNftToCollection($collection_id, $nft_id){
+        $nft =\App\Models\Nft::where('id', $nft_id)->first();
+        $nft->collection_id = $collection_id;
+        $nft->update();
+
+        return view('user');
+    }
+
 
     public function destroy($id)
     {
