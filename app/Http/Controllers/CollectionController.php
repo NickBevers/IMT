@@ -21,11 +21,14 @@ class CollectionController extends Controller
 
     // Show the detail page of a collection with the nft's in it
     public function showDetail($collection_name) {
+        $collection = \App\Models\Collection::where('title', $collection_name)->first();
+        $nfts = \App\Models\Nft::where('collection_id', $collection->id)->get();
         $data['collection'] = \App\Models\Collection::where('title', $collection_name)->first();
+        $data['nfts'] = $nfts;  
         return view('collections/detail', $data);
     }
 
-    // Show a form for cretion of a new collection
+    // Show a form for creation of a new collection
     public function create()
     {        
         return view('collections/create');
@@ -34,16 +37,14 @@ class CollectionController extends Controller
     // Store the new collection in a database
     public function store(Request $request)
     {
-        //
-        $collection = new \App\Models\Artist();
-        $collection->title = $request->input('title');
-        $collection->description = $request->input('description');
+        $user =Auth::user();
+        $collection = new \App\Models\Collection();
+        $collection->title = $request['title'];
+        $collection->description = $request['description'];
+        $collection->user_id=$user->id;
         $collection->save();
-
-        $request->flash();
-        $request->session()->flash('message', 'Successfully created a collection🎉');
         
-        return redirect('login');
+        return redirect('user');
     }
 
     public function edit($collection_title){
@@ -66,5 +67,14 @@ class CollectionController extends Controller
 
         return view('user');
         // redirect()->route('/collection', [$user]);
+    }
+
+    public function destroy($id)
+    {
+        //
+        $collection = \App\Models\Collection::where('id', $id)->first();
+        $collection->delete();
+
+        return view('user');
     }
 }
