@@ -37,10 +37,11 @@ Route::get('/upload', function() {return view('upload');});
 Route::get('/collection/create', [CollectionController::class, 'create']);
 //{username} --> variable name in the url that you get access to in the corresponding function, in this example showCollection
 Route::get('/collection/{username}', [CollectionController::class, 'show']);
-Route::get('/collection/detail/{collection_name}', [CollectionController::class, 'showDetail']);
+Route::get('/collection/detail/{collection_id}', [CollectionController::class, 'showDetail']); //PUT NFT IN HERE
 Route::get('/collection/edit/{collection_name}', [CollectionController::class, 'edit']);
+Route::get('/collection/remove/{collection_id}', [CollectionController::class, 'destroy']);
+Route::get('/collection/create', [CollectionController::class, 'create']);
 Route::post('/collection/edit', [CollectionController::class, 'update']);
-// Route::get('/collectionDetail/{collection_name}', [CollectionController::class, 'showDetail']);
 Route::post('/collection/store', [CollectionController::class, 'store']);
 
 //User related
