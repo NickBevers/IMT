@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
@@ -52,15 +53,18 @@ class CollectionController extends Controller
 
     public function update(Request $request){
         $collection =\App\Models\Collection::where('id', $request['old_value'])->first();
-        // dd($request['old_value']);
+        // dd($collection);
         $collection->title = $request['title'];
         $collection->description = $request['description'];
         $collection->update();
         
-        // $user_id = \App\Models\User::where('first_name', $firstname)->first();
+        $user =Auth::user();
+        // $user_id = \App\Models\User::where('first_name', $user->first_name)->first();
         // $user_collection = \App\Models\Collection::where('user_id', $user_id->id)->with('user')->get();
-        // $data['collection'] = $user_collection;
+        // dd($user_collection);
+        // $data['username'] = $user->first_name;
 
-        return view('collections/collection');
+        return view('user');
+        // redirect()->route('/collection', [$user]);
     }
 }
