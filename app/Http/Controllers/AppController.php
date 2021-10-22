@@ -8,7 +8,7 @@ class AppController extends Controller
 {
     public function index() {
         $most_expensive = \App\Models\Nft::orderBy('price', 'DESC')->first();
-        $recents = \App\Models\Nft::orderBy('created_at', 'DESC')->take(5)->get();
+        $recents = \App\Models\Nft::orderBy('created_at', 'DESC')->take(7)->get();
         $data['most_expensive'] = $most_expensive;
         $data['recents'] = $recents;
         $data['title'] = "Home";
