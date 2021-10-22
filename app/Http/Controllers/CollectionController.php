@@ -21,7 +21,7 @@ class CollectionController extends Controller
 
     // Show the detail page of a collection with the nft's in it
     public function showDetail($collection_name) {
-        $collection = \App\Models\Collection::where('title', $collection_name)->first();
+        $collection = \App\Models\Collection::where('title', $collection_name)->with('nfts')->first();
         $nfts = \App\Models\Nft::where('collection_id', $collection->id)->get();
         $data['collection'] = \App\Models\Collection::where('title', $collection_name)->first();
         $data['nfts'] = $nfts;
@@ -68,13 +68,8 @@ class CollectionController extends Controller
         $collection->update();
         
         $user =Auth::user();
-        // $user_id = \App\Models\User::where('first_name', $user->first_name)->first();
-        // $user_collection = \App\Models\Collection::where('user_id', $user_id->id)->with('user')->get();
-        // dd($user_collection);
-        // $data['username'] = $user->first_name;
-
-        return view('user');
-        // redirect()->route('/collection', [$user]);
+        // return view('collections/collection');
+        return redirect('/collection');
     }
 
     public function destroy($id)
