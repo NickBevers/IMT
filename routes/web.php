@@ -25,9 +25,11 @@ Route::post('/login', [UserController::class, 'handleLogin']);
 // });
 
 Route::get('/logout', [UserController::class, 'login']);
-
 Route::get('/edit', function () {return view('editProfile');});
 Route::post('/edit', [UserController::class, 'edit']); 
+
+// Wallet related
+Route::get('/wallet', [NftController::class, 'show']);
 
 //Nft related
 Route::get('/nft/detail/{nft_id}', [NftController::class, 'showDetail']);
@@ -39,7 +41,7 @@ Route::get('/upload', function() {return view('upload');});
 Route::post('/nft/edit', [NftController::class, 'update']);
 
 
-//Collection-related
+//Collection related
 Route::get('/collection/create', [CollectionController::class, 'create']);
 //{username} --> variable name in the url that you get access to in the corresponding function, in this example showCollection
 Route::get('/collection/{username}', [CollectionController::class, 'show']);
