@@ -52,7 +52,7 @@ class CollectionController extends Controller
         $user = Auth::user();
         $data['nfts'] = \App\Models\Nft::where('user_id', $user->id)->get();
         $data['collection'] = \App\Models\Collection::where('id', $collection_id)->first();
-        return view('nfts/index', $data);
+        return view('nfts/addToCollection', $data);
     }
 
     public function edit($collection_id){
