@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NftController extends Controller
 {
+    public function show() {
+        $user = Auth::user();
+        $data['user'] = $user->first_name . " " . $user->last_name;
+        $data['nfts'] = \App\Models\Nft::where('user_id', $user->id)->get();
+        return view('wallet/index', $data);
+    }
+
     public function showDetail($nft_id) {
         // dd($nft_id);
         $nft = \App\Models\Nft::where('id', $nft_id)->with('user')->first();
-        $user = \App\Models\User::where('id', $nft->user_id)->first();
+        $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
         return view('nfts/detail', $data);
@@ -34,6 +42,10 @@ class NftController extends Controller
         // dd($collection);
         $nft->title = $request['title'];
         $nft->price = $request['price'];
+        // dd($request);
+        if ($request['for_sale']) {
+            $nft->for_sale = 1;
+        }
         $nft->update();
         
         return view('user');
