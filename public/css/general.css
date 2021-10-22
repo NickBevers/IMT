@@ -1,724 +1,677 @@
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif
 }
 
-/* nav styling */
 nav {
-    position: fixed;
-    width: 100%;
-    display: flex;
     align-items: center;
+    background-color: #f1f1f1;
+    display: flex;
     justify-content: space-around;
-    padding: 1em;
     margin-bottom: 2em;
-    background-color: rgb(241, 241, 241);
+    padding: 1em;
+    position: fixed;
+    width: 100%
 }
 
 .logo_search_wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 #nav_logo {
-    width: 11em;
+    width: 11em
 }
 
 .nav_links {
-  display: none;
+    display: none
 }
 
 .nav_menu {
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: transparent;
-    transition: 0.5;
+    transition: .5
 }
 
 .nav_menu :hover {
-    cursor: pointer;
+    cursor: pointer
 }
 
 .nav_menu div {
-    background-color: black;
-    width: 2em;
-    height: 0.2em;
+    background-color: #000;
+    height: .2em;
+    width: 2em
 }
 
 .overlay_links {
+    align-items: center;
+    background-color: rgba(54, 54, 54, .664);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 4em;
-    background-color: rgba(54, 54, 54, 0.664);
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: 99999;
     height: 0;
-
-    transition: 0.5s;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: .5s;
+    width: 100%;
+    z-index: 99999
 }
 
 .overlay_links a {
-    color: white;
-    text-decoration: none;
+    color: #fff;
     font-size: 2.5em;
-    position: relative;    
-    visibility: hidden;
+    position: relative;
+    text-decoration: none;
+    visibility: hidden
 }
 
 .animated_fadeIn {
-    animation: fadeIn 1s ease-out forwards;
+    -webkit-animation: fadeIn 1s ease-out forwards;
+    animation: fadeIn 1s ease-out forwards
 }
 
 .nav_close {
-    position: fixed;
-    top: 40px;
-    right: 30px;
     display: none;
-    transition: 0.5s;
+    position: fixed;
+    right: 30px;
+    top: 40px;
+    transition: .5s
 }
 
 .nav_close :hover {
-    cursor: pointer;
+    cursor: pointer
 }
 
 .nav_close div {
-    background-color: white;
-    width: 2em;
-    height: 0.2em;
-    margin-top: 0.2em;
+    background-color: #fff;
+    height: .2em;
+    margin-top: .2em;
+    width: 2em
 }
 
 .nav_close :first-child {
-    transform: rotate(45deg);
+    transform: rotate(45deg)
 }
 
 .nav_close :last-child {
-    transform: rotate(-45deg);
     position: relative;
     top: -6px;
+    transform: rotate(-45deg)
 }
 
-@media (min-width: 800px) {
+@media (min-width:800px) {
     .nav_menu {
-        display: none;
+        display: none
     }
 
     .nav_links {
         display: flex;
         flex-direction: row;
         gap: 2em;
-        position: relative;
         left: -10em;
+        position: relative
     }
 
     nav {
         justify-content: space-between;
-        padding: 5em;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        width: 100vw;
+        padding: 1em 5em;
+        width: 100vw
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
     }
 }
 
 @keyframes fadeIn {
-    0%{
-        opacity: 0;
+    0% {
+        opacity: 0
     }
-    100% {
-        opacity: 1;
+
+    to {
+        opacity: 1
     }
 }
-
-/* login and signup styling */
 
 .login_signup_intro_section {
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .login_signup_back_btn {
-    text-align: end;
     padding-top: 1em;
+    text-align: end
 }
 
 .intro_section {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 2em;
+    margin-bottom: 2em
 }
 
-.intro_section, .login_signup_back_btn {
-    background-color: rgb(184, 236, 223);
+.intro_section,
+.login_signup_back_btn {
+    background-color: #b8ecdf;
     padding-left: 3em;
-    padding-right: 3em;
+    padding-right: 3em
 }
 
 .intro_section h3 {
-    width: 10em;
     align-self: flex-start;
+    width: 10em
 }
 
 .intro_section h1 {
     font-size: 3em;
     line-height: 1em;
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
-.login_signup_section{
-    display: flex;
-    flex-direction: column;
+.login_signup_section {
     align-items: center;
-    gap: 1em;
-}
-
-.login_signup_section form{
     display: flex;
     flex-direction: column;
+    gap: 1em
+}
+
+.login_signup_section form {
     align-items: flex-start;
-    gap: 1em;
+    gap: 1em
 }
 
-.login_signup_section div {
+.login_signup_section div,
+.login_signup_section form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .signup_btn {
-    text-align: start;
     margin-bottom: 3em;
+    text-align: start
 }
 
 .login_btn {
-    align-self: center;
+    align-self: center
 }
 
-@media (min-width: 1300px) {
+@media (min-width:1300px) {
     .login_signup_intro_section {
-        flex-direction: row;
         align-items: center;
-        width: 100%;
+        flex-direction: row;
         height: 100vh;
         justify-content: space-around;
+        width: 100%
     }
 
     .intro_section {
-        flex-grow: 2;
-        height: 100%;
+        align-items: center;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        margin-bottom: 0;
+        flex-grow: 2;
+        height: 100%;
+        margin-bottom: 0
     }
 
     .login_signup_section {
         margin-left: 5em;
-        margin-right: 5em;
+        margin-right: 5em
     }
 
     .login_signup_back_btn {
         background-color: transparent;
         position: fixed;
-        top: 0;
         right: 0;
+        top: 0
     }
 
     .intro_section h3 {
-        width: 10em;
         font-size: 1.4em;
+        width: 10em
     }
-    
+
     .intro_section h1 {
-        font-size: 6em;
+        font-size: 6em
     }
 }
 
-/* discover styling */
-
 .side_filters {
-    height: 100%;
-    background-color: rgb(212, 212, 212);
-    position: fixed;
-    width: 10em;
-    z-index: 99;
-    top: 5.5em;
-    overflow-x: hidden;
-    padding-top: 1em;
-
+    align-items: center;
+    background-color: #d4d4d4;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2em;
+    height: 100%;
     left: -10em;
+    overflow-x: hidden;
+    padding-top: 1em;
+    top: 5.5em;
+    width: 10em;
+    z-index: 99
+}
 
-    transition: 0.5s ease-out;
+.filter_button,
+.side_filters {
+    position: fixed;
+    transition: .5s ease-out
 }
 
 .filter_button {
-    width: 2em;
     height: 2em;
-    object-fit: cover;
-    position: fixed;
-    top: 6em;
     left: 1em;
-
-    transition: 0.5s ease-out;
+    -o-object-fit: cover;
+    object-fit: cover;
+    top: 6em;
+    width: 2em
 }
 
 .listing_section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1em;
-    
-    padding-top: 6em;
+    justify-content: center;
+    margin-bottom: 3em;
     padding-left: 2em;
     padding-right: 2em;
-    margin-bottom: 3em;
-}
-
-.search {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.listing_section .listing_item {
-    width: 33%;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
+    padding-top: 6em
 }
 
 .listing_section img {
-    object-fit: cover;
-    width: 33%;
-    max-width: 12em;
     max-height: 12em;
+    max-width: 12em;
     min-height: 3em;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 33%
 }
 
-.listing_item img {
-    width: 100%;
-}
-
-@media (min-width: 800px) {
+@media (min-width:800px) {
     .side_filters {
-        left: 0em;
+        left: 0
     }
 
     .filter_button {
-        left: -10em;
+        left: -10em
     }
 
     .listing_section {
-        margin-left: 10em;
-    }
-
-    .search {
-        margin-left: 0;
+        margin-left: 10em
     }
 }
 
-@media (min-width: 1100px) {
+@media (min-width:1100px) {
     .listing_section img {
-        object-fit: cover;
-        width: 33%;
-        max-width: 17em;
         max-height: 17em;
-    }
-
-    .listing_item img {
-        width: 100%;
+        max-width: 17em;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 33%
     }
 }
-
-/* profile styling */
 
 .profile_section {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-bottom: 3em;
     margin-left: 1em;
     margin-right: 1em;
-    margin-bottom: 3em;
-    padding-top: 10em;
+    padding-top: 10em
 }
 
 .profile_picture {
-    width: 15em;
     height: 15em;
+    -o-object-fit: cover;
     object-fit: cover;
+    width: 15em
 }
 
 .user_info_container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 10em;
     max-width: 30em;
+    min-width: 10em
 }
 
-.top_nft_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.top_nft_container img {
-    width: 33%;
-    object-fit: cover;
-}
-
-@media (min-width: 1300px) {
+@media (min-width:1300px) {
     .profile_section {
         flex-direction: row;
-        justify-content: center;
         gap: 5em;
-        padding-top: 10em;
+        justify-content: center;
+        padding-top: 10em
     }
 
     .profile_picture {
         height: 30em;
-        width: 30em;
+        width: 30em
     }
 
     .user_info_container h2 {
         align-self: flex-start;
         font-size: 3em;
-        margin-bottom: 0;
+        margin-bottom: 0
     }
 
+    .edit_btn,
     .user_info_container h3 {
-        align-self: flex-start;
-    }
-
-    .edit_btn {
-        align-self: flex-start;
+        align-self: flex-start
     }
 }
 
-/* detail styling */
-
-
 .nft_section {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-bottom: 3em;
     margin-left: 1em;
     margin-right: 1em;
-    margin-bottom: 3em;
-    padding-top: 10em;
+    padding-top: 10em
 }
 
 .nft_picture {
-    width: 15em;
     height: 15em;
+    -o-object-fit: cover;
     object-fit: cover;
+    width: 15em
 }
 
 .nft_info_container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 10em;
     max-width: 20em;
+    min-width: 10em
 }
 
 .top_nft_container {
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     gap: 10px;
+    justify-content: center
 }
 
 .top_nft_container img {
-    width: 33%;
+    -o-object-fit: cover;
     object-fit: cover;
+    width: 33%
 }
 
 .buy_add_container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    display: flex;
+    flex-direction: column
 }
 
-@media (min-width: 1300px) {
+@media (min-width:1300px) {
     .nft_section {
         flex-direction: row;
-        justify-content: center;
         gap: 5em;
-        padding-top: 8em;
+        justify-content: center;
+        padding-top: 8em
     }
 
     .nft_picture {
         height: 30em;
-        width: 30em;
+        width: 30em
     }
 
     .nft_info_container h2 {
         align-self: flex-start;
         font-size: 3em;
-        margin-bottom: 0;
+        margin-bottom: 0
     }
 
     .nft_info_container h3 {
-        align-self: flex-start;
+        align-self: flex-start
     }
 
     .buy_add_container {
-        flex-direction: row;
         align-items: center;
+        flex-direction: row;
         justify-content: space-between;
-        width: 100%;
+        width: 100%
     }
 }
 
-/* upload styling */
-
-
 #inputPictureNFT {
-    position: absolute;
+    left: -50000px;
     opacity: 0;
-    top: -50000px;
-    left: -50000px; /*Hide that baby*/
+    position: absolute;
+    top: -50000px
 }
 
 .upload_section {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 10em;
+    padding-top: 10em
 }
 
 .upload_img {
-    width: 15em;
     height: 15em;
     margin-bottom: 1em;
+    width: 15em
 }
 
 .upload_img img {
-    width: 15em;
     height: 15em;
+    -o-object-fit: cover;
     object-fit: cover;
+    width: 15em
 }
 
+.upload_section form,
 .upload_section form div {
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .upload_section form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start
 }
 
 .upload_text {
     gap: 1em;
-    width: 100%;
+    width: 100%
 }
 
 #button_container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 100%
 }
 
-@media (min-width: 1300px) {
-
-    .upload_section form{
-        flex-direction: row;
+@media (min-width:1300px) {
+    .upload_section form {
         align-items: stretch;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: center
     }
 
     .upload_img {
-        width: 30em;
-        height: 30em;
-        margin-bottom: 0;
+        margin-bottom: 0
     }
-    
+
+    .upload_img,
     .upload_img img {
-        width: 30em;
         height: 30em;
+        width: 30em
     }
 
     .upload_text {
+        background-color: #c6f1d9;
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        justify-content: center;
         padding-left: 2em;
-        padding-right: 2em;
-        background-color: rgb(198, 241, 217);
+        padding-right: 2em
     }
 }
 
-/* index styling */
-
-
 .index_intro_section {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1em;
-    padding-top: 10em;
+    padding-top: 10em
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2em
 }
 
 h2 {
-    margin-top: 5em;
+    margin-top: 5em
 }
 
 .intro_text_wrapper h2 {
     font-size: 1.1em;
-    width: 8em;
     margin-top: 0;
+    width: 8em
 }
 
 .index_intro_section img {
-    width: 13em;
+    width: 13em
 }
 
 .buy_sell_wrapper {
     display: flex;
-    gap: 2em;
+    gap: 2em
 }
 
 .fresh_showcase {
+    max-width: 50em;
     overflow: auto;
     white-space: nowrap;
-    width: 80%;
-    max-width: 50em;
+    width: 80%
 }
 
-.index_fresh_section {
-    display: flex;
-    flex-direction: column;
+.index_fresh_section,
+.index_how_section {
     align-items: center;
+    display: flex;
+    flex-direction: column
 }
 
 .index_how_section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5em;
+    margin-bottom: 5em
 }
 
-.step_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+.step_container,
 .step_container div {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    display: flex;
+    flex-direction: column
 }
 
 .step_container p {
-    margin-top: 10px;
     margin-bottom: 2em;
+    margin-top: 10px
 }
 
 .step_container img {
-    width: 15em;
     height: 15em;
+    -o-object-fit: cover;
     object-fit: cover;
+    width: 15em
 }
 
-@media (min-width: 1300px) {
+@media (min-width:1300px) {
     .step_container {
         flex-direction: row;
-        gap: 3em;
+        gap: 3em
     }
 
     .index_intro_section {
         flex-direction: row;
-        justify-content: center;
         gap: 4em;
+        justify-content: center
     }
 
     .index_intro_section img {
-        width: 20em;
         height: 20em;
+        -o-object-fit: cover;
         object-fit: cover;
+        width: 20em
     }
 
     .index_intro_section h1 {
-        font-size: 5em;
+        font-size: 5em
     }
 
     .intro_text_wrapper h2 {
-        font-size: 1.7em;
+        font-size: 1.7em
     }
 
     .showcase_btn_wrapper {
         display: flex;
-        flex-direction: column;
+        flex-direction: column
     }
 
     .buy_sell_wrapper {
         display: flex;
         justify-content: space-between;
-        margin-top: 1em;
+        margin-top: 1em
     }
 }
 
-/* Collection styling */
-
 .collection_intro {
-    margin: 0;
-    padding-top: 7em;
-    margin-left: 2em;
+    margin: 0 0 0 2em;
+    padding-top: 7em
 }
 
 .nft_showcase {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 3em;
-    margin-left: 1em;
-    margin-right: 1em;
+    justify-content: space-around;
     margin-bottom: 3em;
+    margin-left: 1em;
+    margin-right: 1em
 }
 
-.nft_showcase a{
-    display: flex;
-    flex-direction: column;
+.nft_showcase a {
     align-items: center;
+    display: flex;
+    flex-direction: column
 }
 
 .nft_showcase img {
     height: 17em;
-    width: 17em;
+    -o-object-fit: cover;
     object-fit: cover;
+    width: 17em
 }
 
 .nft_showcase h2 {
-    margin-top: .2em;
+    margin-top: .2em
 }
 
-@media (min-width: 800px) {
-    .collection_intro, .nft_showcase {
+@media (min-width:800px) {
+
+    .collection_intro,
+    .nft_showcase {
         margin-left: 10em;
-        margin-right: 10em;
+        margin-right: 10em
     }
 }
 
-@media (min-width: 1300px) {
-    .collection_intro, .nft_showcase {
+@media (min-width:1300px) {
+
+    .collection_intro,
+    .nft_showcase {
         margin-left: 15em;
-        margin-right: 15em;
+        margin-right: 15em
     }
 }
