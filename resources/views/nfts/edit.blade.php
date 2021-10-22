@@ -9,7 +9,7 @@
         <img src="{{ asset('images/test.jpg') }}" alt="Collection image">
 
         <div class="user_info_container">
-        <form method="post" action="{{ url('/nft/edit')}}">
+        <form method="post" action="{{ url('/collection')}}">
                 @csrf
                 <br>
                 <div>

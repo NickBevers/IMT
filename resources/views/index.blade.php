@@ -6,17 +6,13 @@
 
     
     <section class="index_intro_section">
-        <!-- @foreach($recents as $recent)
-            <p>{{ $recent->title }}{{ $recent->id }}</p>
-        @endforeach
-        <p><p>{{ $most_expensive->title }}</p></p> -->
         <div class="intro_text_wrapper">
             <h1>Interactive <br> Multimedia <br> Tokens</h1>
             <h2>Sweet dreams are made of NFT's</h2>
         </div>
 
         <div class="showcase_btn_wrapper">
-            <img src="{{ asset('images/art1.png') }}" alt="showcased NFT">
+            <img src="{{ asset('images/art2.png') }}" alt="{{$most_expensive->title}}"> <!--Nog aan te passen naar $most_expensive->media_url-->
 
             <div class="buy_sell_wrapper">
                 <a href="#">Buy NFT's!</a>
@@ -28,13 +24,9 @@
     <section class="index_fresh_section">
         <h2>Fresh stuff</h2>
         <div class="fresh_showcase">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
-            <img src="{{ asset('images/art2.png') }}" alt="showcased NFT">
+            @foreach($recents as $recent)
+            <img src="{{ asset('images/art3.png') }}" alt="{{$recent->title}}"><!--Nog aan te passen naar $recent->media_url-->
+            @endforeach
         </div>
     </section>
 
