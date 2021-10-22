@@ -13,7 +13,7 @@
 
     <section class="nft_showcase">
         @foreach($nfts as $nft)
-                <a href="/nft/detail/{{$nft->id}}">
+                <a href="/nft/addToCollection/{{$collection->id}}/{{$nft->id}}">
                     <img src="{{ asset('images/test.jpg') }}" alt="art for the nft {{ $nft->title }}" width="250px" style="margin-bottom: 0">
                     <p>{{ $nft->title }}</p>
                 </a>
