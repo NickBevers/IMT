@@ -10,7 +10,7 @@ use App\Http\Controllers\AppController;
 //root directory
 // Route::get('/', function () {return view('index');});
 // Route::get('/discover', function () {return view('discover');});
-Route::get('/', [AppController::class, 'index']);
+Route::get('/', [AppController::class, 'index']); //add check if user is logged in
 Route::get('/discover', [AppController::class, 'discover']);
 
 Route::get('/signup', [UserController::class, 'signup']); 
