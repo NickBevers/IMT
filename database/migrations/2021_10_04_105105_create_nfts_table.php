@@ -22,6 +22,7 @@ class CreateNftsTable extends Migration
             $table->String('media_url');
             $table->foreignId('collection_id');
             $table->boolean('for_sale')->default(0);
+            $table->json('owners');
             $table->timestamps();
         });
     }

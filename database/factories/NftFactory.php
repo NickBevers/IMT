@@ -27,7 +27,8 @@ class NftFactory extends Factory
             'price' => $this->faker->numberBetween(1, 500),
             'blockchain' => $this->faker->word(),
             'media_url' => $this->faker->word(),
-            'collection_id' => $this->faker->numberBetween(11, 15)
+            'collection_id' => $this->faker->numberBetween(11, 15),
+            'owners'=>[]
         ];
     }
 }
