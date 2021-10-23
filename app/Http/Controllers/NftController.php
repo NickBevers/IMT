@@ -51,8 +51,40 @@ class NftController extends Controller
         return view('user');
     }
 
+    public function buy($nft_id)
+    {
+        $user = Auth::user();
+        $user_wallet = $user->wallet;
+        $nft = \App\Models\Nft::where('id', $nft_id)->first();
+        $nft->user_id = $user->id;
+        $ownerArray = $nft->owners;
+        // dd($nft->owners);
+        if (in_array($user->wallet, $ownerArray)){
+            $lastKey = key(array_slice($ownerArray, -1, 1, true));
+            if((string) $lastKey != $user_wallet){
+                array_push($ownerArray, $user_wallet);
+                $nft->owners = $ownerArray;
+                $nft->update();
+            }
+            else{
+                //return the user to the detail view with data nft and user
+                return view('nfts/detail', ['nft' => $nft, 'user' => $user]);
+            }
+        }
+        else{
+            array_push($ownerArray, $user_wallet);
+            $nft->owners = $ownerArray;
+            $nft->update();
+        }
+        $nft->update();
+
+        
+
+        return view('user');
+    }
+
     public function removeFromCollection($nft_id){
-        $nft =\App\Models\Nft::where('id', $nft_id)->first();
+        $nft = \App\Models\Nft::where('id', $nft_id)->first();
         $nft->collection_id = 0;
         $nft->update();
         
