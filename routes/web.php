@@ -6,7 +6,6 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\NftController;
 use App\Http\Controllers\AppController;
 
-
 //root directory
 // Route::get('/', function () {return view('index');});
 // Route::get('/discover', function () {return view('discover');});
