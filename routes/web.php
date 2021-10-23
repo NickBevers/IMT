@@ -24,7 +24,8 @@ Route::post('/login', [UserController::class, 'handleLogin']);
 //     return redirect('login');
 // });
 
-Route::get('/logout', [UserController::class, 'login']);
+Route::get('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/edit', function () {return view('editProfile');});
 Route::post('/edit', [UserController::class, 'edit']); 
 

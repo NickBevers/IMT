@@ -30,9 +30,13 @@
             <div></div>
         </div>
         <a class="overlay_link" href="/discover">Discover</a>
-        <a class="overlay_link" href="/user">Profile</a>
-        <a class="overlay_link" href="/login">Log in</a>
-        <a class="overlay_link" href="/collection/{{ Auth::user()->first_name }}">My collection</a> <!-- Hier ook hetzelfde :)) -->
-  
+        @if(Auth::user())
+        <a href="/user">Profile</a>
+        <a href="/collection/{{ Auth::user()->first_name }}">My collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
+        <a href="/wallet">Wallet</a>
+        <a href="/logout">Log out</a>
+        @else 
+        <a href="/login">Log in</a>
+        @endif
     </div>
 </nav>
