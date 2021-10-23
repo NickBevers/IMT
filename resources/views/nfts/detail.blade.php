@@ -13,7 +13,7 @@
             <h3>{{ $nft->price }}</h3>
 
             <div class="buy_add_container">
-                <a href="#">Buy</a>
+                <a href="/nft/buy/{{$nft->id}}">Buy</a>
             </div>
         </div>
     </section>
