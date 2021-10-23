@@ -34,6 +34,7 @@ Route::get('/wallet', [NftController::class, 'show']);
 //Nft related
 Route::get('/nft/detail/{nft_id}', [NftController::class, 'showDetail']);
 Route::get('/nft/edit/{nft_id}', [NftController::class, 'edit']);
+Route::get('/nft/buy/{nft_id}', [NftController::class, 'buy']);
 Route::get('/nft/update/{nft_id}', [NftController::class, 'removeFromCollection']);
 Route::get('/nft/addToCollection/{collection_id}/{nft_id}', [NftController::class, 'addNftToCollection']);
 Route::get('/nft/remove/{nft_id}', [NftController::class, 'destroy']);
