@@ -9,6 +9,12 @@ class Nft extends Model
 {
     use HasFactory;
 
+    //type casting for the json of owners
+    protected $casts = [
+        'owners' => 'array'
+    ];
+
+
     //Nft only has 1 collection
     public function collection() {
         return $this->belongsTo(\App\models\Collection::class);
