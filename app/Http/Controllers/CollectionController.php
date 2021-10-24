@@ -78,6 +78,6 @@ class CollectionController extends Controller
         $collection = \App\Models\Collection::where('id', $id)->first();
         $collection->delete();
 
-        return view('user');
+        return view('/profile/user');
     }
 }

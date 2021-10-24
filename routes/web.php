@@ -23,9 +23,11 @@ Route::post('/login', [UserController::class, 'handleLogin']);
 //     return redirect('login');
 // });
 
-Route::get('/logout', [UserController::class, 'logout']);
-Route::post('/logout', [UserController::class, 'logout']);
-Route::get('/edit', function () {return view('editProfile');});
+//User related
+Route::get('/user', [UserController::class, 'index']); //Look at the UserController to see what function to call, in this case function index
+Route::get('user/logout', [UserController::class, 'logout']);
+Route::post('user/logout', [UserController::class, 'logout']);
+Route::get('/edit', function () {return view('/profile/edit');});
 Route::post('/edit', [UserController::class, 'edit']); 
 
 // Wallet related
@@ -38,7 +40,7 @@ Route::get('/nft/buy/{nft_id}', [NftController::class, 'buy']);
 Route::get('/nft/update/{nft_id}', [NftController::class, 'removeFromCollection']);
 Route::get('/nft/addToCollection/{collection_id}/{nft_id}', [NftController::class, 'addNftToCollection']);
 Route::get('/nft/remove/{nft_id}', [NftController::class, 'destroy']);
-Route::get('/upload', function() {return view('upload');});
+Route::get('/nft/add', [NftController::class, 'add']); // NOG AAN TE MAKEN
 Route::post('/nft/edit', [NftController::class, 'update']);
 
 
@@ -53,9 +55,6 @@ Route::get('/collection/remove/{collection_id}', [CollectionController::class, '
 Route::get('/collection/create', [CollectionController::class, 'create']);
 Route::post('/collection/edit', [CollectionController::class, 'update']);
 Route::post('/collection/store', [CollectionController::class, 'store']);
-
-//User related
-Route::get('/user', [UserController::class, 'index']); //Look at the UserController to see what function to call, in this case function index
 
 //Search related
 Route::get('/search', [NftController::class, 'searchResults']);

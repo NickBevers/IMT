@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index() {
         $data['title'] = "Profile";
-        return view('user', $data);
+        return view('profile/user', $data);
     }
 
     public function signup() {
