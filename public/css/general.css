@@ -675,3 +675,8 @@ h2 {
         margin-right: 15em
     }
 }
+
+.error_message{
+    width: 200px;
+    max-width: 200px;
+}
