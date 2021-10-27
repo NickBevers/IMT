@@ -1,4 +1,7 @@
 <nav>
+@if (!Auth::check() && !Request::is('discover') && !Request::is('/'))
+    <script>window.location = "/login";</script>
+@endif
     <div class="logo_search_wrapper">
         <a href="/"><img id="nav_logo" src="{{ asset('images/test_logo.png') }}" alt="logo"></a>
         <form method="GET" action="/search ">
