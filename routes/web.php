@@ -17,12 +17,6 @@ Route::post('/signup', [UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'login']); 
 Route::post('/login', [UserController::class, 'handleLogin']); 
 
-// Route::get('/logout', function() {
-//     Auth::logout();
-//     Session::flush();
-//     return redirect('login');
-// });
-
 //User related
 Route::get('/user', [UserController::class, 'index']); //Look at the UserController to see what function to call, in this case function index
 Route::get('user/logout', [UserController::class, 'logout']);

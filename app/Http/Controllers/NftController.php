@@ -48,7 +48,7 @@ class NftController extends Controller
         }
         $nft->update();
         
-        return view('user');
+        return view('profile/user');
     }
 
     public function buy($nft_id)
@@ -80,23 +80,25 @@ class NftController extends Controller
 
         
 
-        return view('user');
+        return view('profile/user');
     }
 
     public function removeFromCollection($nft_id){
+        $user = Auth::user();
         $nft = \App\Models\Nft::where('id', $nft_id)->first();
         $nft->collection_id = 0;
         $nft->update();
         
-        return view('user');
+        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
 
     public function addNftToCollection($collection_id, $nft_id){
+        $user = Auth::user();
         $nft =\App\Models\Nft::where('id', $nft_id)->first();
         $nft->collection_id = $collection_id;
         $nft->update();
 
-        return view('user');
+        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
 
 
@@ -105,6 +107,6 @@ class NftController extends Controller
         $collection = \App\Models\Nft::where('id', $id)->first();
         $collection->delete();
 
-        return view('user');
+        return view('profile/user');
     }
 }

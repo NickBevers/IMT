@@ -44,7 +44,7 @@ class CollectionController extends Controller
         $collection->user_id=$user->id;
         $collection->save();
         
-        return redirect('user');
+        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
 
     public function addNft($collection_id){

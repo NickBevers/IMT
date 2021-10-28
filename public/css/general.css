@@ -393,7 +393,7 @@ nav {
     margin-bottom: 3em;
     margin-left: 1em;
     margin-right: 1em;
-    padding-top: 10em
+    padding-top: 10em;
 }
 
 .profile_picture {
@@ -437,7 +437,7 @@ nav {
     min-width: 10em
 }
 
-.user_info_container form input, .login_signup_section form input, .collection_intro form input {
+.user_info_container form input, .login_signup_section form input, .collection_intro form input, .user_info_container form textarea {
     font-family: Montserrat, sans-serif;
     border: none;
     font-size: 0.8em;
@@ -447,13 +447,13 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
-.login_signup_section form input, .collection_intro form input {
+.login_signup_section form input, .collection_intro form input, .user_info_container form input, .user_info_container form textarea {
     margin-top: 1em;
     margin-left: 0;
     margin-bottom: 1em;
 }
 
-.user_info_container .save_btn, .buy_add_container a {
+.user_info_container .save_btn, .buy_add_container a, .confirm_btn {
     font-family: Montserrat, sans-serif;
     text-decoration: none;
     font-weight: bold;
@@ -484,7 +484,7 @@ nav {
     margin-bottom: 2em;
 }
 
-.user_info_container .save_btn:hover,  .buy_add_container a:hover {
+.user_info_container .save_btn:hover,  .buy_add_container a:hover, .confirm_btn:hover {
         box-shadow: 3px 3px 20px green;
         color: green;
 }
