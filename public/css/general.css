@@ -1,5 +1,9 @@
 * {
-    font-family: Montserrat, sans-serif
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    background-color: #f1f1f1;
 }
 
 nav {
@@ -13,13 +17,40 @@ nav {
     width: 100%
 }
 
+.nav_links a {
+    text-decoration: none;
+    color: #FFBB73;
+    font-weight: bold;
+    margin-top: 0.5em;
+    text-shadow: 1px 1px 8px #FFBB73;
+}
+
+.nav_links a:hover {
+    text-shadow: 1px 1px 15px #FFBB73;
+}
+
 .logo_search_wrapper {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+}
+
+.logo_search_wrapper form {
+    margin-left: 5em;
+    margin-top: -2.5em;
+}
+
+.logo_search_wrapper form input {
+    font-family: Montserrat, sans-serif;
+    border: none;
+    font-size: 0.8em;
+    padding: 0.5em;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px #d4d4d4;
 }
 
 #nav_logo {
-    width: 11em
+    width: 3em;
+    display: flex;
 }
 
 .nav_links {
@@ -39,14 +70,15 @@ nav {
 }
 
 .nav_menu div {
-    background-color: #000;
+    background-color: #FFBB73;
+    box-shadow: 1px 1px 8px #FFBB73;
     height: .2em;
     width: 2em
 }
 
 .overlay_links {
     align-items: center;
-    background-color: rgba(54, 54, 54, .664);
+    background-color: rgba(54, 54, 54, .8);
     display: flex;
     flex-direction: column;
     gap: 4em;
@@ -61,11 +93,14 @@ nav {
 }
 
 .overlay_links a {
-    color: #fff;
     font-size: 2.5em;
     position: relative;
     text-decoration: none;
-    visibility: hidden
+    visibility: hidden;
+    text-transform: uppercase;
+    color: #FFBB73;
+    font-weight: bold;
+    text-shadow: 1px 1px 8px #FFBB73;
 }
 
 .animated_fadeIn {
@@ -86,7 +121,8 @@ nav {
 }
 
 .nav_close div {
-    background-color: #fff;
+    background-color: #FFBB73;
+    box-shadow: 1px 1px 8px #FFBB73;
     height: .2em;
     margin-top: .2em;
     width: 2em
@@ -245,7 +281,9 @@ nav {
 
 .side_filters {
     align-items: center;
-    background-color: #d4d4d4;
+    background-color: #fdd8b1;
+    box-shadow: 0px 10px 10px #FFBB73;
+    border-radius: 0 10px 0 0;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -255,7 +293,36 @@ nav {
     padding-top: 1em;
     top: 5.5em;
     width: 10em;
-    z-index: 99
+    z-index: 99;
+}
+
+.side_filters div, .side_filters input {
+    margin-left: 1em;
+}
+
+.side_filters div select {
+    margin: 0.5em 0 1.5em 0;
+}
+
+.side_filters input {
+    font-family: Montserrat, sans-serif;
+    border: none;
+    padding: 0.5em;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.side_filters select {
+    font-family: Montserrat, sans-serif;
+    border: none;
+    font-size: 0.8em;
+    padding: 0.5em;
+    border-radius: 8px;
+}
+
+.side_filters input:hover {
+    box-shadow: 3px 3px 20px #FFBB73;
+    color: #FFBB73;
 }
 
 .filter_button,
@@ -290,7 +357,9 @@ nav {
     min-height: 3em;
     -o-object-fit: cover;
     object-fit: cover;
-    width: 33%
+    width: 33%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #FFBB73;
 }
 
 @media (min-width:800px) {
@@ -331,7 +400,33 @@ nav {
     height: 15em;
     -o-object-fit: cover;
     object-fit: cover;
-    width: 15em
+    width: 15em;
+    border-radius: 10px;
+}
+
+.edit_btn, .cancel_btn, .nft_showcase a {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    padding: 0.5em;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px #d4d4d4;
+}
+
+.cancel_btn {
+    float: right;
+}
+
+.cancel_btn:hover {
+    box-shadow: 3px 3px 20px red;
+    color: red;
+    text-align: left;
+}
+
+.edit_btn:hover, .nft_showcase a:hover {
+    box-shadow: 3px 3px 20px #FFBB73;
+    color: #FFBB73;
 }
 
 .user_info_container {
@@ -340,6 +435,49 @@ nav {
     flex-direction: column;
     max-width: 30em;
     min-width: 10em
+}
+
+.user_info_container form input, .login_signup_section form input {
+    font-family: Montserrat, sans-serif;
+    border: none;
+    font-size: 0.8em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px #d4d4d4;
+}
+
+.login_signup_section form input {
+    margin-top: 1em;
+    margin-left: 0;
+}
+
+.user_info_container .save_btn {
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+    padding: 0.5em;
+    margin-right: 2em;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 3px 3px 10px #d4d4d4;
+}
+
+.login_btn {
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+    padding: 0.5em;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 3px 3px 10px #d4d4d4;
+}
+
+.user_info_container .save_btn:hover {
+        box-shadow: 3px 3px 20px green;
+        color: green;
 }
 
 @media (min-width:1300px) {
@@ -358,7 +496,8 @@ nav {
     .user_info_container h2 {
         align-self: flex-start;
         font-size: 3em;
-        margin-bottom: 0
+        margin-bottom: 0;
+        margin-top: 0;
     }
 
     .edit_btn,
@@ -402,7 +541,8 @@ nav {
 .top_nft_container img {
     -o-object-fit: cover;
     object-fit: cover;
-    width: 33%
+    width: 33%;
+    border-radius: 10px;
 }
 
 .buy_add_container {
@@ -541,12 +681,30 @@ h2 {
 }
 
 .index_intro_section img {
-    width: 13em
+    width: 13em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+    box-shadow: 4px 4px 25px #FFBB73;
 }
 
 .buy_sell_wrapper {
     display: flex;
-    gap: 2em
+    gap: 0.3em
+}
+
+.buy_sell_wrapper a {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    padding: 0.5em;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px #d4d4d4;
+}
+
+.buy_sell_wrapper a:hover {
+    box-shadow: 3px 3px 20px #FFBB73;
+    color: #FFBB73;
 }
 
 .fresh_showcase {
@@ -554,6 +712,30 @@ h2 {
     overflow: auto;
     white-space: nowrap;
     width: 80%
+}
+
+.fresh_showcase::-webkit-scrollbar {
+  height: 5px;
+}
+  
+  /* Track */
+.fresh_showcase::-webkit-scrollbar-track {
+  background: none; 
+}
+   
+  /* Handle */
+.fresh_showcase::-webkit-scrollbar-thumb {
+  background: #FFBB73; 
+  border-radius: 10px;
+}
+  
+  /* Handle on hover */
+.fresh_showcase::-webkit-scrollbar-thumb:hover {
+  background: #fdd8b1; 
+}
+
+.fresh_showcase img {
+    border-radius: 10px;
 }
 
 .index_fresh_section,
@@ -651,7 +833,8 @@ h2 {
     height: 17em;
     -o-object-fit: cover;
     object-fit: cover;
-    width: 17em
+    width: 17em;
+    border-radius: 10px;
 }
 
 .nft_showcase h2 {

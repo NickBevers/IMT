@@ -32,10 +32,9 @@
                     <input value="{{Auth::user()->email}}" type="text" name="email" id="email" placeholder="{{Auth::user()->email}}">
                 </div>
                 <br>
-                <button type="submit" class="login_btn">Save</button>
+                <button type="submit" class="save_btn">Save</button>
+            <a href="/user" class="cancel_btn">Cancel</a>
         </form>
-        <br>
-            <a href="/user" class="edit_btn">Cancel</a>
         </div>
     </section>
 @endsection

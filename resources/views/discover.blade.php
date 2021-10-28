@@ -48,7 +48,7 @@
             <div>
                 <p>Third filter</p>
             </div>
-            <input type="submit">
+            <input type="submit" value="Search">
         </form>
     </div>
     

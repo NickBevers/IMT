@@ -4,8 +4,8 @@
 <!-- Collection -->
     @include('../partials/navigation')
     <section class="collection_intro">
-        <h1>Bailey's collection of NFT's</h1>
-        <p>All of the nft's Bailey has collected so far!</p>
+        <h1>Your collection of NFT's</h1>
+        <p>All of the nft's you have collected so far!</p>
     </section>
 
     <section class="nft_showcase">

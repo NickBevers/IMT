@@ -3,8 +3,8 @@
 @section('content')
 <!-- Collection -->
     @include('../partials/navigation')
-    <section class="">
-        <h1>All of {{$user}} NFT's</h1>
+    <section class="collection_intro">
+        <h1>All your NFT's</h1>
     </section>
 
     <section class="nft_showcase">
