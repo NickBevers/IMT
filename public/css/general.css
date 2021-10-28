@@ -424,7 +424,7 @@ nav {
     text-align: left;
 }
 
-.edit_btn:hover, .nft_showcase a:hover {
+.edit_btn:hover, .nft_showcase a:hover, .collection_intro button:hover {
     box-shadow: 3px 3px 20px #FFBB73;
     color: #FFBB73;
 }
@@ -437,7 +437,7 @@ nav {
     min-width: 10em
 }
 
-.user_info_container form input, .login_signup_section form input {
+.user_info_container form input, .login_signup_section form input, .collection_intro form input {
     font-family: Montserrat, sans-serif;
     border: none;
     font-size: 0.8em;
@@ -447,12 +447,13 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
-.login_signup_section form input {
+.login_signup_section form input, .collection_intro form input {
     margin-top: 1em;
     margin-left: 0;
+    margin-bottom: 1em;
 }
 
-.user_info_container .save_btn {
+.user_info_container .save_btn, .buy_add_container a {
     font-family: Montserrat, sans-serif;
     text-decoration: none;
     font-weight: bold;
@@ -464,7 +465,7 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
-.login_btn {
+.login_btn, .collection_intro button {
     font-family: Montserrat, sans-serif;
     text-decoration: none;
     font-weight: bold;
@@ -475,7 +476,15 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
-.user_info_container .save_btn:hover {
+.collection_intro button {
+    float: right;
+    margin-top: -3.5em;
+    margin-left: -15em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.user_info_container .save_btn:hover,  .buy_add_container a:hover {
         box-shadow: 3px 3px 20px green;
         color: green;
 }

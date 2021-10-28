@@ -60,7 +60,7 @@
                     <input type="password" name="password_verify" id="password_verify" placeholder="******">
                 </div>-->
         
-                <button type="submit" class="login_btn">register</button>
+                <button type="submit" class="login_btn">Register</button>
             </form>
             <a href="/login" class="signup_btn">I already have an account</a>
         </section>
