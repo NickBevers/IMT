@@ -14,6 +14,7 @@
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
+    {{-- @include('../partials/navigation') --}}
     @yield('content')
 </body>
 </html>
