@@ -24,10 +24,10 @@
                 <br>
                 <input type='hidden' name='old_value' value="{{$collection->id}}">
                 <br>
-                <button type="submit" class="confirm_btn" style="margin-left: 65px;">Save</button>
+                <button type="submit" class="confirm_btn">Save</button>
+                <a href="../detail/{{ $collection->title }}" class="cancel_btn">Cancel</a>
         </form>
         <br>
-            <a href="../detail/{{ $collection->title }}" class="cancel_btn">Cancel</a>
         </div>
     </section>
 @endsection

@@ -61,7 +61,7 @@ class CollectionController extends Controller
     }
 
     public function edit($collection_id){
-        $data['collection'] = \App\Models\Collection::where('title', $collection_id)->first();
+        $data['collection'] = \App\Models\Collection::where('id', $collection_id)->first();
         return view('collections/edit', $data);
     }
 
