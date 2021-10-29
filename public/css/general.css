@@ -469,7 +469,7 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
-.login_btn, .collection_intro button {
+.login_btn, .collection_intro button, .add_btn {
     font-family: Montserrat, sans-serif;
     text-decoration: none;
     font-weight: bold;
@@ -480,7 +480,8 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
-.collection_intro button {
+.collection_intro button, .add_btn {
+    color: black;
     float: right;
     margin-top: -3.5em;
     margin-left: -15em;
@@ -642,6 +643,15 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     width: 100%
+}
+
+form div .checkbox_form{
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.checkbox_form input{
+    margin-right: 1em;    
 }
 
 @media (min-width:1300px) {
