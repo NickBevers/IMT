@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Redirector;
 
 class NftController extends Controller
 {
@@ -30,6 +31,36 @@ class NftController extends Controller
         $data['title'] = "Search for " . $search_query;
         // dd($request);
         return view('search', $data);
+    }
+
+    public function create()
+    {
+        $data['collections'] = \App\Models\Collection::all();
+        return view('nfts/add', $data);
+    }
+
+    public function store(Request $request)
+    {
+        // $request->validate([
+        //     'title' => 'required|unique:App\Models\Nft,title',
+        //     'description' => 'required',
+        // ]);
+
+        $user = Auth::user();
+
+        $nft = new \App\Models\Nft();
+        $nft->title = $request['title'];
+        $nft->user_id = $user->id;
+        $nft->price = $request['price'];
+        $nft->collection_id = $request['collection'];
+        if ($request['for_sale']) {
+            $nft->for_sale = 1;
+        }
+        
+        $nft->owners = array($user->wallet);
+        $nft->save();
+        
+        return redirect()->action([NftController::class, 'show']);
     }
 
     public function edit($nft_id){
