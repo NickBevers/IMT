@@ -108,6 +108,10 @@ nav {
     animation: fadeIn 1s ease-out forwards
 }
 
+.alert-danger{
+    color: red;
+}
+
 .nav_close {
     display: none;
     position: fixed;

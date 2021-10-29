@@ -9,7 +9,11 @@
             @csrf
             <label for="title">Collection title:</label><br>
             <input type="text" id="title" name="title"><br>
+            @error('title')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
+            <br><br>
             <label for="description">Description:</label><br>
             <input type="text" id="description" name="description"><br>
             <input type="submit" value="Submit">

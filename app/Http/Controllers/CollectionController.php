@@ -37,6 +37,11 @@ class CollectionController extends Controller
     // Store the new collection in a database
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:App\Models\Collection,title',
+            'description' => 'required',
+        ]);
+
         $user = Auth::user();
         $collection = new \App\Models\Collection();
         $collection->title = $request['title'];
