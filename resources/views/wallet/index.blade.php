@@ -5,7 +5,7 @@
     @include('../partials/navigation')
     <section class="collection_intro">
         <h1>All your NFT's</h1>
-        <button>add NFT</button>
+        <a href="/nft/add" class="add_btn" style="height: 1.1em">Add NFT</a>
     </section>
 
     <section class="nft_showcase">
