@@ -62,11 +62,13 @@ class UserController extends Controller
         $user->profile_picture = $request->input('profile_picture', 'ellen.png'); // default picture
         //$user->password_verify = $request->input('password_verify');
         $user->save();
+
+        Auth::login($user);
         
         $request->flash();
         $request->session()->flash('message', 'Successfully registered🎉');
         
-        return redirect('login');
+        return redirect('/');
 
     }
 
