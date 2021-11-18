@@ -53,43 +53,14 @@
     </div>
     
     <section class="listing_section">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <img src="{{ asset('images/test.jpg') }}" alt="art1">
-        <section>
         @foreach($nfts as $nft)
-            <p>{{ $nft->id }} {{ $nft->title }}</p>
+            <div>
+                <a href="/nft/detail/{{ $nft->id }}">
+                    <img src="{{ asset('images/test.jpg') }}" alt="{{ $nft->title }}" data-id="{{ $nft->id }}">
+                    <p>{{ $nft->title }}</p>
+                </a> 
+            </div>
         @endforeach
-    </section>
     </section>
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>
