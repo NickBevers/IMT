@@ -366,6 +366,18 @@ nav {
     box-shadow: 0px 0px 10px #FFBB73;
 }
 
+.listing_section svg path {
+    fill: transparent;
+    stroke: #FFBB73;
+    stroke-dashoffset: inside;
+}
+
+.listing_section .heart {
+    position: absolute;
+    margin-top: -13em;
+    margin-left: 10.3em;
+}
+
 @media (min-width:800px) {
     .side_filters {
         left: 0
