@@ -22,7 +22,6 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word(),
             'content' => $this->faker->realText(200, 2),
             'nft_id' => $this->faker->numberBetween(1, 10),
             'user_id' => $this->faker->numberBetween(1, 4)
