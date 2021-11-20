@@ -15,6 +15,9 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 </head>
 <body>
+    @if (!Auth::check() && !Request::is('discover') && !Request::is('/') && !Request::is('login') && !Request::is('signup'))
+        <script>window.location = "/login";</script>
+    @endif
     {{-- @include('../partials/navigation') --}}
     @yield('content')
 </body>

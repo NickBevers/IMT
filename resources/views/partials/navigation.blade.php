@@ -1,7 +1,4 @@
 <nav>
-@if (!Auth::check() && !Request::is('discover') && !Request::is('/'))
-    <script>window.location = "/login";</script>
-@endif
     <div class="logo_search_wrapper">
         <a href="/"><img id="nav_logo" src="{{ asset('images/imt.png') }}" alt="logo"></a>
         <form method="GET" action="/search ">
@@ -10,6 +7,7 @@
     </div>
     
     <div class="nav_links">
+        <a href="/">Home</a>
         <a href="/discover">Discover</a>
         @if(Auth::user())
         <a href="/collection/{{ Auth::user()->first_name }}">Collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
@@ -32,6 +30,7 @@
             <div></div>
             <div></div>
         </div>
+        <a class="overlay_link" href="/">Home</a>
         <a class="overlay_link" href="/discover">Discover</a>
         @if(Auth::user())
         <a class="overlay_link" href="/collection/{{ Auth::user()->first_name }}">Collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
