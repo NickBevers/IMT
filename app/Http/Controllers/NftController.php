@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\DB;
 
 class NftController extends Controller
 {
@@ -16,11 +17,17 @@ class NftController extends Controller
     }
 
     public function showDetail($nft_id) {
-        // dd($nft_id);
         $nft = \App\Models\Nft::where('id', $nft_id)->with('user')->first();
+        $comments = DB::table('comments')
+            ->join('users', 'comments.user_id', '=', 'users.id')
+            ->select("comments.user_id", "comments.content", "users.first_name", "comments.created_at")
+            ->where('nft_id', $nft_id)
+            ->orderBy('created_at', 'desc')
+            ->get();
         $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
+        $data['comments'] = $comments;
         return view('nfts/detail', $data);
     }
 
@@ -132,12 +139,23 @@ class NftController extends Controller
         return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
 
-
     public function destroy($id)
     {
         $collection = \App\Models\Nft::where('id', $id)->first();
         $collection->delete();
 
         return view('profile/user');
+    }
+
+    public function addComment(Request $request) {
+        $user = Auth::user();
+        $post_id = (int)$request->input('id');
+        $comment = new \App\Models\Comment();
+        $comment->content = $request->input('content');
+        $comment->user_id = $user->id;
+        $comment->nft_id = $post_id;
+        $comment->save();
+        
+        return back();
     }
 }
