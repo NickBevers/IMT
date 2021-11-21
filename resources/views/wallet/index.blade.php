@@ -15,9 +15,6 @@
                 <a href="/nft/detail/{{$nft->id}}" style="margin-bottom: 0">
                     <img src="{{ asset('images/test.jpg') }}" alt="art for the nft {{ $nft->title }}" width="250px" style="margin-bottom: 0">
                     <p>{{ $nft->title }}</p>
-                    @if($nft->for_sale == 0)
-                    <p>This NFT cannot be bought right now</p>
-                    @endif
                 </a>
                 
             </div>

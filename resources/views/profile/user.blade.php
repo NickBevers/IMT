@@ -15,6 +15,7 @@
                 this guy.
             </p>
             <a href="/edit" class="edit_btn">Edit profile</a>
+            <div class="edit_btn" id="connectToWallet">Connect wallet</div>
 
             <h3>Top owned NFT's</h3>
             <div class="top_nft_container">
@@ -27,4 +28,5 @@
     </section>
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>
+    <script src="{{asset('js/connectToWallet.js')}}"></script>
 @endsection
