@@ -10,6 +10,9 @@
             <p>
                 Created by: {{ $user->first_name . " " .  $user->last_name }}
             </p>
+            @if($nft->for_sale == 0)
+                <p>This NFT cannot be bought right now</p>
+            @endif
             <h3>{{ $nft->price }}</h3>
 
             <div class="buy_add_container">
@@ -21,7 +24,7 @@
         <form method="POST" action="{{ url('/nft/detail/addComment') }}">
             @csrf
             <input type="hidden" value="{{$nft->id}}" name="id">
-            <!-- <livewire:comment-post /> -->
+            {{-- <livewire:comment-post /> --}}
             <label for="content">Content</label>
             <input type="text" name="content">
             <button type="submit">Submit</button>
