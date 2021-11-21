@@ -26,7 +26,6 @@ class NftFactory extends Factory
             'title' => $this->faker->unique()->word(),
             'user_id' => $this->faker->numberBetween(1, 5),
             'price' => $this->faker->numberBetween(1, 500),
-            'blockchain' => $this->faker->word(),
             'media_url' => $images[rand(0, 4)],
             'collection_id' => $this->faker->numberBetween(11, 15),
             'owners'=>[]
