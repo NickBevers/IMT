@@ -25,7 +25,8 @@
         <h2>Fresh stuff</h2>
         <div class="fresh_showcase">
             @foreach($recents as $recent)
-            <a href="/nft/detail/{{ $recent->id }}"><img src="{{ asset('images/art3.png') }}" alt="{{$recent->title}}"></a><!--Nog aan te passen naar $recent->media_url-->
+            {{-- <a href="/nft/detail/{{ $recent->id }}"><img src="{{ asset('images/art3.png') }}" alt="{{$recent->title}}"></a><!--Nog aan te passen naar $recent->media_url--> --}}
+            <a href="/nft/detail/{{ $recent->id }}"><img src="https://gateway.pinata.cloud/ipfs/{{$recent->media_url}}" alt="{{$recent->title}}" width="200px"></a>
             @endforeach
         </div>
     </section>
