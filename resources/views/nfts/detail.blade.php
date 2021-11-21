@@ -16,7 +16,8 @@
             <h3>{{ $nft->price }}</h3>
 
             <div class="buy_add_container">
-                <a href="/nft/buy/{{$nft->id}}">Buy</a>
+                <a class="buy_btn">Buy</a>
+                <a class="buy_btn mint_btn" style="cursor: pointer">Mint</a>
             </div>
         </div>
     </section>
@@ -42,4 +43,5 @@
     </section>
     
     <script src="{{ asset('js/slide_menu.js') }}"></script>
+    <script src="{{ asset('js/connectToWallet.js') }}"></script>
 @endsection
