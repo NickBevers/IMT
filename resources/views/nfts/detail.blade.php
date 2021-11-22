@@ -10,13 +10,21 @@
             <p>
                 Created by: {{ $user->first_name . " " .  $user->last_name }}
             </p>
-            @if($nft->for_sale == 0)
+            {{-- Change to if isForSale(tokenId) on contract -> show buy button, else show 'not for sale' --}}
+            @if($nft->for_sale == 0) 
                 <p>This NFT cannot be bought right now</p>
             @endif
+
+            {{-- getPrice(tokenId) returns the price of an NFT --}}
             <h3>{{ $nft->price }}</h3>
 
             <div class="buy_add_container">
+                {{-- buyNFT(tokenId) when clicked on buy btn --}}
                 <a class="buy_btn">Buy</a>
+
+                {{-- check if currentAccount = owner && check if nft was never sold--}}
+                {{-- if currentAccount == owner && NFT was never sold before -> mintNFT( tokenUri, price) !!Geef de currentAccount mee aan de backend route om die te storen in de db --}}
+                {{-- if currentAccount == owner && NFT was sold before -> putUpForSale(tokenId, price) !!Geef de currentAccount mee naar de backend om de owner te veranderen in de db (enkel bij succesvolle transactie) --}}
                 <a class="buy_btn mint_btn" style="cursor: pointer">Mint</a>
             </div>
         </div>
@@ -43,5 +51,5 @@
     </section>
     
     <script src="{{ asset('js/slide_menu.js') }}"></script>
-    <script src="{{ asset('js/connectToWallet.js') }}"></script>
+    <script src="{{ asset('js/mintNFT.js') }}"></script>
 @endsection
