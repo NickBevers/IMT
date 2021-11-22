@@ -53,5 +53,4 @@
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>
     <script src="{{ asset('js/horizontal_scroll.js') }}"></script>
-    <script src="{{asset('js/connectToWallet.js')}}"></script>
 @endsection
