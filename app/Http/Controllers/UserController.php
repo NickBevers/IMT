@@ -83,6 +83,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+        //TODO: Update img instead of uploading a new image
 
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
