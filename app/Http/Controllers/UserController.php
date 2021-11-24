@@ -59,7 +59,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->wallet = $request->input('firstname'); // didn't knew what to put into
-        $user->profile_picture = $request->input('profile_picture', 'ellen.png'); // default picture
+        $user->profile_picture = $request->input('profile_picture', './images/default_profilepicture.png'); // default picture
         //$user->password_verify = $request->input('password_verify');
         $user->save();
 
