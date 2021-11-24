@@ -23,7 +23,7 @@ class CommentFactory extends Factory
     {
         return [
             'content' => $this->faker->realText(200, 2),
-            'nft_id' => $this->faker->numberBetween(1, 10),
+            'nft_id' => $this->faker->numberBetween(1, 80),
             'user_id' => $this->faker->numberBetween(1, 4)
         ];
     }
