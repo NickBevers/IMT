@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Collection -->
-    @include('../partials/navigation')
     <section class="collection_intro">
         <h1>Add a collection</h1>
         <form method="post" action="{{url('/collection/store')}}">

@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Collection -->
-    @include('../partials/navigation')
     <section class="collection_intro">
         <h1>Your collection of NFT's</h1>
         <p>All your own groups of NFT's!</p>

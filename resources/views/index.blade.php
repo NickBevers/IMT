@@ -2,9 +2,6 @@
 
 @section('content')
 <!-- Home -->
-    @include('partials/navigation')
-
-    
     <section class="index_intro_section">
         <div class="intro_text_wrapper">
             <h1>Interactive <br> Multimedia <br> Tokens</h1>

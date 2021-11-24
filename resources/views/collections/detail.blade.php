@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Detail -->
-    @include('partials/navigation')
     <section class="nft_section">
         <img class="nft_picture" src="{{ asset('images/art1.png') }}" alt="nft picture">
         <div class="nft_info_container">

@@ -2,8 +2,6 @@
 
 @section('content')
 <!-- User -->
-    @include('partials/navigation')
-
     <section class="profile_section">
         <img class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
 

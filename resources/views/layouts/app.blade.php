@@ -21,7 +21,7 @@
     @if (!Auth::check() && !Request::is('discover') && !Request::is('/') && !Request::is('login') && !Request::is('signup'))
         <script>window.location = "/login";</script>
     @endif
-    {{-- @include('../partials/navigation') --}}
+    @include('../partials/navigation')
     @yield('content')
     @livewireScripts
 </body>

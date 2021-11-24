@@ -2,8 +2,6 @@
 
 @section('content')
 <!-- Edit User Profile -->
-    @include('partials/navigation')
-
     <section class="profile_section">
         
         <img src="{{ asset('images/test.jpg') }}" alt="NFT Artwork">

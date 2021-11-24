@@ -2,8 +2,6 @@
 
 @section('content')
 <!-- Upload -->
-    @include('partials/navigation')
-    
     <section class="upload_section">
         <form method="post" action="/nft/store">
             @csrf
