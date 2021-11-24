@@ -1,6 +1,6 @@
 @servers (['production' => 'deploybot@139.162.131.215'])
 
-@task(‘deploy’, [‘on’ => ‘production’])
+@task('deploy', ['on' => 'production'])
 5AZZpVpTrWRmM2Wz$M98
 cd /home/deploybot/app/imt/
 php artisan down
@@ -11,7 +11,7 @@ php artisan migrate --force
 php artisan up
 @endtask
 
-@task(‘deploybeta’, [‘on’ => ‘production’])
+@task('deploybeta', ['on' => 'production'])
 5AZZpVpTrWRmM2Wz$M98
 cd /home/deploybot/app/imt/
 php artisan down
