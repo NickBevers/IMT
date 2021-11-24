@@ -83,6 +83,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+        //TODO: Update img instead of uploading a new image
 
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
@@ -101,6 +102,13 @@ class UserController extends Controller
         $user->update();
         
         return redirect('user');
+    }
+
+    public function removeProfilePicture() {
+        $user = Auth::user();
+        $user->profile_picture = './images/default_profilepicture.png';
+        //TODO: Remove old profile picture from cloudinary
+        $user->update();
     }
 }
 
