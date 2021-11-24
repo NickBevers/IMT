@@ -102,6 +102,13 @@ class UserController extends Controller
         
         return redirect('user');
     }
+
+    public function removeProfilePicture() {
+        $user = Auth::user();
+        $user->profile_picture = './images/default_profilepicture.png';
+        //TODO: Remove old profile picture from cloudinary
+        $user->update();
+    }
 }
 
 //Add failsafe in case of no user

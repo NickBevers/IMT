@@ -5,7 +5,7 @@
     <section class="profile_section">
         
         <img id="uploadPreview" class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
-        <img class="trash_icon" src="{{ URL::asset("images/delete_icon.png") }}" alt="Trash icon">
+        <livewire:remove-image/>
 
         <div class="user_info_container">
         <form method="post" action="{{ url('/edit') }}" enctype="multipart/form-data">
@@ -50,6 +50,7 @@
             <a href="/user" class="cancel_btn">Cancel</a>
         </form>
         </div>
-    <script src="{{ URL::asset('js/img_upload.js') }}"></script>
+        <script src="{{ URL::asset('js/img_upload.js') }}"></script>
+        <script src="{{ URL::asset('js/img_delete.js') }}"></script>
     </section>
 @endsection
