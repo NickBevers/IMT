@@ -2,8 +2,6 @@
 
 @section('content')
 <!-- User -->
-    @include('partials/navigation')
-
     <section class="profile_section">
         <img class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
 
@@ -15,6 +13,7 @@
                 this guy.
             </p>
             <a href="/edit" class="edit_btn">Edit profile</a>
+            <div class="edit_btn" id="connectToWallet">Connect wallet</div>
 
             <h3>Top owned NFT's</h3>
             <div class="top_nft_container">
@@ -27,4 +26,5 @@
     </section>
 
     <script src="{{ asset('js/slide_menu.js') }}"></script>
+    <script src="{{asset('js/connectToWallet.js')}}"></script>
 @endsection

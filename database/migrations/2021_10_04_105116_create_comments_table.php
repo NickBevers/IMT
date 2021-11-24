@@ -15,7 +15,6 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->String('title');
             $table->String('content');
             //$table->bigInteger('nfts_id')->unsigned()->index();
             //$table->foreign('nfts_id')->references('id')->on('nfts');

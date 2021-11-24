@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Detail -->
-    @include('partials/navigation')
     <section class="nft_section">
         <img class="nft_picture" src="{{ asset('images/art1.png') }}" alt="nft picture">
         <div class="nft_info_container">
@@ -26,7 +25,7 @@
                     <p>{{ $nft->title }}</p>
                     <a href="/nft/edit/{{ $nft->id }}" style="height: 1.1em">Edit this NFT</a><br>
                     <a href="/nft/remove/{{ $nft->id }}" style="height: 1.1em">Remove this NFT</a><br>
-                    <a href="/nft/update/{{ $nft->id }}" style="height: 1.1em">Remove from this Collection</a><br><br><br><br><br>
+                    <a href="/nft/removeFromCollection/{{ $nft->id }}" style="height: 1.1em">Remove from this Collection</a><br><br><br><br><br>
                 </a>
 
             @endforeach

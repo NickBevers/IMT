@@ -2,14 +2,12 @@
 
 @section('content')
 <!-- Edit User Profile -->
-    @include('partials/navigation')
-
     <section class="profile_section">
         
-        <img src="{{ asset('images/test.jpg') }}" alt="Collection image">
+        <img src="{{ asset('images/test.jpg') }}" alt="NFT Artwork">
 
         <div class="user_info_container">
-        <form method="post" action="{{ url('/nft/edit')}}">
+        <form method="post" action="{{url('/nft/edit')}}">
                 @csrf
                 <br>
                 <div>
@@ -20,6 +18,11 @@
                 <div>
                     <label for="price">Price</label><br>
                     <input value="{{$nft->price}}" type="text" name="price" id="price">
+                </div>
+                <br>
+                <div>
+                    <label for="for_sale">Put NFT for sale</label><br>
+                    <input type="checkbox" name="for_sale" id="for_sale">
                 </div>
                 <br>
                 <input type='hidden' name='id' value="{{$nft->id}}">

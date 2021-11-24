@@ -18,11 +18,12 @@ class CreateNftsTable extends Migration
             $table->String('title')->unique();
             $table->foreignId('user_id');
             $table->Integer('price');
-            $table->String('blockchain');
-            $table->String('media_url');
-            //$table->bigInteger('collection_id')->unsigned()->index();
-            //$table->foreign('collection_id')->references('id')->on('collections');
+            $table->String('owner_address')->default("");
+            $table->STring('nft_hash')->default("");
+            $table->String('media_url')->default("http://WE_NEED_TO_CHANGE_THIS_TO_A_URL");
             $table->foreignId('collection_id');
+            $table->boolean('for_sale')->default(0);
+            $table->json('owners');
             $table->timestamps();
         });
     }

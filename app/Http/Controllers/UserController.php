@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index() {
         $data['title'] = "Profile";
-        return view('user', $data);
+        return view('profile/user', $data);
     }
 
     public function signup() {
@@ -42,16 +42,14 @@ class UserController extends Controller
 
     public function logout() {
         Auth::logout();
-        Session::flush();
         return redirect('login');
     }
 
     public function store(Request $request) {
-
-        $validated = $request->validate([
+        $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:App\Models\User,email',
             'password' => 'required',
         ]);
 
@@ -64,11 +62,13 @@ class UserController extends Controller
         $user->profile_picture = $request->input('profile_picture', 'ellen.png'); // default picture
         //$user->password_verify = $request->input('password_verify');
         $user->save();
+
+        Auth::login($user);
         
         $request->flash();
         $request->session()->flash('message', 'Successfully registered🎉');
         
-        return redirect('login');
+        return redirect('/');
 
     }
 
@@ -77,14 +77,25 @@ class UserController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required',
+            'old_password' => 'nullable',
+            'new_password' => 'nullable',
         ]);
-        $user =Auth::user();
+        $user = Auth::user();
 
         // $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
 
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
         $user->email = $request['email'];
+        
+        if(!empty($request->input('old_password')) && !empty($request->input('new_password'))){
+            if(Hash::check($request->old_password, Auth::user()->password)) {
+                $user->password = Hash::make($request['new_password']);
+            } else {
+                $request->session()->flash('message', 'Old password is not correct.');
+                return redirect('/edit');
+            }
+        }
         // $user->profile_picture = $uploadedFileUrl;
         
         $user->update();

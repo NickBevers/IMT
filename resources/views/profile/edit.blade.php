@@ -2,8 +2,6 @@
 
 @section('content')
 <!-- Edit User Profile -->
-    @include('partials/navigation')
-
     <section class="profile_section">
         
         <img class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
@@ -12,6 +10,11 @@
         <form method="post" action="{{ url('/edit') }}" enctype="multipart/form-data">
                 @csrf
                 <br>
+                @if ($flash = session('message'))
+                    <ul style="color: red;">
+                        <li>{{ $flash }}</li>
+                    </ul>
+                @endif
                 <div>
                     <label for="profilePicture">Profile picture</label>
                     <input type="file" name="profilePicture" id="profilePicture" accept="image/png, image/jpeg">
@@ -32,10 +35,19 @@
                     <input value="{{Auth::user()->email}}" type="text" name="email" id="email" placeholder="{{Auth::user()->email}}">
                 </div>
                 <br>
-                <button type="submit" class="login_btn">Save</button>
+                <div>
+                    <label for="old_password">Old password</label>
+                    <input value="" type="password" name="old_password" id="old_password" placeholder="********">
+                </div>
+                <br>
+                <div>
+                    <label for="new_password">New password</label>
+                    <input value="" type="password" name="new_password" id="new_password" placeholder="********">
+                </div>
+                <br>
+                <button type="submit" class="save_btn">Save</button>
+            <a href="/user" class="cancel_btn">Cancel</a>
         </form>
-        <br>
-            <a href="/user" class="edit_btn">Cancel</a>
         </div>
     </section>
 @endsection

@@ -3,15 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\DB;
 
 class NftController extends Controller
 {
+    public function show() {
+        $user = Auth::user();
+        $data['user'] = $user->first_name . " " . $user->last_name;
+        $data['nfts'] = \App\Models\Nft::where('user_id', $user->id)->get();
+        return view('wallet/index', $data);
+    }
+
     public function showDetail($nft_id) {
-        // dd($nft_id);
         $nft = \App\Models\Nft::where('id', $nft_id)->with('user')->first();
-        $user = \App\Models\User::where('id', $nft->user_id)->first();
+        $comments = DB::table('comments')
+            ->join('users', 'comments.user_id', '=', 'users.id')
+            ->select("comments.user_id", "comments.content", "users.first_name", "comments.created_at")
+            ->where('nft_id', $nft_id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
+        $data['comments'] = $comments;
         return view('nfts/detail', $data);
     }
 
@@ -24,6 +40,36 @@ class NftController extends Controller
         return view('search', $data);
     }
 
+    public function create()
+    {
+        $data['collections'] = \App\Models\Collection::all();
+        return view('nfts/add', $data);
+    }
+
+    public function store(Request $request)
+    {
+        // $request->validate([
+        //     'title' => 'required|unique:App\Models\Nft,title',
+        //     'description' => 'required',
+        // ]);
+
+        $user = Auth::user();
+
+        $nft = new \App\Models\Nft();
+        $nft->title = $request['title'];
+        $nft->user_id = $user->id;
+        $nft->price = $request['price'];
+        $nft->collection_id = $request['collection'];
+        if ($request['for_sale']) {
+            $nft->for_sale = 1;
+        }
+        
+        $nft->owners = array($user->wallet);
+        $nft->save();
+        
+        return redirect()->action([NftController::class, 'show']);
+    }
+
     public function edit($nft_id){
         $data['nft'] = \App\Models\Nft::where('id', $nft_id)->first();
         return view('nfts/edit', $data);
@@ -34,33 +80,82 @@ class NftController extends Controller
         // dd($collection);
         $nft->title = $request['title'];
         $nft->price = $request['price'];
+        // dd($request);
+        if ($request['for_sale']) {
+            $nft->for_sale = 1;
+        }
         $nft->update();
         
-        return view('user');
+        return view('profile/user');
+    }
+
+    public function buy($nft_id)
+    {
+        $user = Auth::user();
+        $user_wallet = $user->wallet;
+        $nft = \App\Models\Nft::where('id', $nft_id)->first();
+        $nft->user_id = $user->id;
+        $ownerArray = $nft->owners;
+        // dd($nft->owners);
+        if (in_array($user->wallet, $ownerArray)){
+            $lastKey = key(array_slice($ownerArray, -1, 1, true));
+            if((string) $lastKey != $user_wallet){
+                array_push($ownerArray, $user_wallet);
+                $nft->owners = $ownerArray;
+                $nft->update();
+            }
+            else{
+                //return the user to the detail view with data nft and user
+                return view('nfts/detail', ['nft' => $nft, 'user' => $user]);
+            }
+        }
+        else{
+            array_push($ownerArray, $user_wallet);
+            $nft->owners = $ownerArray;
+            $nft->update();
+        }
+        $nft->update();
+
+        
+
+        return view('profile/user');
     }
 
     public function removeFromCollection($nft_id){
-        $nft =\App\Models\Nft::where('id', $nft_id)->first();
+        $user = Auth::user();
+        $nft = \App\Models\Nft::where('id', $nft_id)->first();
         $nft->collection_id = 0;
         $nft->update();
         
-        return view('user');
+        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
 
     public function addNftToCollection($collection_id, $nft_id){
+        $user = Auth::user();
         $nft =\App\Models\Nft::where('id', $nft_id)->first();
         $nft->collection_id = $collection_id;
         $nft->update();
 
-        return view('user');
+        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
-
 
     public function destroy($id)
     {
         $collection = \App\Models\Nft::where('id', $id)->first();
         $collection->delete();
 
-        return view('user');
+        return view('profile/user');
+    }
+
+    public function addComment(Request $request) {
+        $user = Auth::user();
+        $post_id = (int)$request->input('id');
+        $comment = new \App\Models\Comment();
+        $comment->content = $request->input('content');
+        $comment->user_id = $user->id;
+        $comment->nft_id = $post_id;
+        $comment->save();
+        
+        return back();
     }
 }

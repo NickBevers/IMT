@@ -5,3 +5,4 @@
 
 <link rel="stylesheet" href="{{ asset('css/general.css') }}">
 <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+<link rel="icon" href="/favicon.ico" />

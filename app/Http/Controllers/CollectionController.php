@@ -20,10 +20,10 @@ class CollectionController extends Controller
     }
 
     // Show the detail page of a collection with the nft's in it
-    public function showDetail($collection_name) {
-        $collection = \App\Models\Collection::where('title', $collection_name)->first();
-        $nfts = \App\Models\Nft::where('collection_id', $collection->id)->get();
-        $data['collection'] = \App\Models\Collection::where('title', $collection_name)->first();
+    public function showDetail($collection_id) {
+        $collection = \App\Models\Collection::where('id', $collection_id)->with('nfts')->first();
+        $nfts = \App\Models\Nft::where('collection_id', $collection_id)->get();
+        $data['collection'] = $collection;
         $data['nfts'] = $nfts;
         return view('collections/detail', $data);
     }
@@ -37,6 +37,11 @@ class CollectionController extends Controller
     // Store the new collection in a database
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:App\Models\Collection,title',
+            'description' => 'required',
+        ]);
+
         $user = Auth::user();
         $collection = new \App\Models\Collection();
         $collection->title = $request['title'];
@@ -44,7 +49,7 @@ class CollectionController extends Controller
         $collection->user_id=$user->id;
         $collection->save();
         
-        return redirect('user');
+        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
     }
 
     public function addNft($collection_id){
@@ -52,11 +57,11 @@ class CollectionController extends Controller
         $user = Auth::user();
         $data['nfts'] = \App\Models\Nft::where('user_id', $user->id)->get();
         $data['collection'] = \App\Models\Collection::where('id', $collection_id)->first();
-        return view('nfts/index', $data);
+        return view('nfts/addToCollection', $data);
     }
 
     public function edit($collection_id){
-        $data['collection'] = \App\Models\Collection::where('title', $collection_id)->first();
+        $data['collection'] = \App\Models\Collection::where('id', $collection_id)->first();
         return view('collections/edit', $data);
     }
 
@@ -68,13 +73,8 @@ class CollectionController extends Controller
         $collection->update();
         
         $user =Auth::user();
-        // $user_id = \App\Models\User::where('first_name', $user->first_name)->first();
-        // $user_collection = \App\Models\Collection::where('user_id', $user_id->id)->with('user')->get();
-        // dd($user_collection);
-        // $data['username'] = $user->first_name;
-
-        return view('user');
-        // redirect()->route('/collection', [$user]);
+        // return view('collections/collection');
+        return redirect()->action([CollectionController::class, 'showDetail'], ['collection_id' => $collection->id]);
     }
 
     public function destroy($id)
@@ -83,6 +83,6 @@ class CollectionController extends Controller
         $collection = \App\Models\Collection::where('id', $id)->first();
         $collection->delete();
 
-        return view('user');
+        return view('/profile/user');
     }
 }

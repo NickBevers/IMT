@@ -16,6 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/img_upload.js', 'public/js')
     .js('resources/js/slide_filter.js', 'public/js')
     .js('resources/js/slide_menu.js', 'public/js')
+    .js('resources/js/connectToWallet', 'public/js')
     .postCss('resources/css/general.css', 'public/css', [
         //
     ]);
