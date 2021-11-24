@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Discover -->
-    @include('partials/navigation')
     <img class="filter_button" src="{{ asset('images/filter.png') }}" alt="filter icon">
 
     <!-- <div class="side_filters">
@@ -17,7 +16,7 @@
     <div class="side_filters">
         <form method="GET" action="">
             <div>
-                <label for="time_posted">Time posted</label>
+                <label for="time_posted">Zime posted</label>
                 <select name="time_posted">
                     <option value="All time">All time</option>
                     <option value="1 day">1 day ago</option>

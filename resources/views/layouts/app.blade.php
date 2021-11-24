@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? '' }}</title>
+    @livewireStyles
     
     <!-- Font import -->
     <style>
@@ -17,11 +18,10 @@
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 </head>
 <body>
-    @livewireStyles
     @if (!Auth::check() && !Request::is('discover') && !Request::is('/') && !Request::is('login') && !Request::is('signup'))
         <script>window.location = "/login";</script>
     @endif
-    {{-- @include('../partials/navigation') --}}
+    @include('../partials/navigation')
     @yield('content')
     @livewireScripts
 </body>

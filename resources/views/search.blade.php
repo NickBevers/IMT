@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- Search -->
-    @include('partials/navigation')
     <section class="listing_section search">
         @foreach ($search_results as $search_result)
             <div class="listing_item">
