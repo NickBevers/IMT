@@ -38,7 +38,7 @@ Route::get('/nft/add', [NftController::class, 'create']); // NOG AAN TE MAKEN
 Route::post('/nft/store', [NftController::class, 'store']); // NOG AAN TE MAKEN
 Route::post('/nft/edit', [NftController::class, 'update']);
 Route::post('/nft/detail/addComment', [NftController::class, 'addComment']);
-
+Route::post('/nft/detail/removeComment', [NftController::class, 'removeComment']);
 
 //Collection related
 Route::get('/collection/create', [CollectionController::class, 'create']);
