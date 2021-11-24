@@ -387,6 +387,21 @@ nav {
     border-radius: 10px;
 }
 
+.trash_icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -55px;
+    left: 72px;
+    margin-bottom: -40px;
+    margin-right: -40px;
+
+    background-color: rgba(0, 0, 0, 0.609);
+    padding: .5rem;
+
+    cursor: pointer;
+}
+
 .edit_btn, .cancel_btn, .nft_showcase a {
     text-decoration: none;
     font-weight: bold;
@@ -485,6 +500,11 @@ nav {
     .profile_picture {
         height: 30em;
         width: 30em
+    }
+
+    .trash_icon {
+        top: 192px;
+        left: -136px;
     }
 
     .user_info_container h2 {

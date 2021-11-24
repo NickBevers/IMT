@@ -350,6 +350,11 @@ nav {
     object-fit: cover;
 }
 
+.trash_icon {
+    width: 1px;
+    height: 64px;
+}
+
 @media (min-width: 1300px) {
     .profile_section {
         flex-direction: row;
@@ -455,8 +460,6 @@ nav {
 }
 
 /* upload styling */
-
-
 #inputPictureNFT {
     position: absolute;
     opacity: 0;

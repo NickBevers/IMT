@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "0fc317d74abaa1f0fbe23982b6fa1140",
-=======
-    "content-hash": "ecd5bd47eeaff4bf58fe8e785f9bf907",
->>>>>>> a94afa0abc9cc2eba03f0baa3adac9fc03aabc09
+    "content-hash": "aaab23ad5840f39fbfe31070d3c538ed",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -200,16 +196,16 @@
         },
         {
             "name": "cloudinary/cloudinary_php",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudinary/cloudinary_php.git",
-                "reference": "f7583376a66c7b5e0ef0632b56d7c2be9960c6e8"
+                "reference": "7d5d5eeb56df7cda1acd5a6310285ad6e55b9f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/f7583376a66c7b5e0ef0632b56d7c2be9960c6e8",
-                "reference": "f7583376a66c7b5e0ef0632b56d7c2be9960c6e8",
+                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/7d5d5eeb56df7cda1acd5a6310285ad6e55b9f82",
+                "reference": "7d5d5eeb56df7cda1acd5a6310285ad6e55b9f82",
                 "shasum": ""
             },
             "require": {
@@ -258,9 +254,9 @@
             "support": {
                 "email": "info@cloudinary.com",
                 "issues": "https://github.com/cloudinary/cloudinary_php/issues",
-                "source": "https://github.com/cloudinary/cloudinary_php/tree/2.5.0"
+                "source": "https://github.com/cloudinary/cloudinary_php/tree/2.5.1"
             },
-            "time": "2021-11-10T13:20:53+00:00"
+            "time": "2021-11-24T17:04:15+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2135,16 +2131,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v3.2.5",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "9cd80396ca58d7969ab44fc7afcf03624dfa526e"
+                "reference": "2f261e55bd6a12057442045bf2c249806abc1d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/9cd80396ca58d7969ab44fc7afcf03624dfa526e",
-                "reference": "9cd80396ca58d7969ab44fc7afcf03624dfa526e",
+                "url": "https://api.github.com/repos/nette/utils/zipball/2f261e55bd6a12057442045bf2c249806abc1d02",
+                "reference": "2f261e55bd6a12057442045bf2c249806abc1d02",
                 "shasum": ""
             },
             "require": {
@@ -2155,7 +2151,7 @@
             },
             "require-dev": {
                 "nette/tester": "~2.0",
-                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan": "^1.0",
                 "tracy/tracy": "^2.3"
             },
             "suggest": {
@@ -2214,9 +2210,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v3.2.5"
+                "source": "https://github.com/nette/utils/tree/v3.2.6"
             },
-            "time": "2021-09-20T10:50:11+00:00"
+            "time": "2021-11-24T15:47:23+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -8169,7 +8165,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
