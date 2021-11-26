@@ -1,1 +1,7 @@
-(()=>{var e=document.querySelector("#inputPictureNFT"),t=document.querySelector("#uploadPreview");e.addEventListener("change",(function(e){t.src=URL.createObjectURL(e.target.files[0])}))})();
+var imageInput = document.querySelector(".inputPicture");
+var uploadedImage = document.querySelector("#uploadPreview");
+
+//Show image in preview spot
+imageInput.addEventListener("change", function(event){
+    uploadedImage.src = URL.createObjectURL(event.target.files[0]);
+})

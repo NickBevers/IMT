@@ -387,6 +387,21 @@ nav {
     border-radius: 10px;
 }
 
+.trash_icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -55px;
+    left: 72px;
+    margin-bottom: -40px;
+    margin-right: -40px;
+
+    background-color: rgba(0, 0, 0, 0.609);
+    padding: .5rem;
+
+    cursor: pointer;
+}
+
 .edit_btn, .cancel_btn, .nft_showcase a {
     text-decoration: none;
     font-weight: bold;
@@ -487,6 +502,11 @@ nav {
         width: 30em
     }
 
+    .trash_icon {
+        top: 195px;
+        left: -136px;
+    }
+
     .user_info_container h2 {
         align-self: flex-start;
         font-size: 3em;
@@ -508,6 +528,43 @@ nav {
     margin-left: 1em;
     margin-right: 1em;
     padding-top: 10em
+}
+
+.nft_comments {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comment_input {
+    width: 400px;
+}
+
+.comment_list {
+    list-style: none;
+    padding: 0;
+    width: 65%;
+}
+
+.comment_list_item {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment_delete {
+    position: relative;
+    top: 12px;
+}
+
+.comment_faint_line {
+    opacity: 0.2;
+}
+
+.comment_user {
+    font-weight: 700;
 }
 
 .nft_picture {
@@ -551,6 +608,13 @@ nav {
         gap: 5em;
         justify-content: center;
         padding-top: 8em
+    }
+
+    .nft_comments {
+        width: 65%;
+        display: block;
+        flex-direction: column;
+        align-items: center;
     }
 
     .nft_picture {

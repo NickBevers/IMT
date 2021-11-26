@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-// use Cloudinary;
+use Cloudinary;
 
 class UserController extends Controller
 {
@@ -59,7 +59,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->wallet = $request->input('firstname'); // didn't knew what to put into
-        $user->profile_picture = $request->input('profile_picture', 'ellen.png'); // default picture
+        $user->profile_picture = $request->input('profile_picture', './images/default_profilepicture.png'); // default picture
         //$user->password_verify = $request->input('password_verify');
         $user->save();
 
@@ -82,7 +82,8 @@ class UserController extends Controller
         ]);
         $user = Auth::user();
 
-        // $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+        $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+        //TODO: Update img instead of uploading a new image
 
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
@@ -96,11 +97,18 @@ class UserController extends Controller
                 return redirect('/edit');
             }
         }
-        // $user->profile_picture = $uploadedFileUrl;
+        $user->profile_picture = $uploadedFileUrl;
         
         $user->update();
         
         return redirect('user');
+    }
+
+    public function removeProfilePicture() {
+        $user = Auth::user();
+        $user->profile_picture = './images/default_profilepicture.png';
+        //TODO: Remove old profile picture from cloudinary
+        $user->update();
     }
 }
 

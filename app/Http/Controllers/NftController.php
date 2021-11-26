@@ -20,10 +20,11 @@ class NftController extends Controller
         $nft = \App\Models\Nft::where('id', $nft_id)->with('user')->first();
         $comments = DB::table('comments')
             ->join('users', 'comments.user_id', '=', 'users.id')
-            ->select("comments.user_id", "comments.content", "users.first_name", "comments.created_at")
+            ->select("comments.user_id", "comments.content", "users.first_name", "comments.created_at", "comments.id")
             ->where('nft_id', $nft_id)
             ->orderBy('created_at', 'desc')
             ->get();
+        // $comments =  \App\Models\Comment::where("nft_id", $nft_id)->with('user')->orderBy('created_at', 'desc')->get();
         $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
@@ -155,6 +156,14 @@ class NftController extends Controller
         $comment->user_id = $user->id;
         $comment->nft_id = $post_id;
         $comment->save();
+        
+        return back();
+    }
+    
+    public function removeComment(Request $request) {
+        $comment_id = (int)$request->input('id');
+        $comment = \App\Models\Comment::where('id', $comment_id)->first();
+        $comment->delete();
         
         return back();
     }

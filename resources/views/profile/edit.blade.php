@@ -4,7 +4,8 @@
 <!-- Edit User Profile -->
     <section class="profile_section">
         
-        <img class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
+        <img id="uploadPreview" class="profile_picture" src="{{ url( Auth::user()->profile_picture) }}" alt="Profile picture">
+        <livewire:remove-image/>
 
         <div class="user_info_container">
         <form method="post" action="{{ url('/edit') }}" enctype="multipart/form-data">
@@ -17,7 +18,7 @@
                 @endif
                 <div>
                     <label for="profilePicture">Profile picture</label>
-                    <input type="file" name="profilePicture" id="profilePicture" accept="image/png, image/jpeg">
+                    <input type="file" name="profilePicture" id="profilePicture" class="inputPicture" accept="image/png, image/jpeg">
                 </div>
                 <br>
                 <div>
@@ -49,5 +50,7 @@
             <a href="/user" class="cancel_btn">Cancel</a>
         </form>
         </div>
+        <script src="{{ URL::asset('js/img_upload.js') }}"></script>
+        <script src="{{ URL::asset('js/img_delete.js') }}"></script>
     </section>
 @endsection
