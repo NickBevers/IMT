@@ -56,19 +56,30 @@ class NftController extends Controller
     public function store(Request $request)
     {
         // $request->validate([
+        //     'inputPictureNFT' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
         //     'title' => 'required|unique:App\Models\Nft,title',
-        //     'description' => 'required',
+        //     'price' => 'required|numeric',
         // ]);
 
         $user = Auth::user();
+        $img = $request->inputPictureNFT;
+        $response = Http::withToken(env('PINATA_JWT'))->attach('attachment', file_get_contents($img))->post(env('PINATA_PINNING_URL'), ['file' => fopen($img, "r")]);
+        $ipfs_hash = $response->json()["IpfsHash"];
 
         $nft = new \App\Models\Nft();
         $nft->title = $request['title'];
         $nft->user_id = $user->id;
+        $nft->nft_hash = $ipfs_hash;
         $nft->price = $request['price'];
-        $nft->collection_id = $request['collection'];
         if ($request['for_sale']) {
             $nft->for_sale = 1;
+        }
+
+        if ($request['collection'] == "Choose_collection"){
+            $nft->collection_id == null;
+        }
+        else{
+            $nft->collection_id == $request['collection'];
         }
         
         $nft->owners = array($user->wallet);
