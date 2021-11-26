@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use App\Mail\SoldNFTMail;
+use Illuminate\Support\Facades\Mail;
 
 class NftController extends Controller
 {
@@ -30,6 +32,11 @@ class NftController extends Controller
         $ethPrice = $nft->price;
         $convertedPrice = $this->getEthPrice($ethPrice);
         $nft->convertedPrice = $convertedPrice;
+
+        //Test emails
+        $mailText = "This is a sickamo test bro";
+        $recipient = "plyusninilya97@gmail.com";
+        $this->sendEmail($mailText, $recipient);
 
         $user = Auth::user();
         $data['nft'] = $nft;
@@ -190,5 +197,11 @@ class NftController extends Controller
         $response["EUR"] = $response["EUR"] * $ethAmount;
         $response["USD"] = $response["USD"] * $ethAmount;
         return $response;
+    }
+
+    private function sendEmail($mailContent, $recipient) {
+        $data = ['message' => $mailContent];
+    
+        Mail::to($recipient)->send(new SoldNFTMail($data));
     }
 }
