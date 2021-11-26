@@ -48,10 +48,12 @@ class NftController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required|unique:App\Models\Nft,title',
-        //     'description' => 'required',
-        // ]);
+        $request->validate([
+            'inputPictureNFT' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'title' => 'required|unique:App\Models\Nft,title',
+            'price' => 'required|numeric',
+            'description' => 'required',
+        ]);
 
         $user = Auth::user();
 
