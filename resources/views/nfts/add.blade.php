@@ -3,13 +3,13 @@
 @section('content')
 <!-- Upload -->
     <section class="upload_section">
-        <form method="post" action="/nft/store">
+        <form method="post" action="/nft/store" enctype="multipart/form-data">
             @csrf
             <div class="upload_img">
                 <label id="inputLabel" for="inputPictureNFT">
                     <img id="uploadPreview" src="{{ asset('images/upload.jpg') }}" alt="image upload button">
                 </label>
-                <input type="file" name="inputPictureNFT" id="inputPictureNFT" accept="image/jpeg">
+                <input type="file" name="inputPictureNFT" id="inputPictureNFT" class="inputPicture" accept="image/jpeg/png/jpg">
             </div>
             
             <div class="upload_text">
