@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class NftController extends Controller
 {
@@ -24,7 +25,12 @@ class NftController extends Controller
             ->where('nft_id', $nft_id)
             ->orderBy('created_at', 'desc')
             ->get();
-        // $comments =  \App\Models\Comment::where("nft_id", $nft_id)->with('user')->orderBy('created_at', 'desc')->get();
+        
+        //Add converted price to $nft object
+        $ethPrice = $nft->price;
+        $convertedPrice = $this->getEthPrice($ethPrice);
+        $nft->convertedPrice = $convertedPrice;
+
         $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
@@ -166,5 +172,12 @@ class NftController extends Controller
         $comment->delete();
         
         return back();
+    }
+
+    private function getEthPrice($ethAmount = 1) {
+        $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR')->json();
+        $response["EUR"] = $response["EUR"] * $ethAmount;
+        $response["USD"] = $response["USD"] * $ethAmount;
+        return $response;
     }
 }
