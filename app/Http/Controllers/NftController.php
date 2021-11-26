@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class NftController extends Controller
 {
@@ -24,7 +25,12 @@ class NftController extends Controller
             ->where('nft_id', $nft_id)
             ->orderBy('created_at', 'desc')
             ->get();
-        // $comments =  \App\Models\Comment::where("nft_id", $nft_id)->with('user')->orderBy('created_at', 'desc')->get();
+        
+        //Add converted price to $nft object
+        $ethPrice = $nft->price;
+        $convertedPrice = $this->getEthPrice($ethPrice);
+        $nft->convertedPrice = $convertedPrice;
+
         $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
@@ -50,19 +56,30 @@ class NftController extends Controller
     public function store(Request $request)
     {
         // $request->validate([
+        //     'inputPictureNFT' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
         //     'title' => 'required|unique:App\Models\Nft,title',
-        //     'description' => 'required',
+        //     'price' => 'required|numeric',
         // ]);
 
         $user = Auth::user();
+        $img = $request->inputPictureNFT;
+        $response = Http::withToken(env('PINATA_JWT'))->attach('attachment', file_get_contents($img))->post(env('PINATA_PINNING_URL'), ['file' => fopen($img, "r")]);
+        $ipfs_hash = $response->json()["IpfsHash"];
 
         $nft = new \App\Models\Nft();
         $nft->title = $request['title'];
         $nft->user_id = $user->id;
+        $nft->nft_hash = $ipfs_hash;
         $nft->price = $request['price'];
-        $nft->collection_id = $request['collection'];
         if ($request['for_sale']) {
             $nft->for_sale = 1;
+        }
+
+        if ($request['collection'] == "Choose_collection"){
+            $nft->collection_id == null;
+        }
+        else{
+            $nft->collection_id == $request['collection'];
         }
         
         $nft->owners = array($user->wallet);
@@ -166,5 +183,12 @@ class NftController extends Controller
         $comment->delete();
         
         return back();
+    }
+
+    private function getEthPrice($ethAmount = 1) {
+        $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR')->json();
+        $response["EUR"] = $response["EUR"] * $ethAmount;
+        $response["USD"] = $response["USD"] * $ethAmount;
+        return $response;
     }
 }

@@ -502,6 +502,10 @@ nav {
     box-shadow: 3px 3px 10px #d4d4d4;
 }
 
+.buy_add_container a {
+    margin-right: 0;
+}
+
 .login_btn, .collection_intro button, .add_btn {
     font-family: Montserrat, sans-serif;
     text-decoration: none;
@@ -567,6 +571,38 @@ nav {
     margin-left: 1em;
     margin-right: 1em;
     padding-top: 12em
+}
+
+.price_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 1rem;
+}
+
+.price_wrapper img {
+    width: 30px;
+    height: 30px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.eth_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.conversion_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.conversion_wrapper h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .nft_comments {
@@ -645,9 +681,12 @@ nav {
 }
 
 .buy_add_container {
-    align-items: center;
     display: flex;
-    flex-direction: column
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+
+    width: 100%;
 }
 
 @media (min-width:1300px) {
