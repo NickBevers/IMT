@@ -29,6 +29,9 @@
                     @error('firstname')
                         <div class="error_message">{{$message}}</div>
                     @enderror
+                    @if( $flash = session('message'))
+                        <p>{{ $flash }}</p>
+                    @endif
                 </div>
                 
                 <div>
@@ -40,7 +43,7 @@
                 </div>
 
                 <div>
-                    <label for="email">Email adress</label>
+                    <label for="email">Email address</label>
                     <input value="{{ old('email') }}" type="text" name="email" id="email" placeholder="john@doe.com">
                     @error('email')
                         <div class="error_message">{{$message}}</div>

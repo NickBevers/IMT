@@ -1,6 +1,8 @@
 @extends('layouts/app')
 
 @section('content')
+
+
 <!-- Home -->
     <section class="index_intro_section">
         <div class="intro_text_wrapper">

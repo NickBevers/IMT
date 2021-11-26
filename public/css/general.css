@@ -8,15 +8,48 @@ body {
 
 /* nav styling */
 nav {
+    box-sizing: border-box;
     align-items: center;
     background-color: #f1f1f1;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    margin-bottom: 2em;
-    padding: 1em;
     position: fixed;
     width: 100%;
+    padding: 1em 5em;
     z-index: 999;
+}
+
+.nav_main {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    width: 100%;
+}
+
+.search_results {
+    padding: 0;
+}
+
+.search_result {
+    display: flex;
+    align-items: center;
+}
+
+.search_result_link {
+    text-decoration: none;
+    color: black;
+}
+
+.search_result_link:hover {
+    font-weight: 600;
+}
+
+.search_result_image {
+    width: 50px;
+    background-size: cover;
+    padding: 0 10px 0 0;
 }
 
 .nav_links a {
@@ -31,17 +64,17 @@ nav {
     text-shadow: 1px 1px 15px #FFBB73;
 }
 
-.logo_search_wrapper {
+/* .logo_search_wrapper {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .logo_search_wrapper form {
     margin-left: 5em;
     margin-top: -2.5em;
 }
 
-.logo_search_wrapper form input {
+.search_input {
     font-family: Montserrat, sans-serif;
     border: none;
     font-size: 0.8em;
@@ -145,6 +178,18 @@ nav {
 }
 
 @media (min-width:800px) {
+    nav {
+        box-sizing: border-box;
+        justify-content: space-between;
+        padding: 1em 5em;
+        width: 100vw
+    }
+    
+    .nav_search {
+        width: 100%;
+        align-self: flex-start;
+    }
+
     .nav_menu {
         display: none
     }
@@ -153,14 +198,8 @@ nav {
         display: flex;
         flex-direction: row;
         gap: 2em;
-        left: -10em;
+        /* left: -10em; */
         position: relative
-    }
-
-    nav {
-        justify-content: space-between;
-        padding: 1em 5em;
-        width: 100vw
     }
 }
 
@@ -527,19 +566,28 @@ nav {
     margin-bottom: 3em;
     margin-left: 1em;
     margin-right: 1em;
-    padding-top: 10em
+    padding-top: 12em
 }
 
 .nft_comments {
-    width: 80%;
-    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 5em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#comment_input {
-    width: 400px;
+#comment_form {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#comment_form_input {
+    width: 100%;
 }
 
 .comment_list {
@@ -607,7 +655,7 @@ nav {
         flex-direction: row;
         gap: 5em;
         justify-content: center;
-        padding-top: 8em
+        padding-top: 10em
     }
 
     .nft_comments {

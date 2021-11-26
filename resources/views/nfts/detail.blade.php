@@ -22,11 +22,11 @@
     </section>
     <section class="nft_comments">
         <h3>Comments</h3>
-        <form method="POST" action="{{ url('/nft/detail/addComment') }}">
+        <form id="comment_form" method="POST" action="{{ url('/nft/detail/addComment') }}">
             @csrf
             <input type="hidden" value="{{$nft->id}}" name="id">
             {{-- <livewire:comment-post /> --}}
-            <input id="comment_input" type="textarea" name="content">
+            <input id="comment_form_input" type="textarea" name="content">
             <button type="submit">Submit</button>
         </form>
         <ul class="comment_list">
