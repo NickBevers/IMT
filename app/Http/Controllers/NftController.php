@@ -33,11 +33,6 @@ class NftController extends Controller
         $convertedPrice = $this->getEthPrice($ethPrice);
         $nft->convertedPrice = $convertedPrice;
 
-        //Test emails
-        $mailText = "This is a sickamo test bro";
-        $recipient = "plyusninilya97@gmail.com";
-        $this->sendEmail($mailText, $recipient);
-
         $user = Auth::user();
         $data['nft'] = $nft;
         $data['user'] = $user;
@@ -199,6 +194,11 @@ class NftController extends Controller
         return $response;
     }
 
+    //HOW TO USE
+    //$mailText = "This is a sickamo test bro";
+    //$recipient = "plyusninilya97@gmail.com";
+    //$this->sendEmail($mailText, $recipient);
+    //
     private function sendEmail($mailContent, $recipient) {
         $data = ['message' => $mailContent];
     
