@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+// use Rootsoft\IPFS\Clients\IPFSClient;
 // use Cloudinary;
 
 class UserController extends Controller
@@ -49,7 +50,7 @@ class UserController extends Controller
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|unique:App\Models\User,email',
+            'email' => 'required|unique:App\Models\User,email|regex:/^.+@.+$/i',
             'password' => 'required',
         ]);
 
@@ -74,13 +75,17 @@ class UserController extends Controller
 
     public function edit(Request $request) {
         $request->validate([
+            'profilePicture' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required',
+            'email' => 'required|regex:/^.+@.+$/i',
             'old_password' => 'nullable',
             'new_password' => 'nullable',
         ]);
         $user = Auth::user();
+        // $ipfs = new IPFSClient('62.235.170.10', 8080);
+        // $response = $ipfs->add(Utils::tryFopen($request->file("profilePicture"), 'r'), $user->id, ['pin' => true]);
+        // dd($response);
 
         // $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
 
