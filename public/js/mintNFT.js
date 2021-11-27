@@ -40,4 +40,10 @@ mintNFTBtn.addEventListener("click", async()=>{
     //   this.studentScore
     // );
     // await tx.wait();
+
+
+    function addItemId(nft_id, item_id){
+        
+    }
+    // REDIRECT TO /nft/addItemId/{{$nft->id}}
 });

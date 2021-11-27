@@ -3,7 +3,7 @@
 @section('content')
 <!-- Detail -->
     <section class="nft_section" data-id="{{ $nft->id }}">
-        <img class="nft_picture" src="{{ asset('images/art1.png') }}" alt="nft picture">
+        <img class="nft_picture" src="https://ipfs.io/ipfs/{{$nft->media_url}}" alt="nft picture">
         <div class="nft_info_container">
             <h2>{{ $nft->title }}</h2>
             <p>
@@ -28,6 +28,32 @@
                 <a class="buy_btn">Buy</a>
                 <a class="buy_btn mint_btn" style="cursor: pointer">Mint</a>
             </div>
+            <script type="text/javascript">
+                const mintNFTBtn = document.querySelector(".mint_btn");
+                mintNFTBtn.addEventListener("click", async()=>{
+                    // console.log("MINTED");
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = provider.getSigner();
+                    const contractAddress = "0x76d463D9CA4CAE1Fd478d62e9914A6b6Cc2b604e";
+                    let Abi;
+                    await fetch("/abi/contract.json").then((res) => {return res.json();}).then((data) => {Abi = data; console.log(Abi);});
+                    const contract = new ethers.Contract(contractAddress, Abi, provider);
+                    let contractWithSigner = contract.connect(signer);
+                    let media_file = "https://ipfs.io/ipfs/{{$nft->media_url}}";
+                    // let price = ethers.utils.parseEther({{$nft->price}}.toString());
+                    let tempPrice = "{{$nft->price}}";
+                    console.log(tempPrice);
+                    let price = ethers.utils.parseUnits(tempPrice, "ether");
+                    console.log(price);
+                    
+                    const itemId =  await contractWithSigner.mintNFT(media_file, price);
+                    // const nftId =  {{$nft->id}};
+
+                    console.log(itemId);
+                    // window.location.href = `/nft/addItemId/${nftId}/${itemId}`
+                    // REDIRECT TO /nft/addItemId/{{$nft->id}}
+                });
+            </script>
         </div>
     </section>
     <section class="nft_comments">
@@ -61,5 +87,5 @@
     </section>
     
     <script src="{{ asset('js/slide_menu.js') }}"></script>
-    <script src="{{ asset('js/mintNFT.js') }}"></script>
+    {{-- <script src="{{ asset('js/mintNFT.js') }}"></script> --}}
 @endsection
