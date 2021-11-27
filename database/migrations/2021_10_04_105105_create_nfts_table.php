@@ -17,9 +17,9 @@ class CreateNftsTable extends Migration
             $table->id();
             $table->String('title')->unique();
             $table->foreignId('user_id');
-            $table->Integer('price');
+            $table->float('price', 8, 2);
             $table->String('owner_address')->default("");
-            $table->STring('nft_hash')->default("");
+            $table->STring('token_id')->default("");
             $table->String('media_url')->default("http://WE_NEED_TO_CHANGE_THIS_TO_A_URL");
             $table->foreignId('collection_id')->default(0);
             $table->boolean('for_sale')->default(0);
