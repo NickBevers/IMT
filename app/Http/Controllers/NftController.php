@@ -99,9 +99,10 @@ class NftController extends Controller
         $nft =\App\Models\Nft::where('id', $nft_id)->first();
 
         $nft->token_id = $item_id;
+        $nft->minted = true;
         $nft->update();
 
-        return view('nfts/detail');
+        return redirect()->action([NftController::class, 'showDetail'], ['nft_id' => $nft->id]);
     }
 
     public function update(Request $request){

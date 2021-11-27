@@ -26,34 +26,54 @@
 
             <div class="buy_add_container">
                 <a class="buy_btn">Buy</a>
-                <a class="buy_btn mint_btn" style="cursor: pointer">Mint</a>
-            </div>
-            <script type="text/javascript">
-                const mintNFTBtn = document.querySelector(".mint_btn");
-                mintNFTBtn.addEventListener("click", async()=>{
-                    // console.log("MINTED");
-                    const provider = new ethers.providers.Web3Provider(window.ethereum);
-                    const signer = provider.getSigner();
-                    const contractAddress = "0x76d463D9CA4CAE1Fd478d62e9914A6b6Cc2b604e";
-                    let Abi;
-                    await fetch("/abi/contract.json").then((res) => {return res.json();}).then((data) => {Abi = data; console.log(Abi);});
-                    const contract = new ethers.Contract(contractAddress, Abi, provider);
-                    let contractWithSigner = contract.connect(signer);
-                    let media_file = "https://ipfs.io/ipfs/{{$nft->media_url}}";
-                    // let price = ethers.utils.parseEther({{$nft->price}}.toString());
-                    let tempPrice = "{{$nft->price}}";
-                    console.log(tempPrice);
-                    let price = ethers.utils.parseUnits(tempPrice, "ether");
-                    console.log(price);
-                    
-                    const itemId =  await contractWithSigner.mintNFT(media_file, price);
-                    // const nftId =  {{$nft->id}};
+                @if($nft->minted == false)
+                    <a class="buy_btn mint_btn" style="cursor: pointer">Mint</a>
 
-                    console.log(itemId);
-                    // window.location.href = `/nft/addItemId/${nftId}/${itemId}`
-                    // REDIRECT TO /nft/addItemId/{{$nft->id}}
-                });
-            </script>
+                    <script type="text/javascript">
+                        const mintNFTBtn = document.querySelector(".mint_btn");
+                        mintNFTBtn.addEventListener("click", async()=>{
+                            // console.log("MINTED");
+                            const provider = new ethers.providers.Web3Provider(window.ethereum);
+                            const signer = provider.getSigner();
+                            const contractAddress = "0x76d463D9CA4CAE1Fd478d62e9914A6b6Cc2b604e";
+                            let Abi;
+                            await fetch("/abi/contract.json").then((res) => {return res.json();}).then((data) => {Abi = data; console.log(Abi);});
+                            const contract = new ethers.Contract(contractAddress, Abi, provider);
+                            let contractWithSigner = contract.connect(signer);
+                            let media_file = "https://ipfs.io/ipfs/{{$nft->media_url}}";
+                            // let price = ethers.utils.parseEther({{$nft->price}}.toString());
+                            let tempPrice = "{{$nft->price}}";
+                            console.log(tempPrice);
+                            let price = ethers.utils.parseUnits(tempPrice, "ether");
+                            console.log(price);
+        
+                                                
+                            const response =  await contractWithSigner.mintNFT(media_file, price);
+                            const itemId = response['hash'];
+                            const nftId =  "{{$nft->id}}";
+        
+                            const form = document.createElement('form');
+                            let nft_id = nftId;
+                            let item_id = itemId;
+                            form.method = "POST";
+                            form.action = `/nft/addItemId/${nft_id}/${itemId}`;
+        
+        
+                            let csrf_token = "{{csrf_token()}}"
+                            const hiddencsrf = document.createElement('input');
+                            hiddencsrf.type = 'hidden';
+                            hiddencsrf.name = "_token";
+                            hiddencsrf.value = csrf_token;
+        
+                            form.appendChild(hiddencsrf);
+        
+                            document.body.appendChild(form);
+                            form.submit();
+                        });
+                    </script>
+                @endif
+                
+            </div>
         </div>
     </section>
     <section class="nft_comments">

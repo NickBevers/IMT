@@ -22,6 +22,7 @@ class CreateNftsTable extends Migration
             $table->STring('token_id')->default("");
             $table->String('media_url')->default("http://WE_NEED_TO_CHANGE_THIS_TO_A_URL");
             $table->foreignId('collection_id')->default(0);
+            $table->boolean('minted')->default(false);
             $table->boolean('for_sale')->default(0);
             $table->json('owners');
             $table->timestamps();
