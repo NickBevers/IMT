@@ -18,18 +18,18 @@ window.addEventListener("load", ()=>{
 
 const mintNFTBtn = document.querySelector(".mint_btn");
 mintNFTBtn.addEventListener("click", async()=>{
-    console.log("MINTED");
+    // console.log("MINTED");
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contractAddress = "0x76d463D9CA4CAE1Fd478d62e9914A6b6Cc2b604e";
     let Abi;
     await fetch("/abi/contract.json").then((res) => {return res.json();}).then((data) => {Abi = data; console.log(Abi);});
     const contract = new ethers.Contract(contractAddress, Abi, provider);
-    console.log(contract);
+    // console.log(contract);
 
     // Connect the signer, or replace provider with signer when instantiating the contract object
     let contractWithSigner = contract.connect(signer);
-    console.log(contractWithSigner);
+    // console.log(contractWithSigner);
 
     // call the methods
     // address studentAddress, string memory studentName, uint studentScore
