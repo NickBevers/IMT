@@ -71,7 +71,7 @@ class NftController extends Controller
         $nft = new \App\Models\Nft();
         $nft->title = $request['title'];
         $nft->user_id = $user->id;
-        $nft->nft_hash = $ipfs_hash;
+        $nft->media_url = $ipfs_hash;
         $nft->price = $request['price'];
         if ($request['for_sale']) {
             $nft->for_sale = 1;
@@ -93,6 +93,15 @@ class NftController extends Controller
     public function edit($nft_id){
         $data['nft'] = \App\Models\Nft::where('id', $nft_id)->first();
         return view('nfts/edit', $data);
+    }
+
+    public function addItemId($nft_id, $item_id){
+        $nft =\App\Models\Nft::where('id', $nft_id)->first();
+
+        $nft->token_id = $item_id;
+        $nft->update();
+
+        return view('nfts/detail');
     }
 
     public function update(Request $request){
