@@ -95,10 +95,10 @@ class NftController extends Controller
         return view('nfts/edit', $data);
     }
 
-    public function addItemId($nft_id, $item_id, $owner){
+    public function addItemId($nft_id, $tokenId, $owner){
         $nft =\App\Models\Nft::where('id', $nft_id)->first();
 
-        $nft->token_id = $item_id;
+        $nft->token_id = $tokenId;
         $nft->minted = true;
         $nft->owner_address = $owner;
         $nft->update();

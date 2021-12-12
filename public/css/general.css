@@ -722,7 +722,7 @@ nav {
     .buy_add_container {
         align-items: center;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%
     }
 }
