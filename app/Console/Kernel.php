@@ -26,6 +26,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // HOW TO RUN
+        // ./vendor/bin/sail artisan schedule:work
+        // ^^^ testing purposes
+        // ./vendor/bin/sail artisan schedule:run
+        // ^^^ server purposes
+        // Go to storage/logs/laravel.log for debugging
         $schedule->call(function () {
             $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR')->json();
             DB::table('ethprice')
