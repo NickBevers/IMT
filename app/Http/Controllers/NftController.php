@@ -198,7 +198,6 @@ class NftController extends Controller
         return back();
     }
 
-    //TODO make more human readable
     private function getEthPrice($ethAmount = 1) {
         $convertedPrices = [];
         $responses = DB::table('ethprice')
