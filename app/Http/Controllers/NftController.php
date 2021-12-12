@@ -187,11 +187,18 @@ class NftController extends Controller
         return back();
     }
 
+    //TODO make more human readable
     private function getEthPrice($ethAmount = 1) {
-        $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR')->json();
-        $response["EUR"] = $response["EUR"] * $ethAmount;
-        $response["USD"] = $response["USD"] * $ethAmount;
-        return $response;
+        $convertedPrices = [
+            "EUR" => 69,
+            "USD" => 70,
+        ];
+        $response = DB::table('ethprice')
+            ->select('currency', 'price')
+            ->get();
+        $convertedPrices["EUR"] = $response[0]->price * $ethAmount;
+        $convertedPrices["USD"] = $response[1]->price * $ethAmount;
+        return $convertedPrices;
     }
 
     //HOW TO USE

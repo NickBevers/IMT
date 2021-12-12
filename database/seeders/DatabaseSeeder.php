@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         //Manier voor single entries
         
         $this->call([
-            UserSeeder::class
+            UserSeeder::class,
+            EthpriceSeeder::class,
         ]);
 
         //Manier voor mass entries
