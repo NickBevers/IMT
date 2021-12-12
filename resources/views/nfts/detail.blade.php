@@ -15,8 +15,7 @@
             <div class="price_wrapper">
                 <div class="eth_wrapper">
                     <img src="{{ asset('images/ethIcon.png') }}" alt="Etherium icon">
-                    {{-- <h3>{{ $nft->price }}</h3> --}}
-                    <h3 class="price"></h3>
+                    <h3 class="price">{{ $nft->price }}</h3>
                     <script type="text/javascript">
                         window.addEventListener("load", async()=>{
                             const provider = new ethers.providers.Web3Provider(window.ethereum);

@@ -200,15 +200,15 @@ class NftController extends Controller
 
     //TODO make more human readable
     private function getEthPrice($ethAmount = 1) {
-        $convertedPrices = [
-            "EUR" => 69,
-            "USD" => 70,
-        ];
-        $response = DB::table('ethprice')
+        $convertedPrices = [];
+        $responses = DB::table('ethprice')
             ->select('currency', 'price')
             ->get();
-        $convertedPrices["EUR"] = $response[0]->price * $ethAmount;
-        $convertedPrices["USD"] = $response[1]->price * $ethAmount;
+
+        foreach ($responses as $response) {
+            $convertedPrices[$response->currency] = $response->price * $ethAmount;
+        }
+
         return $convertedPrices;
     }
 
