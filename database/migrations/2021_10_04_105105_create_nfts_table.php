@@ -17,7 +17,7 @@ class CreateNftsTable extends Migration
             $table->id();
             $table->String('title')->unique();
             $table->foreignId('user_id');
-            $table->float('price', 8, 2);
+            $table->float('price', 16, 6);
             $table->String('owner_address')->default("");
             $table->String('token_id')->default("");
             $table->String('media_url')->default("http://WE_NEED_TO_CHANGE_THIS_TO_A_URL");

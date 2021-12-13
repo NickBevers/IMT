@@ -48,6 +48,7 @@ window.addEventListener("load", async()=>{
         const price = await contractWithSigner.getPrice(ethers.BigNumber.from(nft.dataset.token_id));
         const forSale = await contractWithSigner.isForSale(ethers.BigNumber.from(nft.dataset.token_id));
         priceField.innerHTML =  ethers.utils.formatEther(price);
+        console.log(price);
         
         if (forSale == true){
             document.querySelector(".for_sale").innerHTML = ' ';
@@ -58,30 +59,6 @@ window.addEventListener("load", async()=>{
         }
         
         buyNFTBtn.addEventListener("click", async()=>{
-            //let hexId = ethers.BigNumber.from("{{$nft->token_id}}");
-            
-            // let tempId = hexId['_hex'].split('x')[1];
-            //console.log(ethers.BigNumber.from(ethers.utils.hexZeroPad(ethers.BigNumber.from("{{$nft->token_id}}"), 32)));
-            // let tokenId = ethers.utils.hexZeroPad(ethers.BigNumber.from("{{$nft->token_id}}"), 32);
-            // console.log(tokenId);
-            // console.log(ethers.BigNumber.from(tokenId));
-            
-            // console.log(ethers.BigNumber.from("{{$nft->token_id}}"));
-            
-            // console.log(ethers.utils.hexZeroPad());
-            // console.log(hexId);
-
-            // 0x00000000000000000000000000000000000000000000000000000000000000c7
-
-            // const tx ={
-            //     from: send_account,
-            //     to: to_address,
-            //     value: ethers.utils.parseEther(send_token_amount),
-            //     nonce: window.ethersProvider.getTransactionCount(send_account, "latest"),
-            //     gasLimit: ethers.utils.hexlify(gas_limit), // 100000
-            //     gasPrice: gas_price,
-            // }
-
             const price = await contractWithSigner.getPrice(ethers.BigNumber.from(nft.dataset.token_id));
 
             const buyResponse =  await contractWithSigner.buyNFT(ethers.BigNumber.from(nft.dataset.token_id), {value: price.toString()});
@@ -126,12 +103,12 @@ window.addEventListener("load", async()=>{
             const transaction = await contractWithSigner.mintNFT(tokenUri, price);
             await transaction.wait().then(res => {
                 console.log(res);
-                let tokenIdString = res['events'][0]['topics'][3]; //returns string with tokenId as hexadecimal
-                console.log(tokenIdString);
+                // let tokenIdString = res['logs'][0]['topics'][3]; //returns tokenId from the logs instead of the events
+                let tokenIdString = res['events'][0]['topics'][3]; //returns tokenId from the events triggered by the contract  //returns string with tokenId as hexadecimal
+                //console.log(tokenIdString);
                 tokenId = ethers.BigNumber.from(tokenIdString).toString(); //puts string in a BigNumber, and converts it to a readable tokenId
-                console.log(tokenId);
+                //console.log(tokenId);
             });
-            
             
             const nftId =  nft.dataset.id;
             const nft_owner = transaction['from'];
