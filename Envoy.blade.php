@@ -19,3 +19,6 @@ composer install
 php artisan migrate --force
 php artisan up
 @endtask
+
+
+{{-- THIS IS A TEST FOR CONFIG GITHUB --}}
