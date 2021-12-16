@@ -65,5 +65,5 @@
     </section>
     
     <script src="{{ asset('js/slide_menu.js') }}"></script>
-    <script src="{{ asset('js/connectToWallet.js') }}"></script>
+    <script src="{{ asset('js/contractFunctions.js') }}"></script>
 @endsection
