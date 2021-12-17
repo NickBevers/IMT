@@ -15,4 +15,4 @@ yarn-error.log
 /.vscode
 public/imt.icoZone.Identifier
 sendgrid.env
-Envoy.blade.php
+envoy.blade.php
