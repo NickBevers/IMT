@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppController extends Controller
 {
@@ -18,7 +19,25 @@ class AppController extends Controller
     public function discover(Request $request){
         if(isset($request->input()["time_posted"])){
             //Which input we check doesn't matter, because they will all have a value when submitted
-            $nfts = \App\Models\Nft::inRandomOrder()->take(20)->get(); // need to add load more button or remove "take(20)"
+            $currentDateTime = Carbon::now();
+            if($request->input()["time_posted"] == "all"){
+                $nfts = \App\Models\Nft::inRandomOrder()
+                ->where([
+                    ['price', '>=', (int)$request->input()["min_price"]],
+                    ['price', '<=', (int)$request->input()["max_price"]],
+                ])
+                ->get();
+            } else {
+                $nfts = \App\Models\Nft::inRandomOrder()
+                ->where([
+                    ['price', '>=', (int)$request->input()["min_price"]],
+                    ['price', '<=', (int)$request->input()["max_price"]],
+                    ['created_at', '>=', $currentDateTime->subDays($request->input()["time_posted"])],
+                    // >= created_at has to be newer than $currentDateTime
+                    // <= created_at has to be older than $currentDateTime
+                ])
+                ->get();
+            }
         } else {
             $nfts = \App\Models\Nft::inRandomOrder()->take(10)->get();
         }
