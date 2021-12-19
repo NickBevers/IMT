@@ -51,17 +51,20 @@ class NftController extends Controller
 
     public function create()
     {
-        $data['collections'] = \App\Models\Collection::all();
+        $user = Auth::user();
+        $collections = \App\Models\Collection::where('user_id', $user->id)->get();
+        $data['collections'] = $collections;
+        // dd($data['collections']);
         return view('nfts/add', $data);
     }
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'inputPictureNFT' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
-        //     'title' => 'required|unique:App\Models\Nft,title',
-        //     'price' => 'required|numeric',
-        // ]);
+        $request->validate([
+            'inputPictureNFT' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'title' => 'required|unique:App\Models\Nft,title',
+            'price' => 'required|numeric',
+        ]);
 
         $user = Auth::user();
         $img = $request->inputPictureNFT;
@@ -82,10 +85,10 @@ class NftController extends Controller
         }
 
         if ($request['collection'] == "Choose_collection"){
-            $nft->collection_id == null;
+            $nft->collection_id = null;
         }
         else{
-            $nft->collection_id == $request['collection'];
+            $nft->collection_id = $request['collection'];
         }
         
         $nft->owners = array($user->wallet);
@@ -124,36 +127,17 @@ class NftController extends Controller
         return view('profile/user');
     }
 
-    public function buy($nft_id)
+    public function buy(Request $request)
     {
-        $user = Auth::user();
-        $user_wallet = $user->wallet;
-        $nft = \App\Models\Nft::where('id', $nft_id)->first();
-        $nft->user_id = $user->id;
-        $ownerArray = $nft->owners;
-        // dd($nft->owners);
-        if (in_array($user->wallet, $ownerArray)){
-            $lastKey = key(array_slice($ownerArray, -1, 1, true));
-            if((string) $lastKey != $user_wallet){
-                array_push($ownerArray, $user_wallet);
-                $nft->owners = $ownerArray;
-                $nft->update();
-            }
-            else{
-                //return the user to the detail view with data nft and user
-                return view('nfts/detail', ['nft' => $nft, 'user' => $user]);
-            }
-        }
-        else{
-            array_push($ownerArray, $user_wallet);
-            $nft->owners = $ownerArray;
-            $nft->update();
-        }
+        $nft_id = $request['nft_id'];
+        $owner = $request['owner'];
+        
+        $nft =\App\Models\Nft::where('id', $nft_id)->first();
+        $nft->owner_address = $owner;
         $nft->update();
 
-        
 
-        return view('profile/user');
+        return redirect()->action([NftController::class, 'showDetail'], ['nft_id' => $nft->id]);
     }
 
     public function removeFromCollection($nft_id){

@@ -30,7 +30,6 @@ Route::get('/nft', [NftController::class, 'show']);
 //Nft related
 Route::get('/nft/detail/{nft_id}', [NftController::class, 'showDetail']);
 Route::get('/nft/edit/{nft_id}', [NftController::class, 'edit']);
-Route::get('/nft/buy/{nft_id}', [NftController::class, 'buy']);
 Route::get('/nft/removeFromCollection/{nft_id}', [NftController::class, 'removeFromCollection']);
 Route::get('/nft/addToCollection/{collection_id}/{nft_id}', [NftController::class, 'addNftToCollection']);
 Route::get('/nft/remove/{nft_id}', [NftController::class, 'destroy']);
@@ -40,6 +39,7 @@ Route::post('/nft/edit', [NftController::class, 'update']);
 Route::post('/nft/detail/addComment', [NftController::class, 'addComment']);
 Route::post('/nft/detail/removeComment', [NftController::class, 'removeComment']);
 Route::post('/nft/addItemId/{nft_id}/{item_id}/{owner}', [NftController::class, 'addItemId']);
+Route::post('/nft/buy/{nft_id}', [NftController::class, 'buy']);
 
 //Collection related
 Route::get('/collection/create', [CollectionController::class, 'create']);

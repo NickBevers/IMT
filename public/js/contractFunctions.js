@@ -78,11 +78,18 @@ window.addEventListener("load", async()=>{
                 hiddencsrf.value = csrf_token;
 
                 const owner = document.createElement('input');
-                hiddencsrf.type = 'hidden';
-                hiddencsrf.name = "_token";
-                hiddencsrf.value = csrf_token;
+                owner.type = 'hidden';
+                owner.name = "owner";
+                owner.value = res['from'];
+
+                const nft_id = document.createElement('input');
+                nft_id.type = 'hidden';
+                nft_id.name = "nft_id";
+                nft_id.value = nftId;
 
                 form.appendChild(hiddencsrf);
+                form.appendChild(owner);
+                form.appendChild(nft_id);
 
                 document.body.appendChild(form);
                 form.submit();
