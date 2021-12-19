@@ -23,5 +23,10 @@ class User extends Authenticatable
     //a user has multiple nfts
     public function nfts() {
         return $this->hasMany(\App\Models\Nft::class);
+    }    
+    
+    //a user has multiple favourites
+    public function likes() {
+        return $this->hasMany(\App\Models\Favourite::class);
     }
 }

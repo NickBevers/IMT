@@ -337,7 +337,7 @@ nav {
     height: 100%;
     left: -10em;
     overflow-x: hidden;
-    padding-top: 1em;
+    padding-top: 5em;
     top: 5.5em;
     width: 10em;
     z-index: 99;
@@ -387,12 +387,12 @@ nav {
     width: 2em
 }
 
-.nft_showcase svg path {
+.nft_showcase svg path, .nft_showcase svg path .unfavourite {
     fill: transparent;
     stroke: #FFBB73;
 }
 
-.nft_showcase svg path:hover {
+.nft_showcase svg path:hover, .favourite {
     fill: #FFBB73;
 }
 
@@ -976,8 +976,7 @@ h2 {
 }
 
 .discover_top {
-    padding-top: 9em;
-    margin-left: 15em;
+    padding-top: 10.5em;
 }
 
 .nft_showcase {
@@ -1015,10 +1014,15 @@ h2 {
     margin-top: .2em;
 }
 
-.nft_showcase div {
+.nft_showcase div div {
     width: 30%;
-    display: block;
-    margin-bottom: 3em;
+    display: inline-block;
+    margin-bottom: 2em;
+}
+
+.nft_showcase div {
+    width: 100%;
+    margin: 0.5em;
 }
 
 #heart {
@@ -1054,7 +1058,7 @@ h2 {
 }
 
 @media (max-width:500px) {
-    .nft_showcase div {
+    .nft_showcase div div {
         width: 40%;
     }
 

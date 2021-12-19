@@ -29,4 +29,9 @@ class Nft extends Model
     public function user() {
         return $this->belongsTo(\App\Models\User::class);
     }
+
+    //a nft has multiple favourites
+    public function likes() {
+        return $this->hasMany(\App\Models\Favourite::class);
+    }
 }
