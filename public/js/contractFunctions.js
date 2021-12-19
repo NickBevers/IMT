@@ -98,7 +98,8 @@ window.addEventListener("load", async()=>{
 
         
         sellNFTBtn.addEventListener("click", async()=>{
-            let price = ethers.utils.parseUnits("{{$nft->price}}", "ether");
+            let price = ethers.utils.parseUnits(nft.dataset.price, "ether");
+
             // console.log(price);
             
             const transaction =  await contractWithSigner.putUpForSale(ethers.BigNumber.from(nft.dataset.token_id), price);

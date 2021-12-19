@@ -85,7 +85,7 @@ class NftController extends Controller
         }
 
         if ($request['collection'] == "Choose_collection"){
-            $nft->collection_id = null;
+            $nft->collection_id = 0;
         }
         else{
             $nft->collection_id = $request['collection'];
@@ -131,9 +131,18 @@ class NftController extends Controller
     {
         $nft_id = $request['nft_id'];
         $owner = $request['owner'];
+        $user = Auth::user();
         
         $nft =\App\Models\Nft::where('id', $nft_id)->first();
+
+        // MAILING
+        $user_email = \App\Models\User::where('id', $nft->user_id)->first();
+        $mailText = "Your nft " . $nft->title . " has been sold.";
+        $this->sendEmail($mailText, $user_email->email);
+
+
         $nft->owner_address = $owner;
+        $nft->user_id = $user->id;
         $nft->update();
 
 
@@ -204,7 +213,7 @@ class NftController extends Controller
     //$recipient = "plyusninilya97@gmail.com";
     //$this->sendEmail($mailText, $recipient);
     //
-    private function sendEmail($mailContent, $recipient) {
+    protected function sendEmail($mailContent, $recipient) {
         $data = ['message' => $mailContent];
     
         Mail::to($recipient)->send(new SoldNFTMail($data));
