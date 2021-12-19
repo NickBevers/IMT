@@ -3,7 +3,7 @@
 @section('content')
 <!-- Detail -->
     <section class="nft_section">
-        <img class="nft_picture" src="{{ asset('images/art1.png') }}" alt="nft picture">
+        <img class="nft_picture" src="https://ipfs.io/ipfs/QmbRcKu5P6SGYnsiz35WBEW8qG7egMQVvdfptkqsgH4qX3" alt="nft picture">
         <div class="nft_info_container">
             <h2>{{ $collection->title }}</h2>
             <p>
@@ -21,7 +21,7 @@
         <div class="nfts">
             @foreach($nfts as $nft)
                 <a href="/nft/detail/{{ $nft->id }}">
-                    <img src="{{ asset('images/test.jpg') }}" alt="art for the nft {{ $nft->title }}" width="250px" style="margin-bottom: 0">
+                    <img src="https://ipfs.io/ipfs/{{$nft->media_url}}" alt="art for the nft {{ $nft->title }}" width="250px" style="margin-bottom: 0">
                     <p>{{ $nft->title }}</p>
                     <a href="/nft/edit/{{ $nft->id }}" style="height: 1.1em">Edit this NFT</a><br>
                     <a href="/nft/remove/{{ $nft->id }}" style="height: 1.1em">Remove this NFT</a><br>

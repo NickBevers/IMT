@@ -8,7 +8,7 @@
             <a href="/">Home</a>
             <a href="/discover">Discover</a>
             @if(Auth::user())
-            <a href="/collection/{{ Auth::user()->first_name }}">Collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
+            <a href="/collection/{{ Auth::user()->id}}">Collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
             <a href="/nft">NFT</a>
             <a href="/user">Profile</a>
             <a href="/user/logout">Log out</a>
@@ -31,7 +31,7 @@
             <a class="overlay_link" href="/">Home</a>
             <a class="overlay_link" href="/discover">Discover</a>
             @if(Auth::user())
-            <a class="overlay_link" href="/collection/{{ Auth::user()->first_name }}">Collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
+            <a class="overlay_link" href="/collection/{{ Auth::user()->id }}">Collection</a> <!-- @ persoon die de check gaat doen of ge ingelogd bent -> verander ../collection/bailey naar ../collection/userThatsLoggenIn  || also enkel tonen als ge bent ingelogd DONE-->
             <a class="overlay_link" href="/nft">NFT</a>
             <a class="overlay_link" href="/user/logout">Log out</a>
             <a class="overlay_link" href="/user">Profile</a>

@@ -6,7 +6,7 @@
         <ul class="search_results">
             @foreach($nfts as $nft)
                 <a class="search_result_link" href="/nft/detail/{{ $nft->id }}"><li class="search_result">
-                    <img class="search_result_image" src="{{ asset('images/test.jpg') }}" alt="test">
+                    <img class="search_result_image" src="https://ipfs.io/ipfs/QmbRcKu5P6SGYnsiz35WBEW8qG7egMQVvdfptkqsgH4qX3" alt="test">
                     <p class="search_result_title">{{ $nft->title }}</p>
                 </li></a>
                 <hr>

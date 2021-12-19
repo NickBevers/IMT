@@ -4,7 +4,7 @@
 <!-- Edit User Profile -->
     <section class="profile_section">
         
-        <img src="{{ asset('images/test.jpg') }}" alt="NFT Artwork">
+        <img src="https://ipfs.io/ipfs/QmbRcKu5P6SGYnsiz35WBEW8qG7egMQVvdfptkqsgH4qX3" alt="NFT Artwork">
 
         <div class="user_info_container">
         <form method="post" action="{{url('/nft/edit')}}">

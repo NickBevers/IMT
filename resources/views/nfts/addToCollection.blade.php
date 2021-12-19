@@ -2,22 +2,22 @@
 
 @section('content')
 <!-- Collection -->
-    <section class="">
+
+    <section class="titel">
         <h1>All of USERS NFT's</h1>
     </section>
 
-    <section class="nft_showcase">
-        <a href="/collection/addNft" style="height: 1.1em">Add a collection</a><br><br>
+    <section class="nft_showcase nft_add_collection">
+        <a href="/collection/addNft">Add a collection</a>
     </section>
 
     <section class="nft_showcase">
         @foreach($nfts as $nft)
-                <a href="/nft/addToCollection/{{$collection->id}}/{{$nft->id}}">
-                    <img src="{{ asset('images/test.jpg') }}" alt="art for the nft {{ $nft->title }}" width="250px" style="margin-bottom: 0">
-                    <p>{{ $nft->title }}</p>
-                </a>
-
-            @endforeach
+            <a href="/nft/addToCollection/{{$collection->id}}/{{$nft->id}}" class="nft_small">
+                <img src="https://ipfs.io/ipfs/{{$nft->media_url}}" alt="art for the nft {{ $nft->title }}">
+                <p>{{ $nft->title }}</p>
+            </a>
+        @endforeach
     </section>
     
     <script src="{{ asset('js/slide_menu.js') }}"></script>

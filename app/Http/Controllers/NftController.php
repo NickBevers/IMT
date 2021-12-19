@@ -162,7 +162,7 @@ class NftController extends Controller
         $nft->collection_id = 0;
         $nft->update();
         
-        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
+        return redirect()->action([CollectionController::class, 'show'], ['user_id' => $user->id]);
     }
 
     public function addNftToCollection($collection_id, $nft_id){
@@ -171,7 +171,7 @@ class NftController extends Controller
         $nft->collection_id = $collection_id;
         $nft->update();
 
-        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
+        return redirect()->action([CollectionController::class, 'show'], ['user_id' => $user->id]);
     }
 
     public function destroy($id)

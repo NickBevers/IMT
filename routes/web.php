@@ -44,7 +44,7 @@ Route::post('/nft/addItemId/{nft_id}/{item_id}/{owner}', [NftController::class, 
 //Collection related
 Route::get('/collection/create', [CollectionController::class, 'create']);
 //{username} --> variable name in the url that you get access to in the corresponding function, in this example showCollection
-Route::get('/collection/{username}', [CollectionController::class, 'show']);
+Route::get('/collection/{user_id}', [CollectionController::class, 'show']);
 Route::get('/collection/detail/{collection_id}', [CollectionController::class, 'showDetail']);
 Route::get('/collection/add/{collection_id}', [CollectionController::class, 'addNft']);
 Route::get('/collection/edit/{collection_id}', [CollectionController::class, 'edit']);

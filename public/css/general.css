@@ -4,6 +4,7 @@
 
 body {
     background-color: #f1f1f1;
+    /* margin-top: -22px; */
 }
 
 /* nav styling */
@@ -15,6 +16,7 @@ nav {
     flex-direction: column;
     justify-content: space-around;
     position: fixed;
+    top: 0;
     width: 100%;
     padding: 1em 5em;
     z-index: 999;
@@ -396,7 +398,9 @@ nav {
 
 @media (min-width:800px) {
     .side_filters {
-        left: 0
+        left: 0;
+        top: 140px;
+        width: 14em;
     }
 
     .filter_button {
@@ -653,8 +657,8 @@ nav {
 
 .nft_picture {
     height: 15em;
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
     width: 15em
 }
 
@@ -959,6 +963,11 @@ h2 {
         justify-content: space-between;
         margin-top: 1em
     }
+
+    .discover_top {
+        padding-top: 9em;
+        margin-left: 15em;
+    }
 }
 
 .collection_intro {
@@ -967,16 +976,19 @@ h2 {
 }
 
 .discover_top {
-    padding-top: 5.5em;
+    padding-top: 9em;
+    margin-left: 15em;
 }
 
 .nft_showcase {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 3em;
-    margin-left: 1em;
-    margin-right: 1em
+    justify-content: space-evenly;
+    /* margin-left: 1em;
+    margin-right: 1em; */
+    row-gap: 2em;
+    column-gap: 1em;
+    margin-bottom: 5em;
 }
 
 .nft_showcase .addCollection {
@@ -987,13 +999,14 @@ h2 {
     align-items: center;
     display: flex;
     flex-direction: column;
+    height: 450px;
     padding-bottom: 2em;
 }
 
 .nft_showcase div a img {
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
     width: 100%;
     border-radius: 10px;
 }
@@ -1005,16 +1018,39 @@ h2 {
 .nft_showcase div {
     width: 30%;
     display: block;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 
 #heart {
     background-color: transparent;
     color: none;
     padding: 0;
+    height: fit-content;
     border-radius: 0;
     box-shadow: none;
     margin-top: -2em;
+}
+
+.nft_add_collection{
+    margin-top: 6em;
+    margin-bottom: 4em;
+}
+
+.nft_small{
+    height: 260px;
+}
+
+.nft_small img{
+    height: 75%;
+    width: 250px;
+    max-height: 250px;
+    object-fit: contain;
+    -o-object-fit: contain;
+    margin-bottom: 0;
+}
+
+.nft_small p{
+    text-align: center;
 }
 
 @media (max-width:500px) {
@@ -1035,19 +1071,27 @@ h2 {
 
 @media (min-width:800px) {
 
-    .collection_intro,
+    /* .collection_intro,
     .nft_showcase {
         margin-left: 10em;
-        margin-right: 10em
+    } */
+
+    .discover_top {
+        padding-top: 9em;
+        margin-left: 15em;
     }
 }
 
 @media (min-width:1300px) {
 
-    .collection_intro,
+    /* .collection_intro,
     .nft_showcase {
         margin-left: 15em;
-        margin-right: 15em
+    } */
+
+    .discover_top {
+        padding-top: 9em;
+        margin-left: 15em;
     }
 }
 

@@ -65,6 +65,27 @@ window.addEventListener("load", async()=>{
             await buyResponse.wait()
             .then(res => {
                 console.log(res);
+                const nftId =  nft.dataset.id;
+                const form = document.createElement('form');
+                form.method = "POST";
+                form.action = `/nft/buy/${nftId}`;
+
+
+                let csrf_token = nft.dataset.csrf;
+                const hiddencsrf = document.createElement('input');
+                hiddencsrf.type = 'hidden';
+                hiddencsrf.name = "_token";
+                hiddencsrf.value = csrf_token;
+
+                const owner = document.createElement('input');
+                hiddencsrf.type = 'hidden';
+                hiddencsrf.name = "_token";
+                hiddencsrf.value = csrf_token;
+
+                form.appendChild(hiddencsrf);
+
+                document.body.appendChild(form);
+                form.submit();
             });
         });
 
@@ -84,6 +105,7 @@ window.addEventListener("load", async()=>{
     else{
         console.log("NOT MINTED");
         // TODO: add price = 0
+        // priceField.innerHTML = "0.00";
 
         mintNFTBtn.addEventListener("click", async()=>{
             const provider = new ethers.providers.Web3Provider(window.ethereum);

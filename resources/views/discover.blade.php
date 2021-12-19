@@ -54,9 +54,9 @@
 
     <section class="nft_showcase discover_top">
         @foreach($nfts as $nft)
-            <div>
+            <div >
                 <a href="/nft/detail/{{ $nft->id }}">
-                    <img src="{{ asset('images/test.jpg') }}" alt="{{ $nft->title }}">
+                    <img src="https://ipfs.io/ipfs/{{$nft->media_url}}" alt="{{ $nft->title }}">
                     <p>{{ $nft->title }}</p>
                     <a id="heart" href="#" data-id="{{ $nft->id }}"><svg class="unfavourite" xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 24 24"><path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/></svg></a>
                 </a> 

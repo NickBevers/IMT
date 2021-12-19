@@ -9,12 +9,12 @@ class CollectionController extends Controller
 {
     //
     // Display the collections
-    public function show($firstname)
+    public function show($user_id)
     {
         //$username is a variable that comes from the url
-        $user_id = \App\Models\User::where('first_name', $firstname)->first();
-        $user_collection = \App\Models\Collection::where('user_id', $user_id->id)->with('user')->get();
-        $data['collection'] = $user_collection;
+        $user = \App\Models\User::where('id', $user_id)->first();
+        $user_collection = \App\Models\Collection::where('user_id', $user->id)->with('user')->get();
+        $data['collections'] = $user_collection;
         $data['title'] = "Collection";
         return view('collections/collection', $data);
     }
@@ -49,7 +49,7 @@ class CollectionController extends Controller
         $collection->user_id=$user->id;
         $collection->save();
         
-        return redirect()->action([CollectionController::class, 'show'], ['username' => $user->first_name]);
+        return redirect()->action([CollectionController::class, 'show'], ['user_id' => $user->id]);
     }
 
     public function addNft($collection_id){
@@ -83,6 +83,7 @@ class CollectionController extends Controller
         $collection = \App\Models\Collection::where('id', $id)->first();
         $collection->delete();
 
-        return view('/profile/user');
+        $user =Auth::user();
+        return redirect()->action([CollectionController::class, 'show'], ['firstname' => $user->firstname]);
     }
 }

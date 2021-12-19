@@ -4,7 +4,7 @@
 <!-- Edit User Profile -->
     <section class="profile_section">
         
-        <img src="{{ asset('images/test.jpg') }}" style="max-width:400px;" alt="Collection image">
+        <img src="https://ipfs.io/ipfs/QmbRcKu5P6SGYnsiz35WBEW8qG7egMQVvdfptkqsgH4qX3" style="max-width:400px;" alt="Collection image">
 
         <div class="user_info_container">
         <form method="post" action="{{ url('/collection/edit')}}">
@@ -23,7 +23,7 @@
                 <input type='hidden' name='old_value' value="{{$collection->id}}">
                 <br>
                 <button type="submit" class="confirm_btn">Save</button>
-                <a href="../detail/{{ $collection->title }}" class="cancel_btn">Cancel</a>
+                <a href="/collection/detail/{{ $collection->id }}" class="cancel_btn">Cancel</a>
         </form>
         <br>
         </div>
