@@ -17,7 +17,7 @@
                 </a>
                 
             </div>
-            @endforeach
+        @endforeach
     </section>
     
     <script src="{{ asset('js/slide_menu.js') }}"></script>
