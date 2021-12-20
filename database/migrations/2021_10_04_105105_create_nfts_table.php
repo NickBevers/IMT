@@ -20,10 +20,10 @@ class CreateNftsTable extends Migration
             $table->float('price', 16, 6);
             $table->String('owner_address')->default("");
             $table->String('token_id')->default("");
-            $table->String('media_url')->default("http://WE_NEED_TO_CHANGE_THIS_TO_A_URL");
+            $table->String('media_url')->default("URL");
             $table->foreignId('collection_id')->default(0);
             $table->boolean('minted')->default(false);
-            $table->boolean('for_sale')->default(0);
+            $table->String('creator')->default("No Creator");
             $table->json('owners');
             $table->timestamps();
         });

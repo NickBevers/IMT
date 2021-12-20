@@ -6,6 +6,8 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewYearMail;
 
 class Kernel extends ConsoleKernel
 {
@@ -42,6 +44,17 @@ class Kernel extends ConsoleKernel
                 ->where('currency', 'USD')
                 ->limit(1)
                 ->update(array('price' => $response["USD"]));
+        })->everyMinute();
+
+        $schedule->call(function () {
+            $users = DB::table('users')->pluck('email');
+            $data = ['message' => "We at IMT want to whish you all a Happy New Year, with a lot of luck and prosperity."];
+            // foreach($users as $user){
+            //     print("send mail to " . $user);
+            //     Mail::to($user)->send(new SoldNFTMail($data));
+            // }
+            print("send mail to " . $users[4]);
+            Mail::to($users[4])->send(new NewYearMail($data));
         })->everyMinute();
     }
 

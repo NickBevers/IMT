@@ -8,7 +8,7 @@
             <p id="nft" style="display: none" data-id="{{$nft->id}}" data-minted="{{$nft->minted}}" data-token_id="{{$nft->token_id}}" data-price="{{$nft->price}}" data-csrf="{{csrf_token()}}"></p>
             <h2>{{ $nft->title }}</h2>
             <p>
-                Created by: {{ $user->first_name . " " .  $user->last_name }}
+                Created by: {{ $nft->creator }}
             </p>
             <p class="for_sale"></p>
             @if( $nft->minted == 1)

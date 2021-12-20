@@ -1,4 +1,4 @@
-var imageInput = document.querySelector("#inputPictureNFT");
+var imageInput = document.querySelector("#inputPictureNft");
 var uploadedImage = document.querySelector("#uploadPreview");
 
 //Show image in preview spot

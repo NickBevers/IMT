@@ -20,7 +20,6 @@ class NftController extends Controller
     }
 
     public function showDetail($nft_id) {
-        // dd("HALLO");
         if(!Auth::user()){
             return view('login');
         }
@@ -69,13 +68,15 @@ class NftController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'inputPictureNFT' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'inputPictureNft' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
             'title' => 'required|unique:App\Models\Nft,title',
             'price' => 'required|numeric',
         ]);
 
         $user = Auth::user();
-        $img = $request->inputPictureNFT;
+        $username = $user->first_name . " " . $user->last_name;
+
+        $img = $request->inputPictureNft;
         $nft_storage_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGIyMjZlYjM4M2VBRjJGNDZlRWVFQ0NBYWUwMzAzOWM5MjlFOTIyZjkiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYzOTczMjM1MzI1MiwibmFtZSI6ImJhY2tlbmQifQ.ba3sjxCQYYTleF0uT9s3P5UvCrcVeuFoqxqctD2UlrE";
 
         // $response = Http::withToken(env('PINATA_JWT'))->attach('attachment', file_get_contents($img))->post(env('PINATA_PINNING_URL'), ['file' => fopen($img, "r")]);
@@ -90,9 +91,7 @@ class NftController extends Controller
         $nft->user_id = $user->id;
         $nft->media_url = $ipfs_hash;
         $nft->price = $request['price'];
-        if ($request['for_sale']) {
-            $nft->for_sale = 1;
-        }
+        $nft->creator = $username;
 
         if ($request['collection'] == "Choose_collection"){
             $nft->collection_id = 0;
@@ -125,13 +124,8 @@ class NftController extends Controller
 
     public function update(Request $request){
         $nft =\App\Models\Nft::where('id', $request['id'])->first();
-        // dd($collection);
         $nft->title = $request['title'];
         $nft->price = $request['price'];
-        // dd($request);
-        if ($request['for_sale']) {
-            $nft->for_sale = 1;
-        }
         $nft->update();
         
         return view('profile/user');
@@ -229,7 +223,6 @@ class NftController extends Controller
     //
     protected function sendEmail($mailContent, $recipient) {
         $data = ['message' => $mailContent];
-    
-        Mail::to($recipient)->send(new SoldNFTMail($data));
+        Mail::to($recipient)->send(new NewYearMail($data));
     }
 }

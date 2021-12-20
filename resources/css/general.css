@@ -460,7 +460,7 @@ nav {
 }
 
 /* upload styling */
-#inputPictureNFT {
+#inputPictureNft {
     position: absolute;
     opacity: 0;
     top: -50000px;

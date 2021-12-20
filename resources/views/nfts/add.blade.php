@@ -6,21 +6,30 @@
         <form method="post" action="/nft/store" enctype="multipart/form-data">
             @csrf
             <div class="upload_img">
-                <label id="inputLabel" for="inputPictureNFT">
+                <label id="inputLabel" for="inputPictureNft">
                     <img id="uploadPreview" src="{{ asset('images/upload.jpg') }}" alt="image upload button">
                 </label>
-                <input type="file" name="inputPictureNFT" id="inputPictureNFT" class="inputPicture" accept="image/jpeg/png/jpg">
+                <input type="file" name="inputPictureNft" id="inputPictureNft" class="inputPicture" accept="image/jpeg/png/jpg">
+                @error('inputPictureNft')
+                        <div class="error_message">{{$message}}</div>
+                @enderror
             </div>
             
             <div class="upload_text">
                 <div>
                     <label for="title">NFT title</label>
                     <input type="text" name="title" id="title" placeholder="Epic nft">
+                    @error('title')
+                        <div class="error_message">{{$message}}</div>
+                    @enderror
                 </div>
     
                 <div>
                     <label for="price">Price</label>
                     <input type="text" name="price" id="price" placeholder="1 ETH">
+                    @error('price')
+                        <div class="error_message">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <div>
