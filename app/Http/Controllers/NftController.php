@@ -20,6 +20,11 @@ class NftController extends Controller
     }
 
     public function showDetail($nft_id) {
+        // dd("HALLO");
+        if(!Auth::user()){
+            return view('login');
+        }
+
         $nft = \App\Models\Nft::where('id', $nft_id)->with('user')->first();
         $comments = DB::table('comments')
             ->join('users', 'comments.user_id', '=', 'users.id')
@@ -34,8 +39,11 @@ class NftController extends Controller
         $nft->convertedPrice = $convertedPrice;
 
         $user = Auth::user();
+        
         $data['nft'] = $nft;
         $data['user'] = $user;
+        
+
         $data['comments'] = $comments;
         return view('nfts/detail', $data);
     }
@@ -193,8 +201,12 @@ class NftController extends Controller
         $comment_id = (int)$request->input('id');
         $comment = \App\Models\Comment::where('id', $comment_id)->first();
         $comment->delete();
+
+        $nft = \App\Models\Nft::where('id', $comment->nft_id)->first();
+        dd($nft);
         
-        return back();
+        // return back();
+        return redirect()->action([NftController::class, 'showDetail'], ['nft_id' => $nft->id]);
     }
 
     private function getEthPrice($ethAmount = 1) {
