@@ -68,8 +68,10 @@ class NftController extends Controller
 
         $user = Auth::user();
         $img = $request->inputPictureNFT;
+        $nft_storage_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGIyMjZlYjM4M2VBRjJGNDZlRWVFQ0NBYWUwMzAzOWM5MjlFOTIyZjkiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYzOTczMjM1MzI1MiwibmFtZSI6ImJhY2tlbmQifQ.ba3sjxCQYYTleF0uT9s3P5UvCrcVeuFoqxqctD2UlrE";
+
         // $response = Http::withToken(env('PINATA_JWT'))->attach('attachment', file_get_contents($img))->post(env('PINATA_PINNING_URL'), ['file' => fopen($img, "r")]);
-        $response = Http::withToken(env("NFTSTORAGE_KEY"))->attach('attachment', file_get_contents($img))->post('https://api.nft.storage/upload', ['file' => fopen($img, "r")]);
+        $response = Http::withToken($nft_storage_token)->attach('attachment', file_get_contents($img))->post('https://api.nft.storage/upload', ['file' => fopen($img, "r")]);
         // dd($response->json());
         $ipfs_hash = $response->json()["value"]["cid"];
         $ipfs_hash .= '/';
