@@ -84,7 +84,10 @@ class UserController extends Controller
         ]);
         $user = Auth::user();
 
-        $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+        if($request->file("profilePicture") != null) {
+            $uploadedFileUrl = Cloudinary::upload($request->file("profilePicture")->getRealPath())->getSecurePath();
+            $user->profile_picture = $uploadedFileUrl;
+        }
 
         $user->first_name = $request['firstname'];
         $user->last_name = $request['lastname'];
@@ -98,8 +101,7 @@ class UserController extends Controller
                 return redirect('/edit');
             }
         }
-        $user->profile_picture = $uploadedFileUrl;
-        
+
         $user->update();
         
         return redirect('user');
