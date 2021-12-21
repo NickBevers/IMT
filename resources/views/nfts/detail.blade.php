@@ -43,8 +43,13 @@
             <input type="hidden" value="{{$nft->id}}" name="id">
             {{-- <livewire:comment-post /> --}}
             <input id="comment_form_input" type="textarea" name="content">
+            
             <button type="submit">Submit</button>
+            
         </form>
+        @error('content')
+            <div class="error_message_full_width">{{$message}}</div>
+        @enderror
         <ul class="comment_list">
             @foreach($comments as $comment)
                 <li class="comment_list_item">

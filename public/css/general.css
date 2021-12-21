@@ -1099,3 +1099,7 @@ h2 {
     width: 200px;
     max-width: 200px;
 }
+
+.error_message_full_width{
+    margin-top: 1em;
+}

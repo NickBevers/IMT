@@ -23,7 +23,7 @@ class CreateNftsTable extends Migration
             $table->String('media_url')->default("URL");
             $table->foreignId('collection_id')->default(0);
             $table->boolean('minted')->default(false);
-            $table->String('creator')->default("No Creator");
+            $table->String('creator')->default("Nick Bevers");
             $table->json('owners');
             $table->timestamps();
         });

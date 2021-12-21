@@ -180,6 +180,11 @@ class NftController extends Controller
     }
 
     public function addComment(Request $request) {
+
+        $request->validate([
+            'content' => 'required',
+        ]);
+
         $user = Auth::user();
         $post_id = (int)$request->input('id');
         $comment = new \App\Models\Comment();
@@ -197,7 +202,6 @@ class NftController extends Controller
         $comment->delete();
 
         $nft = \App\Models\Nft::where('id', $comment->nft_id)->first();
-        dd($nft);
         
         // return back();
         return redirect()->action([NftController::class, 'showDetail'], ['nft_id' => $nft->id]);
@@ -223,6 +227,6 @@ class NftController extends Controller
     //
     protected function sendEmail($mailContent, $recipient) {
         $data = ['message' => $mailContent];
-        Mail::to($recipient)->send(new NewYearMail($data));
+        Mail::to($recipient)->send(new SoldNFTMail($data));
     }
 }
