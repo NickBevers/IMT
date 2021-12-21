@@ -22,10 +22,9 @@
             @foreach($nfts as $nft)
                 <a href="/nft/detail/{{ $nft->id }}">
                     <img src="https://ipfs.io/ipfs/{{$nft->media_url}}" alt="art for the nft {{ $nft->title }}" width="250px" style="margin-bottom: 0">
-                    <p>{{ $nft->title }}</p>
+                    <h2 id="collection_NFT_title">{{ $nft->title }}</h2>
                     <a href="/nft/edit/{{ $nft->id }}" style="height: 1.1em">Edit this NFT</a><br>
-                    <a href="/nft/remove/{{ $nft->id }}" style="height: 1.1em">Remove this NFT</a><br>
-                    <a href="/nft/removeFromCollection/{{ $nft->id }}" style="height: 1.1em">Remove from this Collection</a><br><br><br><br><br>
+                    <a href="/nft/removeFromCollection/{{ $nft->id }}" style="height: 1.1em; margin-bottom: 2em;">Remove from this Collection</a>
                 </a>
 
             @endforeach

@@ -1103,3 +1103,11 @@ h2 {
 .error_message_full_width{
     margin-top: 1em;
 }
+
+#collection_NFT_title{
+    margin: 0; 
+    text-align: center; 
+    text-decoration: none; 
+    color: black;
+    margin-bottom: 0.2em;
+}
