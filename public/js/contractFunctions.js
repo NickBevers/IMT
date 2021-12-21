@@ -106,7 +106,21 @@ window.addEventListener("load", async()=>{
             await transaction.wait().then(res => {
                 console.log(res);
             });
-            console.log("RESPONSE");
+            
+            const form = document.createElement('form');
+            form.method = "GET";
+            form.action = `/nft/detail/${nft.dataset.id}`;
+
+            let csrf_token = nft.dataset.csrf;
+            const hiddencsrf = document.createElement('input');
+            hiddencsrf.type = 'hidden';
+            hiddencsrf.name = "_token";
+            hiddencsrf.value = csrf_token;
+
+            form.appendChild(hiddencsrf);
+
+            document.body.appendChild(form);
+            form.submit();
         });
     }
 
